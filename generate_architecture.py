@@ -4,251 +4,206 @@ from matplotlib.patches import FancyBboxPatch, FancyArrowPatch
 
 os.makedirs("architecture", exist_ok=True)
 
-fig, ax = plt.subplots(figsize=(20, 12))
-ax.set_xlim(0, 20)
-ax.set_ylim(0, 12)
-ax.axis("off")
-
-def add_box(x, y, w, h, title, lines, color, edge):
-    box = FancyBboxPatch(
+def add_box(ax, x, y, w, h, title, lines, face, edge, title_size=14, text_size=10):
+    rect = FancyBboxPatch(
         (x, y), w, h,
-        boxstyle="round,pad=0.05,rounding_size=0.12",
-        linewidth=2.2,
+        boxstyle="round,pad=0.03,rounding_size=0.08",
+        linewidth=2,
         edgecolor=edge,
-        facecolor=color
+        facecolor=face
     )
-    ax.add_patch(box)
+    ax.add_patch(rect)
 
     ax.text(
-        x + w / 2, y + h - 0.28,
+        x + w/2, y + h - 0.14,
         title,
-        ha="center",
-        va="top",
-        fontsize=13,
-        fontweight="bold",
+        ha="center", va="top",
+        fontsize=title_size, fontweight="bold",
         color="#111827"
     )
 
-    yy = y + h - 0.72
+    yy = y + h - 0.42
     for line in lines:
         ax.text(
-            x + 0.25, yy,
+            x + 0.14, yy,
             line,
-            ha="left",
-            va="top",
-            fontsize=10,
-            color="#1f2937"
+            ha="left", va="top",
+            fontsize=text_size,
+            color="#374151"
         )
-        yy -= 0.31
+        yy -= 0.18
 
-def add_arrow(x1, y1, x2, y2):
-    arrow = FancyArrowPatch(
-        (x1, y1),
-        (x2, y2),
+def add_arrow(ax, x1, y1, x2, y2, color="#374151", lw=1.8):
+    arr = FancyArrowPatch(
+        (x1, y1), (x2, y2),
         arrowstyle="->",
-        mutation_scale=18,
-        linewidth=2,
-        color="#374151"
+        mutation_scale=14,
+        linewidth=lw,
+        color=color
     )
-    ax.add_patch(arrow)
+    ax.add_patch(arr)
 
-ax.text(
-    10, 11.55,
-    "ViolationIQ: Adaptive Multi-Expert AI Evidence Copilot",
-    ha="center",
-    va="center",
-    fontsize=24,
-    fontweight="bold",
-    color="#111827"
-)
+# =========================================================
+# MAIN ARCHITECTURE IMAGE
+# =========================================================
+fig, ax = plt.subplots(figsize=(15, 9))
+ax.set_xlim(0, 15)
+ax.set_ylim(0, 9)
+ax.axis("off")
 
-ax.text(
-    10, 11.12,
-    "Traffic violation evidence generation with routing, expert models, safety checks, and review-ready outputs",
-    ha="center",
-    va="center",
-    fontsize=13,
-    color="#4b5563"
-)
+ax.text(7.5, 8.6, "ViolationIQ Architecture", ha="center", va="center",
+        fontsize=24, fontweight="bold", color="#111827")
+ax.text(7.5, 8.25, "Adaptive Multi-Expert AI Evidence Copilot for Traffic Enforcement",
+        ha="center", va="center", fontsize=12, color="#4b5563")
 
-add_box(
-    7.5, 10.1, 5.0, 0.7,
-    "Input Layer",
-    ["Image / Video / CCTV Frame"],
-    "#e0f2fe",
-    "#0284c7"
-)
+add_box(ax, 5.0, 7.3, 5.0, 0.7, "Input Layer",
+        ["Image / Video / CCTV Frame"], "#e0f2fe", "#0284c7", 13, 10)
 
-add_box(
-    6.8, 8.95, 6.4, 0.85,
-    "Adaptive Multi-Expert Router",
-    [
-        "Detects input type and scene context",
-        "Routes to the most suitable evidence module"
-    ],
-    "#fef3c7",
-    "#d97706"
-)
+add_box(ax, 4.1, 6.15, 6.8, 0.8, "Adaptive Multi-Expert Router",
+        ["Routes each input to the most suitable evidence module"], "#fef3c7", "#d97706", 14, 10)
 
-add_arrow(10, 10.1, 10, 9.8)
+add_arrow(ax, 7.5, 7.3, 7.5, 6.95)
 
-add_box(
-    0.6, 6.95, 4.1, 1.35,
-    "Helmet + Rider Expert",
-    [
-        "Rider detection",
-        "Helmet / no-helmet status",
-        "Rider-wise panel: R1, R2, R3"
-    ],
-    "#dcfce7",
-    "#16a34a"
-)
+add_box(ax, 0.7, 4.9, 3.2, 1.0, "Helmet + Rider Expert",
+        ["Rider detection", "Helmet / no-helmet status"], "#dcfce7", "#16a34a", 13, 10)
 
-add_box(
-    5.3, 6.95, 4.1, 1.35,
-    "Number Plate Expert",
-    [
-        "Dedicated plate detection",
-        "Plate crop extraction",
-        "OCR only when reliable"
-    ],
-    "#ede9fe",
-    "#7c3aed"
-)
+add_box(ax, 4.2, 4.9, 3.2, 1.0, "Number Plate Expert",
+        ["Plate detection", "OCR only when reliable"], "#ede9fe", "#7c3aed", 13, 10)
 
-add_box(
-    10.0, 6.95, 4.1, 1.35,
-    "Red-Light Video Expert",
-    [
-        "Signal color detection",
-        "Virtual stop-line crossing",
-        "Temporal multi-frame evidence"
-    ],
-    "#fee2e2",
-    "#dc2626"
-)
+add_box(ax, 7.8, 4.9, 3.2, 1.0, "Red-Light Video Expert",
+        ["Signal status", "Stop-line crossing"], "#fee2e2", "#dc2626", 13, 10)
 
-add_box(
-    14.7, 6.95, 4.1, 1.35,
-    "Signboard Context Expert",
-    [
-        "No-entry / no-stopping",
-        "Stop / turn restriction signs",
-        "Speed-limit context"
-    ],
-    "#e0e7ff",
-    "#4f46e5"
-)
+add_box(ax, 11.2, 4.9, 3.1, 1.0, "Signboard Context Expert",
+        ["Traffic sign context", "No unsafe overclaiming"], "#e0e7ff", "#4f46e5", 12, 9)
 
-add_arrow(8.6, 8.95, 2.65, 8.3)
-add_arrow(9.4, 8.95, 7.35, 8.3)
-add_arrow(10.6, 8.95, 12.05, 8.3)
-add_arrow(11.4, 8.95, 16.75, 8.3)
+add_box(ax, 11.2, 3.65, 3.1, 0.9, "Speed Prototype",
+        ["Tracking demo only", "Needs calibration"], "#fce7f3", "#db2777", 12, 9)
 
-add_box(
-    14.7, 5.35, 4.1, 1.05,
-    "Speed Estimation Prototype",
-    [
-        "Vehicle tracking across frames",
-        "Pixel displacement based speed demo",
-        "Calibration required for enforcement"
-    ],
-    "#fce7f3",
-    "#db2777"
-)
+add_arrow(ax, 7.5, 6.15, 2.3, 5.9)
+add_arrow(ax, 7.5, 6.15, 5.8, 5.9)
+add_arrow(ax, 7.5, 6.15, 9.4, 5.9)
+add_arrow(ax, 7.5, 6.15, 12.75, 5.9)
 
-add_arrow(16.75, 6.95, 16.75, 6.4)
+add_box(ax, 3.0, 2.55, 9.0, 0.9, "Evidence Reasoning Layer",
+        ["Combines module outputs into structured, review-ready evidence"], "#f3f4f6", "#4b5563", 14, 10)
 
-add_box(
-    3.2, 4.15, 13.6, 1.05,
-    "Evidence Reasoning Layer",
-    [
-        "Helmet compliance  |  Plate OCR reliability  |  Signal + stop-line crossing",
-        "Signboard context reasoning  |  Temporal voting  |  Speed prototype reasoning"
-    ],
-    "#f3f4f6",
-    "#374151"
-)
+add_arrow(ax, 2.3, 4.9, 5.2, 3.45)
+add_arrow(ax, 5.8, 4.9, 6.5, 3.45)
+add_arrow(ax, 9.4, 4.9, 8.0, 3.45)
+add_arrow(ax, 12.75, 4.9, 9.6, 3.45)
+add_arrow(ax, 12.75, 3.65, 9.8, 3.45)
 
-add_arrow(2.65, 6.95, 5.0, 5.2)
-add_arrow(7.35, 6.95, 7.7, 5.2)
-add_arrow(12.05, 6.95, 12.0, 5.2)
-add_arrow(16.75, 6.95, 14.8, 5.2)
-add_arrow(16.75, 5.35, 14.8, 5.2)
+add_box(ax, 3.0, 1.35, 9.0, 0.8, "Safety Layer",
+        ["No forced OCR  |  Manual review fallback  |  No blind challan"], "#fff7ed", "#ea580c", 14, 10)
 
-add_box(
-    3.2, 2.72, 13.6, 0.95,
-    "Safety Layer",
-    [
-        "No forced OCR  |  Manual review fallback  |  Camera calibration warning",
-        "No unsafe automatic challan generation"
-    ],
-    "#fff7ed",
-    "#ea580c"
-)
+add_arrow(ax, 7.5, 2.55, 7.5, 2.15)
 
-add_arrow(10, 4.15, 10, 3.67)
+add_box(ax, 2.5, 0.25, 10.0, 0.8, "Final Outputs",
+        ["Evidence panels  |  JSON / CSV reports  |  Demo images / videos  |  Final showcase"], "#ecfeff", "#0891b2", 14, 10)
 
-add_box(
-    3.2, 1.22, 13.6, 1.0,
-    "Final Outputs",
-    [
-        "Clean evidence panels  |  JSON / CSV reports  |  Final showcase images",
-        "Red-light demo video  |  Speed-estimation demo video"
-    ],
-    "#ecfeff",
-    "#0891b2"
-)
-
-add_arrow(10, 2.72, 10, 2.22)
-
-add_box(
-    0.6, 1.22, 2.05, 2.45,
-    "Model Stack",
-    [
-        "YOLO11s",
-        "EasyOCR",
-        "OpenCV",
-        "Rule Logic",
-        "Temporal Voting"
-    ],
-    "#f8fafc",
-    "#64748b"
-)
-
-add_box(
-    17.25, 1.22, 1.55, 2.45,
-    "Review",
-    [
-        "No blind",
-        "challan",
-        "",
-        "Weak cases",
-        "go to",
-        "manual review"
-    ],
-    "#f8fafc",
-    "#64748b"
-)
-
-ax.text(
-    10, 0.45,
-    "Repository outputs: outputs/FINAL_SHOWCASE/  |  Reports: reports/  |  Architecture: architecture/",
-    ha="center",
-    va="center",
-    fontsize=11,
-    color="#4b5563"
-)
+add_arrow(ax, 7.5, 1.35, 7.5, 1.05)
 
 plt.tight_layout()
-
-png_path = "architecture/violationiq_architecture.png"
-svg_path = "architecture/violationiq_architecture.svg"
-
-plt.savefig(png_path, dpi=300, bbox_inches="tight")
-plt.savefig(svg_path, bbox_inches="tight")
+plt.savefig("architecture/violationiq_architecture_main.png", dpi=300, bbox_inches="tight")
 plt.close()
 
-print("Professional architecture diagram saved:")
-print(png_path)
-print(svg_path)
+# =========================================================
+# EXPLAINED ARCHITECTURE IMAGE
+# =========================================================
+fig, ax = plt.subplots(figsize=(16, 11))
+ax.set_xlim(0, 16)
+ax.set_ylim(0, 11)
+ax.axis("off")
+
+ax.text(8, 10.55, "ViolationIQ Explained Architecture", ha="center", va="center",
+        fontsize=24, fontweight="bold", color="#111827")
+ax.text(8, 10.2, "Detailed module flow, safety logic, and project deliverables",
+        ha="center", va="center", fontsize=12, color="#4b5563")
+
+add_box(ax, 5.4, 9.2, 5.2, 0.75, "1. Input Layer",
+        ["Accepts image, video, CCTV frame, or demo traffic input"], "#e0f2fe", "#0284c7", 14, 10)
+
+add_box(ax, 4.5, 8.0, 7.0, 0.95, "2. Adaptive Multi-Expert Router",
+        [
+            "Checks scene type and input context",
+            "Routes input to the correct module instead of forcing one model everywhere"
+        ], "#fef3c7", "#d97706", 14, 9)
+
+add_arrow(ax, 8, 9.2, 8, 8.95)
+
+add_box(ax, 0.6, 6.3, 3.6, 1.2, "3A. Helmet + Rider Module",
+        [
+            "Detects riders",
+            "Checks helmet compliance",
+            "Creates rider-wise evidence panels"
+        ], "#dcfce7", "#16a34a", 13, 9)
+
+add_box(ax, 4.5, 6.3, 3.6, 1.2, "3B. Number Plate Module",
+        [
+            "Dedicated number plate detector",
+            "Plate crop extraction",
+            "OCR only when readable"
+        ], "#ede9fe", "#7c3aed", 13, 9)
+
+add_box(ax, 8.4, 6.3, 3.6, 1.2, "3C. Red-Light Video Module",
+        [
+            "Traffic light status detection",
+            "Virtual stop-line crossing",
+            "Temporal voting"
+        ], "#fee2e2", "#dc2626", 13, 9)
+
+add_box(ax, 12.3, 6.3, 3.1, 1.2, "3D. Signboard Context Module",
+        [
+            "No-entry / stop / turn signs",
+            "Speed-limit context"
+        ], "#e0e7ff", "#4f46e5", 12, 9)
+
+add_box(ax, 12.3, 5.0, 3.1, 0.95, "3E. Speed Estimation Prototype",
+        [
+            "Tracking-based speed demo",
+            "Calibration required for enforcement"
+        ], "#fce7f3", "#db2777", 12, 9)
+
+add_arrow(ax, 8, 8.0, 2.4, 7.5)
+add_arrow(ax, 8, 8.0, 6.3, 7.5)
+add_arrow(ax, 8, 8.0, 10.2, 7.5)
+add_arrow(ax, 8, 8.0, 13.85, 7.5)
+
+add_box(ax, 2.6, 3.8, 10.8, 0.95, "4. Evidence Reasoning Layer",
+        [
+            "Combines helmet evidence, safe OCR decisions, red-light reasoning, signboard context, and speed prototype outputs"
+        ], "#f3f4f6", "#4b5563", 14, 9)
+
+add_arrow(ax, 2.4, 6.3, 5.0, 4.75)
+add_arrow(ax, 6.3, 6.3, 6.4, 4.75)
+add_arrow(ax, 10.2, 6.3, 8.2, 4.75)
+add_arrow(ax, 13.85, 6.3, 10.3, 4.75)
+add_arrow(ax, 13.85, 5.0, 11.2, 4.75)
+
+add_box(ax, 2.6, 2.35, 10.8, 0.95, "5. Safety Layer",
+        [
+            "No forced OCR  |  Weak evidence -> manual review  |  No unsafe automatic challan generation"
+        ], "#fff7ed", "#ea580c", 14, 9)
+
+add_arrow(ax, 8, 3.8, 8, 3.3)
+
+add_box(ax, 2.6, 0.9, 10.8, 1.0, "6. Final Deliverables",
+        [
+            "Evidence panels, selected best outputs, reports, demo images, demo video, and GitHub-ready project structure"
+        ], "#ecfeff", "#0891b2", 14, 9)
+
+add_arrow(ax, 8, 2.35, 8, 1.9)
+
+add_box(ax, 0.5, 0.9, 1.6, 2.4, "Model Stack",
+        ["YOLO11s", "EasyOCR", "OpenCV", "Python"], "#f8fafc", "#64748b", 12, 10)
+
+add_box(ax, 13.9, 0.9, 1.6, 2.4, "Review Policy",
+        ["Unreadable plate", "Weak OCR", "Unclear signal", "Tracking-based cases"], "#f8fafc", "#64748b", 12, 10)
+
+plt.tight_layout()
+plt.savefig("architecture/violationiq_architecture_explained.png", dpi=300, bbox_inches="tight")
+plt.close()
+
+print("Done:")
+print("architecture/violationiq_architecture_main.png")
+print("architecture/violationiq_architecture_explained.png")
