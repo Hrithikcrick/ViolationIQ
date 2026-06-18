@@ -1,0 +1,16 @@
+task,rank,file
+helmet_plate,1,/kaggle/working/ViolationIQ/outputs/FINAL_SHOWCASE/helmet_plate/helmet_plate_showcase_01.jpg
+helmet_plate,2,/kaggle/working/ViolationIQ/outputs/FINAL_SHOWCASE/helmet_plate/helmet_plate_showcase_02.jpg
+helmet_plate,3,/kaggle/working/ViolationIQ/outputs/FINAL_SHOWCASE/helmet_plate/helmet_plate_showcase_03.jpg
+helmet_plate,4,/kaggle/working/ViolationIQ/outputs/FINAL_SHOWCASE/helmet_plate/helmet_plate_showcase_04.jpg
+helmet_plate,5,/kaggle/working/ViolationIQ/outputs/FINAL_SHOWCASE/helmet_plate/helmet_plate_showcase_05.jpg
+signboard_context,1,/kaggle/working/ViolationIQ/outputs/FINAL_SHOWCASE/signboard_context/signboard_context_showcase_01.jpg
+signboard_context,2,/kaggle/working/ViolationIQ/outputs/FINAL_SHOWCASE/signboard_context/signboard_context_showcase_02.jpg
+signboard_context,3,/kaggle/working/ViolationIQ/outputs/FINAL_SHOWCASE/signboard_context/signboard_context_showcase_03.jpg
+signboard_context,4,/kaggle/working/ViolationIQ/outputs/FINAL_SHOWCASE/signboard_context/signboard_context_showcase_04.jpg
+signboard_context,5,/kaggle/working/ViolationIQ/outputs/FINAL_SHOWCASE/signboard_context/signboard_context_showcase_05.jpg
+redlight,1,/kaggle/working/ViolationIQ/outputs/FINAL_SHOWCASE/redlight/redlight_showcase_01.jpg
+redlight,2,/kaggle/working/ViolationIQ/outputs/FINAL_SHOWCASE/redlight/redlight_showcase_02.jpg
+redlight,3,/kaggle/working/ViolationIQ/outputs/FINAL_SHOWCASE/redlight/redlight_showcase_03.jpg
+redlight,4,/kaggle/working/ViolationIQ/outputs/FINAL_SHOWCASE/redlight/redlight_showcase_04.jpg
+redlight,5,/kaggle/working/ViolationIQ/outputs/FINAL_SHOWCASE/redlight/redlight_showcase_05.jpg

@@ -1,0 +1,170 @@
+{
+    "image_path": "/kaggle/working/datasets/indian_helmet/train/images/098-Rhythm25_jpg.rf.187d8a18ceaac87ef585587ae9dd2696.jpg",
+    "total_riders": 6,
+    "helmet_ok": 3,
+    "violations": 3,
+    "manual_review": 0,
+    "riders": [
+        {
+            "rider_id": 1,
+            "rider_box": [
+                254,
+                119,
+                360,
+                461
+            ],
+            "head_box": [
+                278,
+                134,
+                346,
+                209
+            ],
+            "rider_confidence": 0.82,
+            "head_confidence": 0.761,
+            "status": "Helmet OK",
+            "violation": false,
+            "reason": "Good helmet detected",
+            "plate_box": null,
+            "plate_text": "UNREADABLE",
+            "plate_ocr_confidence": 0,
+            "plate_readability_score": 0,
+            "plate_status": "Manual Review",
+            "plate_reliable": false
+        },
+        {
+            "rider_id": 2,
+            "rider_box": [
+                543,
+                155,
+                639,
+                435
+            ],
+            "head_box": [
+                566,
+                176,
+                611,
+                226
+            ],
+            "rider_confidence": 0.812,
+            "head_confidence": 0.757,
+            "status": "No Helmet Violation",
+            "violation": true,
+            "reason": "Face without helmet detected",
+            "plate_box": null,
+            "plate_text": "UNREADABLE",
+            "plate_ocr_confidence": 0,
+            "plate_readability_score": 0,
+            "plate_status": "Manual Review",
+            "plate_reliable": false
+        },
+        {
+            "rider_id": 3,
+            "rider_box": [
+                435,
+                155,
+                545,
+                459
+            ],
+            "head_box": [
+                457,
+                172,
+                510,
+                224
+            ],
+            "rider_confidence": 0.801,
+            "head_confidence": 0.699,
+            "status": "No Helmet Violation",
+            "violation": true,
+            "reason": "Face without helmet detected",
+            "plate_box": null,
+            "plate_text": "UNREADABLE",
+            "plate_ocr_confidence": 0,
+            "plate_readability_score": 0,
+            "plate_status": "Manual Review",
+            "plate_reliable": false
+        },
+        {
+            "rider_id": 4,
+            "rider_box": [
+                154,
+                155,
+                251,
+                401
+            ],
+            "head_box": [
+                181,
+                175,
+                232,
+                230
+            ],
+            "rider_confidence": 0.776,
+            "head_confidence": 0.677,
+            "status": "Helmet OK",
+            "violation": false,
+            "reason": "Good helmet detected",
+            "plate_box": null,
+            "plate_text": "UNREADABLE",
+            "plate_ocr_confidence": 0,
+            "plate_readability_score": 0,
+            "plate_status": "Manual Review",
+            "plate_reliable": false
+        },
+        {
+            "rider_id": 5,
+            "rider_box": [
+                355,
+                159,
+                436,
+                401
+            ],
+            "head_box": [
+                370,
+                177,
+                423,
+                234
+            ],
+            "rider_confidence": 0.753,
+            "head_confidence": 0.704,
+            "status": "Helmet OK",
+            "violation": false,
+            "reason": "Good helmet detected",
+            "plate_box": null,
+            "plate_text": "UNREADABLE",
+            "plate_ocr_confidence": 0,
+            "plate_readability_score": 0,
+            "plate_status": "Manual Review",
+            "plate_reliable": false
+        },
+        {
+            "rider_id": 6,
+            "rider_box": [
+                0,
+                0,
+                89,
+                637
+            ],
+            "head_box": [
+                0,
+                14,
+                26,
+                136
+            ],
+            "rider_confidence": 0.349,
+            "head_confidence": 0.478,
+            "status": "No Helmet Violation",
+            "violation": true,
+            "reason": "Face without helmet detected",
+            "plate_box": null,
+            "plate_text": "UNREADABLE",
+            "plate_ocr_confidence": 0,
+            "plate_readability_score": 0,
+            "plate_status": "Manual Review",
+            "plate_reliable": false
+        }
+    ],
+    "plate_detections": [],
+    "safety_note": "Plate text is displayed only when OCR is reliable.",
+    "helmet_compliance_rate": 50.0,
+    "final_decision": "Violation Detected",
+    "enforcement_priority": "High"
+}

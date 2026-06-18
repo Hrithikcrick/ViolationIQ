@@ -1,0 +1,25 @@
+{
+    "system": "ViolationIQ",
+    "adaptive_router": true,
+    "camera_calibration_required": true,
+    "redlight_module": {
+        "signal_roi": "top-right ROI for demo video",
+        "virtual_stop_line_ratio": 0.73,
+        "temporal_voting_required": true,
+        "manual_review_for_single_frame": true
+    },
+    "helmet_plate_module": {
+        "mode": "stable rider-wise mode",
+        "plate_ocr_policy": "display plate only if OCR is reliable",
+        "manual_review_for_unreadable_plate": true
+    },
+    "signboard_module": {
+        "image_context_supported": true,
+        "tracking_required_for_final_challan": [
+            "speed limit violation",
+            "wrong-side driving",
+            "illegal parking duration",
+            "turn restriction violation"
+        ]
+    }
+}

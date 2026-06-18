@@ -1,0 +1,180 @@
+{
+    "image_path": "/kaggle/working/datasets/indian_helmet/valid/images/036_4_jpg.rf.be94b634870c4f2e5dcb180e83f5569d.jpg",
+    "total_riders": 5,
+    "helmet_ok": 5,
+    "violations": 0,
+    "manual_review": 0,
+    "riders": [
+        {
+            "rider_id": 1,
+            "rider_box": [
+                115,
+                205,
+                182,
+                439
+            ],
+            "head_box": [
+                131,
+                217,
+                166,
+                272
+            ],
+            "rider_confidence": 0.762,
+            "head_confidence": 0.604,
+            "status": "Helmet OK",
+            "violation": false,
+            "reason": "Good helmet detected",
+            "plate_box": [
+                418,
+                343,
+                456,
+                360
+            ],
+            "plate_text": "UNREADABLE",
+            "plate_ocr_confidence": 0.174,
+            "plate_readability_score": 75.76,
+            "plate_status": "Partial OCR - Manual Review",
+            "plate_reliable": false
+        },
+        {
+            "rider_id": 2,
+            "rider_box": [
+                448,
+                77,
+                501,
+                262
+            ],
+            "head_box": [
+                462,
+                90,
+                489,
+                141
+            ],
+            "rider_confidence": 0.687,
+            "head_confidence": 0.604,
+            "status": "Helmet OK",
+            "violation": false,
+            "reason": "Good helmet detected",
+            "plate_box": [
+                418,
+                343,
+                456,
+                360
+            ],
+            "plate_text": "UNREADABLE",
+            "plate_ocr_confidence": 0.174,
+            "plate_readability_score": 75.76,
+            "plate_status": "Partial OCR - Manual Review",
+            "plate_reliable": false
+        },
+        {
+            "rider_id": 3,
+            "rider_box": [
+                287,
+                105,
+                337,
+                309
+            ],
+            "head_box": [
+                304,
+                123,
+                326,
+                170
+            ],
+            "rider_confidence": 0.686,
+            "head_confidence": 0.527,
+            "status": "Helmet OK",
+            "violation": false,
+            "reason": "Good helmet detected",
+            "plate_box": [
+                418,
+                343,
+                456,
+                360
+            ],
+            "plate_text": "UNREADABLE",
+            "plate_ocr_confidence": 0.174,
+            "plate_readability_score": 75.76,
+            "plate_status": "Partial OCR - Manual Review",
+            "plate_reliable": false
+        },
+        {
+            "rider_id": 4,
+            "rider_box": [
+                333,
+                73,
+                382,
+                273
+            ],
+            "head_box": [
+                345,
+                87,
+                371,
+                138
+            ],
+            "rider_confidence": 0.659,
+            "head_confidence": 0.431,
+            "status": "Helmet OK",
+            "violation": false,
+            "reason": "Good helmet detected",
+            "plate_box": [
+                418,
+                343,
+                456,
+                360
+            ],
+            "plate_text": "UNREADABLE",
+            "plate_ocr_confidence": 0.174,
+            "plate_readability_score": 75.76,
+            "plate_status": "Partial OCR - Manual Review",
+            "plate_reliable": false
+        },
+        {
+            "rider_id": 5,
+            "rider_box": [
+                177,
+                110,
+                232,
+                342
+            ],
+            "head_box": [
+                186,
+                126,
+                211,
+                177
+            ],
+            "rider_confidence": 0.235,
+            "head_confidence": 0.271,
+            "status": "Helmet OK",
+            "violation": false,
+            "reason": "Good helmet detected",
+            "plate_box": [
+                418,
+                343,
+                456,
+                360
+            ],
+            "plate_text": "UNREADABLE",
+            "plate_ocr_confidence": 0.174,
+            "plate_readability_score": 75.76,
+            "plate_status": "Partial OCR - Manual Review",
+            "plate_reliable": false
+        }
+    ],
+    "plate_detections": [
+        {
+            "class": "number_plate",
+            "confidence": 0.7,
+            "box": [
+                418,
+                343,
+                456,
+                360
+            ]
+        }
+    ],
+    "safety_note": "Plate text is displayed only when OCR is reliable.",
+    "helmet_compliance_rate": 100.0,
+    "final_decision": "No Helmet Violation Found",
+    "enforcement_priority": "Low"
+}

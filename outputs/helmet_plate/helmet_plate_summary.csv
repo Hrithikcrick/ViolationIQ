@@ -1,0 +1,21 @@
+file,total_riders,helmet_ok,violations,manual_review,decision
+helmet_plate_demo_01.jpg,2,2,0,0,No Helmet Violation Found
+helmet_plate_demo_02.jpg,3,2,1,0,Violation Detected
+helmet_plate_demo_03.jpg,1,0,1,0,Violation Detected
+helmet_plate_demo_04.jpg,1,0,1,0,Violation Detected
+helmet_plate_demo_05.jpg,2,1,0,1,Manual Review Required
+helmet_plate_demo_06.jpg,2,2,0,0,No Helmet Violation Found
+helmet_plate_demo_07.jpg,13,13,0,0,No Helmet Violation Found
+helmet_plate_demo_08.jpg,2,1,0,1,Manual Review Required
+helmet_plate_demo_09.jpg,1,1,0,0,No Helmet Violation Found
+helmet_plate_demo_10.jpg,1,1,0,0,No Helmet Violation Found
+helmet_plate_demo_11.jpg,4,3,1,0,Violation Detected
+helmet_plate_demo_12.jpg,2,0,2,0,Violation Detected
+helmet_plate_demo_13.jpg,1,1,0,0,No Helmet Violation Found
+helmet_plate_demo_14.jpg,1,0,1,0,Violation Detected
+helmet_plate_demo_15.jpg,3,3,0,0,No Helmet Violation Found
+helmet_plate_demo_16.jpg,1,1,0,0,No Helmet Violation Found
+helmet_plate_demo_17.jpg,1,1,0,0,No Helmet Violation Found
+helmet_plate_demo_18.jpg,1,1,0,0,No Helmet Violation Found
+helmet_plate_demo_19.jpg,5,3,1,1,Violation Detected
+helmet_plate_demo_20.jpg,5,5,0,0,No Helmet Violation Found

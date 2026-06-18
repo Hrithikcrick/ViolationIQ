@@ -1,0 +1,44 @@
+{
+    "frame_id": 655,
+    "signal_color": "red",
+    "signal_roi": [
+        1651,
+        30,
+        1881,
+        333
+    ],
+    "vehicle_count": 1,
+    "crossing_vehicle_count": 1,
+    "vehicles": [
+        {
+            "class": "truck",
+            "confidence": 0.271,
+            "box": [
+                686,
+                235,
+                1608,
+                857
+            ],
+            "area_ratio": 0.2951
+        }
+    ],
+    "crossing_vehicles": [
+        {
+            "class": "truck",
+            "confidence": 0.271,
+            "box": [
+                686,
+                235,
+                1608,
+                857
+            ],
+            "area_ratio": 0.2951
+        }
+    ],
+    "stop_line_y": 738,
+    "violation": true,
+    "decision": "Possible Red-Light Violation",
+    "priority": "High",
+    "frame_score": 128,
+    "frame_path": "/kaggle/working/ViolationIQ/outputs/redlight/raw_frame_655.jpg"
+}

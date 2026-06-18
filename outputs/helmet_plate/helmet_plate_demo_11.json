@@ -1,0 +1,149 @@
+{
+    "image_path": "/kaggle/working/datasets/indian_helmet/train/images/098-Rhythm137_jpg.rf.498fb6ec0bd2b37ebabe8317389c37d2.jpg",
+    "total_riders": 4,
+    "helmet_ok": 3,
+    "violations": 1,
+    "manual_review": 0,
+    "riders": [
+        {
+            "rider_id": 1,
+            "rider_box": [
+                463,
+                91,
+                591,
+                534
+            ],
+            "head_box": [
+                493,
+                119,
+                537,
+                195
+            ],
+            "rider_confidence": 0.832,
+            "head_confidence": 0.713,
+            "status": "Helmet OK",
+            "violation": false,
+            "reason": "Good helmet detected",
+            "plate_box": [
+                533,
+                335,
+                583,
+                351
+            ],
+            "plate_text": "UNREADABLE",
+            "plate_ocr_confidence": 0.095,
+            "plate_readability_score": 100,
+            "plate_status": "Partial OCR - Manual Review",
+            "plate_reliable": false
+        },
+        {
+            "rider_id": 2,
+            "rider_box": [
+                133,
+                121,
+                211,
+                479
+            ],
+            "head_box": [
+                147,
+                147,
+                187,
+                215
+            ],
+            "rider_confidence": 0.795,
+            "head_confidence": 0.418,
+            "status": "Helmet OK",
+            "violation": false,
+            "reason": "Good helmet detected",
+            "plate_box": [
+                533,
+                335,
+                583,
+                351
+            ],
+            "plate_text": "UNREADABLE",
+            "plate_ocr_confidence": 0.095,
+            "plate_readability_score": 100,
+            "plate_status": "Partial OCR - Manual Review",
+            "plate_reliable": false
+        },
+        {
+            "rider_id": 3,
+            "rider_box": [
+                363,
+                144,
+                424,
+                390
+            ],
+            "head_box": [
+                376,
+                169,
+                400,
+                212
+            ],
+            "rider_confidence": 0.783,
+            "head_confidence": 0.671,
+            "status": "Helmet OK",
+            "violation": false,
+            "reason": "Good helmet detected",
+            "plate_box": [
+                533,
+                335,
+                583,
+                351
+            ],
+            "plate_text": "UNREADABLE",
+            "plate_ocr_confidence": 0.095,
+            "plate_readability_score": 100,
+            "plate_status": "Partial OCR - Manual Review",
+            "plate_reliable": false
+        },
+        {
+            "rider_id": 4,
+            "rider_box": [
+                218,
+                155,
+                291,
+                417
+            ],
+            "head_box": [
+                237,
+                174,
+                263,
+                221
+            ],
+            "rider_confidence": 0.78,
+            "head_confidence": 0.705,
+            "status": "No Helmet Violation",
+            "violation": true,
+            "reason": "Face without helmet detected",
+            "plate_box": [
+                533,
+                335,
+                583,
+                351
+            ],
+            "plate_text": "UNREADABLE",
+            "plate_ocr_confidence": 0.095,
+            "plate_readability_score": 100,
+            "plate_status": "Partial OCR - Manual Review",
+            "plate_reliable": false
+        }
+    ],
+    "plate_detections": [
+        {
+            "class": "number_plate",
+            "confidence": 0.323,
+            "box": [
+                533,
+                335,
+                583,
+                351
+            ]
+        }
+    ],
+    "safety_note": "Plate text is displayed only when OCR is reliable.",
+    "helmet_compliance_rate": 75.0,
+    "final_decision": "Violation Detected",
+    "enforcement_priority": "High"
+}

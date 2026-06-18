@@ -1,0 +1,92 @@
+{
+    "image_path": "/kaggle/working/datasets/indian_helmet/train/images/036_124_jpg.rf.65606df4b966b2cee392d993d1833e1c.jpg",
+    "total_riders": 2,
+    "helmet_ok": 1,
+    "violations": 0,
+    "manual_review": 1,
+    "riders": [
+        {
+            "rider_id": 1,
+            "rider_box": [
+                284,
+                1,
+                352,
+                236
+            ],
+            "head_box": [
+                296,
+                10,
+                331,
+                66
+            ],
+            "rider_confidence": 0.749,
+            "head_confidence": 0.662,
+            "status": "Helmet OK",
+            "violation": false,
+            "reason": "Good helmet detected",
+            "plate_box": [
+                429,
+                82,
+                458,
+                101
+            ],
+            "plate_text": "UNREADABLE",
+            "plate_ocr_confidence": 0.05,
+            "plate_readability_score": 94.81,
+            "plate_status": "Partial OCR - Manual Review",
+            "plate_reliable": false
+        },
+        {
+            "rider_id": 2,
+            "rider_box": [
+                549,
+                0,
+                632,
+                135
+            ],
+            "head_box": null,
+            "rider_confidence": 0.372,
+            "head_confidence": 0,
+            "status": "Manual Review",
+            "violation": false,
+            "reason": "Rider detected but helmet/face not clearly visible",
+            "plate_box": [
+                429,
+                82,
+                458,
+                101
+            ],
+            "plate_text": "UNREADABLE",
+            "plate_ocr_confidence": 0.05,
+            "plate_readability_score": 94.81,
+            "plate_status": "Partial OCR - Manual Review",
+            "plate_reliable": false
+        }
+    ],
+    "plate_detections": [
+        {
+            "class": "number_plate",
+            "confidence": 0.742,
+            "box": [
+                500,
+                392,
+                554,
+                417
+            ]
+        },
+        {
+            "class": "number_plate",
+            "confidence": 0.661,
+            "box": [
+                429,
+                82,
+                458,
+                101
+            ]
+        }
+    ],
+    "safety_note": "Plate text is displayed only when OCR is reliable.",
+    "helmet_compliance_rate": 50.0,
+    "final_decision": "Manual Review Required",
+    "enforcement_priority": "Medium"
+}

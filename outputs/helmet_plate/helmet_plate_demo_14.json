@@ -1,0 +1,56 @@
+{
+    "image_path": "/kaggle/working/datasets/indian_helmet/train/images/033_213_jpeg_jpg.rf.9ce2c75e290acbec96d94d74ce98d5cb.jpg",
+    "total_riders": 1,
+    "helmet_ok": 0,
+    "violations": 1,
+    "manual_review": 0,
+    "riders": [
+        {
+            "rider_id": 1,
+            "rider_box": [
+                153,
+                60,
+                427,
+                565
+            ],
+            "head_box": [
+                271,
+                101,
+                323,
+                186
+            ],
+            "rider_confidence": 0.842,
+            "head_confidence": 0.797,
+            "status": "No Helmet Violation",
+            "violation": true,
+            "reason": "Face without helmet detected",
+            "plate_box": [
+                393,
+                193,
+                427,
+                209
+            ],
+            "plate_text": "UNREADABLE",
+            "plate_ocr_confidence": 0,
+            "plate_readability_score": 100,
+            "plate_status": "Manual Review",
+            "plate_reliable": false
+        }
+    ],
+    "plate_detections": [
+        {
+            "class": "number_plate",
+            "confidence": 0.407,
+            "box": [
+                393,
+                193,
+                427,
+                209
+            ]
+        }
+    ],
+    "safety_note": "Plate text is displayed only when OCR is reliable.",
+    "helmet_compliance_rate": 0.0,
+    "final_decision": "Violation Detected",
+    "enforcement_priority": "High"
+}

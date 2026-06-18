@@ -1,0 +1,16 @@
+file,total_riders,helmet_ok,violations,manual_review,decision,score,output_path
+helmet_plate_final_11.jpg,6,3,3,0,Violation Detected,360,/kaggle/working/ViolationIQ/outputs/helmet_plate/helmet_plate_final_11.jpg
+helmet_plate_final_01.jpg,8,7,1,0,Violation Detected,180,/kaggle/working/ViolationIQ/outputs/helmet_plate/helmet_plate_final_01.jpg
+helmet_plate_final_02.jpg,3,2,1,0,Violation Detected,130,/kaggle/working/ViolationIQ/outputs/helmet_plate/helmet_plate_final_02.jpg
+helmet_plate_final_06.jpg,7,6,0,1,Manual Review Required,73,/kaggle/working/ViolationIQ/outputs/helmet_plate/helmet_plate_final_06.jpg
+helmet_plate_final_07.jpg,5,4,0,1,Manual Review Required,53,/kaggle/working/ViolationIQ/outputs/helmet_plate/helmet_plate_final_07.jpg
+helmet_plate_final_10.jpg,5,5,0,0,No Helmet Violation Found,50,/kaggle/working/ViolationIQ/outputs/helmet_plate/helmet_plate_final_10.jpg
+helmet_plate_final_09.jpg,4,4,0,0,No Helmet Violation Found,40,/kaggle/working/ViolationIQ/outputs/helmet_plate/helmet_plate_final_09.jpg
+helmet_plate_final_05.jpg,3,3,0,0,No Helmet Violation Found,30,/kaggle/working/ViolationIQ/outputs/helmet_plate/helmet_plate_final_05.jpg
+helmet_plate_final_15.jpg,2,2,0,0,No Helmet Violation Found,20,/kaggle/working/ViolationIQ/outputs/helmet_plate/helmet_plate_final_15.jpg
+helmet_plate_final_12.jpg,2,2,0,0,No Helmet Violation Found,20,/kaggle/working/ViolationIQ/outputs/helmet_plate/helmet_plate_final_12.jpg
+helmet_plate_final_08.jpg,2,2,0,0,No Helmet Violation Found,20,/kaggle/working/ViolationIQ/outputs/helmet_plate/helmet_plate_final_08.jpg
+helmet_plate_final_04.jpg,1,1,0,0,No Helmet Violation Found,10,/kaggle/working/ViolationIQ/outputs/helmet_plate/helmet_plate_final_04.jpg
+helmet_plate_final_03.jpg,1,1,0,0,No Helmet Violation Found,10,/kaggle/working/ViolationIQ/outputs/helmet_plate/helmet_plate_final_03.jpg
+helmet_plate_final_13.jpg,1,1,0,0,No Helmet Violation Found,10,/kaggle/working/ViolationIQ/outputs/helmet_plate/helmet_plate_final_13.jpg
+helmet_plate_final_14.jpg,1,1,0,0,No Helmet Violation Found,10,/kaggle/working/ViolationIQ/outputs/helmet_plate/helmet_plate_final_14.jpg

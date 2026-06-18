@@ -1,0 +1,26 @@
+{
+    "project_name": "ViolationIQ",
+    "full_name": "ViolationIQ: Adaptive Multi-Expert AI Evidence Copilot for Traffic Enforcement",
+    "core_idea": "Use an adaptive router to select the correct expert module for helmet, plate, red-light, and signboard traffic evidence.",
+    "models": {
+        "traffic_model": "traffic_yolo11s_best.pt",
+        "helmet_model": "helmet_yolo11s_best.pt",
+        "plate_model": "large_plate_yolo11s_best.pt"
+    },
+    "completed_modules": [
+        "Helmet + rider evidence",
+        "Dedicated number plate detection",
+        "Safe OCR / ANPR with manual review fallback",
+        "Red-light video evidence",
+        "Traffic signboard context evidence",
+        "Clean evidence panels",
+        "JSON / CSV reports"
+    ],
+    "framework_or_future_modules": [
+        "Wrong-side driving needs tracking and direction calibration",
+        "Illegal parking needs duration tracking",
+        "Speed violation needs speed estimation/calibration",
+        "Seatbelt needs cabin-view dataset",
+        "Triple riding needs stronger multi-person rider dataset"
+    ]
+}

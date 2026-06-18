@@ -1,0 +1,40 @@
+{
+    "image_path": "/kaggle/working/datasets/indian_helmet/train/images/Screenshot-2023-08-02-at-12-26-31-PM_png.rf.fc1eae697c00068ed421fa14d8dc0737.jpg",
+    "total_riders": 1,
+    "helmet_ok": 1,
+    "violations": 0,
+    "manual_review": 0,
+    "riders": [
+        {
+            "rider_id": 1,
+            "rider_box": [
+                125,
+                222,
+                170,
+                360
+            ],
+            "head_box": [
+                142,
+                236,
+                161,
+                263
+            ],
+            "rider_confidence": 0.808,
+            "head_confidence": 0.672,
+            "status": "Helmet OK",
+            "violation": false,
+            "reason": "Good helmet detected",
+            "plate_box": null,
+            "plate_text": "UNREADABLE",
+            "plate_ocr_confidence": 0,
+            "plate_readability_score": 0,
+            "plate_status": "Manual Review",
+            "plate_reliable": false
+        }
+    ],
+    "plate_detections": [],
+    "safety_note": "Plate text is displayed only when OCR is reliable.",
+    "helmet_compliance_rate": 100.0,
+    "final_decision": "No Helmet Violation Found",
+    "enforcement_priority": "Low"
+}

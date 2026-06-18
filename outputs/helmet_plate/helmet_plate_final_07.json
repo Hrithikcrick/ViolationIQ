@@ -1,0 +1,139 @@
+{
+    "image_path": "/kaggle/working/datasets/indian_helmet/train/images/098-Rhythm29_jpg.rf.fe5589ac0ab29b71d99c18dd7d14ad29.jpg",
+    "total_riders": 5,
+    "helmet_ok": 4,
+    "violations": 0,
+    "manual_review": 1,
+    "riders": [
+        {
+            "rider_id": 1,
+            "rider_box": [
+                410,
+                23,
+                560,
+                636
+            ],
+            "head_box": [
+                438,
+                59,
+                525,
+                186
+            ],
+            "rider_confidence": 0.823,
+            "head_confidence": 0.8,
+            "status": "Helmet OK",
+            "violation": false,
+            "reason": "Good helmet detected",
+            "plate_box": null,
+            "plate_text": "UNREADABLE",
+            "plate_ocr_confidence": 0,
+            "plate_readability_score": 0,
+            "plate_status": "Manual Review",
+            "plate_reliable": false
+        },
+        {
+            "rider_id": 2,
+            "rider_box": [
+                40,
+                53,
+                200,
+                628
+            ],
+            "head_box": [
+                94,
+                104,
+                171,
+                221
+            ],
+            "rider_confidence": 0.809,
+            "head_confidence": 0.756,
+            "status": "Helmet OK",
+            "violation": false,
+            "reason": "Good helmet detected",
+            "plate_box": null,
+            "plate_text": "UNREADABLE",
+            "plate_ocr_confidence": 0,
+            "plate_readability_score": 0,
+            "plate_status": "Manual Review",
+            "plate_reliable": false
+        },
+        {
+            "rider_id": 3,
+            "rider_box": [
+                269,
+                0,
+                373,
+                363
+            ],
+            "head_box": [
+                297,
+                0,
+                356,
+                85
+            ],
+            "rider_confidence": 0.753,
+            "head_confidence": 0.738,
+            "status": "Helmet OK",
+            "violation": false,
+            "reason": "Good helmet detected",
+            "plate_box": null,
+            "plate_text": "UNREADABLE",
+            "plate_ocr_confidence": 0,
+            "plate_readability_score": 0,
+            "plate_status": "Manual Review",
+            "plate_reliable": false
+        },
+        {
+            "rider_id": 4,
+            "rider_box": [
+                389,
+                0,
+                475,
+                181
+            ],
+            "head_box": null,
+            "rider_confidence": 0.468,
+            "head_confidence": 0,
+            "status": "Manual Review",
+            "violation": false,
+            "reason": "Rider detected but helmet/face not clearly visible",
+            "plate_box": null,
+            "plate_text": "UNREADABLE",
+            "plate_ocr_confidence": 0,
+            "plate_readability_score": 0,
+            "plate_status": "Manual Review",
+            "plate_reliable": false
+        },
+        {
+            "rider_id": 5,
+            "rider_box": [
+                519,
+                0,
+                618,
+                382
+            ],
+            "head_box": [
+                528,
+                1,
+                591,
+                99
+            ],
+            "rider_confidence": 0.463,
+            "head_confidence": 0.76,
+            "status": "Helmet OK",
+            "violation": false,
+            "reason": "Good helmet detected",
+            "plate_box": null,
+            "plate_text": "UNREADABLE",
+            "plate_ocr_confidence": 0,
+            "plate_readability_score": 0,
+            "plate_status": "Manual Review",
+            "plate_reliable": false
+        }
+    ],
+    "plate_detections": [],
+    "safety_note": "Plate text is displayed only when OCR is reliable.",
+    "helmet_compliance_rate": 80.0,
+    "final_decision": "Manual Review Required",
+    "enforcement_priority": "Medium"
+}

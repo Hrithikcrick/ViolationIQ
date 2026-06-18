@@ -1,0 +1,46 @@
+{
+    "router_name": "ViolationIQ Adaptive Multi-Expert Router",
+    "routing_policy": {
+        "video_input": {
+            "condition": "If input is video",
+            "primary_module": "redlight_video_module",
+            "secondary_modules": [
+                "traffic_context_module"
+            ],
+            "reason": "Red-light and vehicle crossing need temporal video evidence"
+        },
+        "helmet_scene": {
+            "condition": "If rider/two-wheeler/helmet/no-helmet objects are detected",
+            "primary_module": "helmet_plate_module",
+            "secondary_modules": [
+                "plate_ocr_module"
+            ],
+            "reason": "Helmet violations must be linked with rider evidence and plate evidence"
+        },
+        "signboard_scene": {
+            "condition": "If traffic signs such as no-entry, no-stopping, stop sign, speed limit are detected",
+            "primary_module": "signboard_context_module",
+            "secondary_modules": [
+                "traffic_context_module"
+            ],
+            "reason": "Image-only signboard evidence gives context; final challan may need tracking/manual review"
+        },
+        "uncertain_scene": {
+            "condition": "If scene type is not clear",
+            "primary_module": "multi_module_review",
+            "secondary_modules": [
+                "helmet_plate_module",
+                "traffic_context_module",
+                "signboard_context_module"
+            ],
+            "reason": "Unclear cases should not trigger direct enforcement"
+        }
+    },
+    "safety_rules": [
+        "Do not force OCR plate number if confidence is low",
+        "Use Manual Review for uncertain evidence",
+        "Use temporal voting for video violations",
+        "Use camera calibration for stop-line and signal ROI",
+        "Do not claim framework-only modules as fully implemented"
+    ]
+}

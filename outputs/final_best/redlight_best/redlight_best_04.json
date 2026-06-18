@@ -1,0 +1,20 @@
+{
+    "frame_id": 300,
+    "signal_color": "red",
+    "signal_roi": [
+        1651,
+        30,
+        1881,
+        333
+    ],
+    "vehicle_count": 0,
+    "crossing_vehicle_count": 0,
+    "vehicles": [],
+    "crossing_vehicles": [],
+    "stop_line_y": 738,
+    "violation": false,
+    "decision": "Manual Review",
+    "priority": "Medium",
+    "frame_score": 30,
+    "frame_path": "/kaggle/working/ViolationIQ/outputs/redlight/raw_frame_300.jpg"
+}
