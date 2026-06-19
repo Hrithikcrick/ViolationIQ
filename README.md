@@ -1,4 +1,29 @@
 ﻿# 🚦 ViolationIQ  
+
+<!-- DEMO_VIDEO_START -->
+
+---
+
+## 🎥 Live Demo Preview
+
+<p align="center">
+  <a href="demo/violationiq_bike_helmet_demo.mp4">
+    <img src="demo/violationiq_demo_preview.svg" width="780" alt="ViolationIQ Bike Helmet Violation Demo">
+  </a>
+</p>
+
+<p align="center">
+  <b>Bike Helmet Violation Detection Demo</b><br>
+  Rider-wise helmet evidence • No-helmet detection • Evidence summary • Manual-review safety layer
+</p>
+
+<p align="center">
+  ▶️ <a href="demo/violationiq_bike_helmet_demo.mp4"><b>Watch Full Processed Demo Video</b></a>
+</p>
+
+---
+
+<!-- DEMO_VIDEO_END -->
 ## Adaptive Multi-Expert AI Evidence Copilot for Traffic Enforcement
 
 <p align="center">
@@ -642,3 +667,5 @@ This repository contains:
 **ViolationIQ** is an adaptive multi-expert AI evidence copilot for traffic enforcement that produces clean, review-ready, safety-aware evidence for helmet violations, number plate context, red-light violations, traffic sign contexts, and calibrated speed-estimation prototypes.
 
 It is designed to support enforcement teams with strong evidence generation while reducing unsafe automatic decisions.
+
+
