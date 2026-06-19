@@ -78,17 +78,6 @@ ViolationIQ uses separate datasets for separate evidence tasks. This keeps the s
 | Red-Light Evidence Module | `farzadnekouei/license-plate-recognition-for-red-light-violation` | Red-light video evidence with signal color and stop-line crossing |
 | Final Demo Video | Private uploaded dataset `Videofbike` | Final processed helmet violation MP4 demo |
 
-## 5. Training Results
-
-| Model / Module | Result |
-|---|---|
-| Traffic YOLO11s model | mAP50 around `0.928`, mAP50-95 around `0.808` |
-| Helmet/Rider YOLO11s model | mAP50 around `0.701`, mAP50-95 around `0.32` |
-| Dedicated Plate YOLO11s model | Validation mAP50 around `0.924`, mAP50-95 around `0.548` |
-| Plate dataset split | `7057` train images, `2048` validation images, `1020` test images |
-| Red-Light Video Evidence | Signal color + vehicle detection + virtual stop-line crossing + manual-review safety |
-| Uploaded Bike Helmet Demo | Processed MP4 demo with rider-wise helmet evidence |
-
 ## 6. Implemented Deliverables
 
 | No. | Implemented Deliverable | What it Produces |
@@ -299,7 +288,7 @@ Output folders:
 ```text
 outputs/redlight/
 outputs/final_best/redlight_best/
-outputs/video/ and outputs/FINAL_SHOWCASE/redlight/
+outputs/video/
 outputs/FINAL_SHOWCASE/redlight/
 ```
 
@@ -353,7 +342,7 @@ Important:
 
 ---
 
-## ## 16. Models Used and Results Summary
+## 16. Models Used and Results Summary
 
 | Expert | Model / Method | Purpose |
 |---|---|---|
@@ -374,7 +363,7 @@ Important:
 | Red-light video evidence | Signal color + vehicle crossing + virtual stop-line + temporal/manual-review safety |
 
 Model weights are not committed to GitHub because they are large. The repository documents expected model names and paths in `models_info/`, `config/`, and the source modules.
-17. Repository Structure
+## 17. Repository Structure
 
 ```text
 ViolationIQ/
@@ -557,8 +546,7 @@ This makes the project more practical for real traffic enforcement scenarios.
 
 ---
 
-## 
-23. Safety and Ethics
+## 23. Safety and Ethics
 
 ViolationIQ is a decision-support system, not an automatic punishment system.
 
@@ -623,3 +611,4 @@ The report explains the full ViolationIQ approach, architecture, datasets, model
 ---
 
 <!-- PROJECT_REPORT_END -->
+
