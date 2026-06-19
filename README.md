@@ -78,6 +78,31 @@ ViolationIQ uses separate datasets for separate evidence tasks. This keeps the s
 | Red-Light Evidence Module | `farzadnekouei/license-plate-recognition-for-red-light-violation` | Red-light video evidence with signal color and stop-line crossing |
 | Final Demo Video | Private uploaded dataset `Videofbike` | Final processed helmet violation MP4 demo |
 
+
+## 5. Models Used and Results Summary
+
+| Expert | Model / Method | Purpose |
+|---|---|---|
+| Traffic Expert | YOLO11s | Vehicles, traffic signs, traffic lights, traffic context |
+| Helmet Expert | YOLO11s | Rider, helmet, no-helmet, bad helmet |
+| Plate Expert | YOLO11s | Number plate localization |
+| OCR | EasyOCR + validation rules | Plate text reading only when reliable |
+| Reasoning Layer | Rule-based logic | Manual review, temporal voting, context decision |
+
+### Experimental results recorded during development
+
+| Module | Result |
+|---|---|
+| Traffic model | mAP50 around `0.928`, mAP50-95 around `0.808` |
+| Helmet/rider model | mAP50 around `0.701`, mAP50-95 around `0.32` |
+| Dedicated plate model | Validation mAP50 around `0.924`, mAP50-95 around `0.548` |
+| Plate dataset | `10,125` images total: `7057` train, `2048` validation, `1020` test |
+| Red-light video evidence | Signal color + vehicle crossing + virtual stop-line + temporal/manual-review safety |
+
+Model weights are not committed to GitHub because they are large. The repository documents expected model names and paths in `models_info/`, `config/`, and the source modules.
+
+---
+
 ## 6. Implemented Deliverables
 
 | No. | Implemented Deliverable | What it Produces |
@@ -92,6 +117,9 @@ ViolationIQ uses separate datasets for separate evidence tasks. This keeps the s
 | 8 | Final Demo Videos | Stores processed MP4 demo videos inside `demo/` and `outputs/video/` |
 | 9 | JSON / CSV Reports | Saves structured evidence reports for review |
 | 10 | Architecture and Documentation | Includes architecture diagram, modular source code, config, reports, and README |
+
+---
+
 ## 7. System Approach
 
 ViolationIQ follows a modular pipeline:
@@ -191,7 +219,7 @@ Clean Evidence Panel + JSON/CSV Report
 Architecture files:
 
 ```text
-architecture/violationiq_architecture.png
+architecture/violationiq_architecture_main.png
 architecture/architecture_mermaid.md
 ```
 
@@ -329,41 +357,7 @@ Important:
 ---
 
 
-It tracks detected vehicles across video frames and estimates speed from pixel displacement.
-
-Output folders:
-
-```text
-outputs/FINAL_SHOWCASE/videos/
-```
-
-Important:
-
-
----
-
-## 16. Models Used and Results Summary
-
-| Expert | Model / Method | Purpose |
-|---|---|---|
-| Traffic Expert | YOLO11s | Vehicles, traffic signs, traffic lights, traffic context |
-| Helmet Expert | YOLO11s | Rider, helmet, no-helmet, bad helmet |
-| Plate Expert | YOLO11s | Number plate localization |
-| OCR | EasyOCR + validation rules | Plate text reading only when reliable |
-| Reasoning Layer | Rule-based logic | Manual review, temporal voting, context decision |
-
-### Experimental results recorded during development
-
-| Module | Result |
-|---|---|
-| Traffic model | mAP50 around `0.928`, mAP50-95 around `0.808` |
-| Helmet/rider model | mAP50 around `0.701`, mAP50-95 around `0.32` |
-| Dedicated plate model | Validation mAP50 around `0.924`, mAP50-95 around `0.548` |
-| Plate dataset | `10,125` images total: `7057` train, `2048` validation, `1020` test |
-| Red-light video evidence | Signal color + vehicle crossing + virtual stop-line + temporal/manual-review safety |
-
-Model weights are not committed to GitHub because they are large. The repository documents expected model names and paths in `models_info/`, `config/`, and the source modules.
-## 17. Repository Structure
+## 15. Repository Structure
 
 ```text
 ViolationIQ/
@@ -403,7 +397,7 @@ ViolationIQ/
 
 ---
 
-## 18. How to Use This Repository
+## 16. How to Use This Repository
 
 ### Step 1: Clone the repository
 
@@ -460,13 +454,13 @@ reports/implementation_notes.md
 Open:
 
 ```text
-architecture/violationiq_architecture.png
+architecture/violationiq_architecture_main.png
 architecture/architecture_mermaid.md
 ```
 
 ---
 
-## 19. How to Reproduce the Same Pipeline
+## 17. How to Reproduce the Same Pipeline
 
 To reproduce this project from scratch:
 
@@ -482,7 +476,7 @@ To reproduce this project from scratch:
 
 ---
 
-## 20. Model Weights
+## 18. Model Weights
 
 Model weights are not pushed directly to GitHub because they are large.
 
@@ -505,7 +499,7 @@ Update model paths in the runtime notebook or inference script before running in
 
 ---
 
-## 21. Reports Generated
+## 19. Reports Generated
 
 ViolationIQ generates structured outputs for review and analysis.
 
@@ -527,7 +521,7 @@ These reports help explain:
 
 ---
 
-## 22. Why This Project Is Different
+## 20. Why This Project Is Different
 
 ViolationIQ is not just a YOLO detection project.
 
@@ -546,7 +540,7 @@ This makes the project more practical for real traffic enforcement scenarios.
 
 ---
 
-## 23. Safety and Ethics
+## 21. Safety and Ethics
 
 ViolationIQ is a decision-support system, not an automatic punishment system.
 
@@ -567,7 +561,7 @@ Manual Review
 
 ---
 
-## 24. Final Deliverable Summary
+## 22. Final Deliverable Summary
 
 This repository contains:
 
@@ -585,19 +579,9 @@ This repository contains:
 
 ---
 
-## 25. Final Claim
-
-
-It is designed to support enforcement teams with strong evidence generation while reducing unsafe automatic decisions.
-
-
-
-
-<!-- PROJECT_REPORT_START -->
-
 ---
 
-## 📄 Project Report
+## 23. Project Report
 
 The complete IEEE-style project report is available in the `reports/` folder.
 
@@ -610,5 +594,8 @@ The report explains the full ViolationIQ approach, architecture, datasets, model
 
 ---
 
-<!-- PROJECT_REPORT_END -->
+## 24. Final Claim
 
+**ViolationIQ is an adaptive multi-expert AI evidence copilot for traffic enforcement that produces clean, review-ready, safety-aware evidence for helmet violations, number plate evidence, red-light video evidence, and traffic sign context.**
+
+It is designed to support enforcement teams with stronger evidence generation while reducing unsafe automatic decisions.
