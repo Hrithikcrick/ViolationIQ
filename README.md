@@ -24,6 +24,99 @@
 ---
 
 <!-- DEMO_VIDEO_END -->
+<!-- DATASET_RESULTS_START -->
+
+---
+
+## 📊 Datasets, Training Setup, and Experimental Results
+
+ViolationIQ uses **task-specific datasets** because real traffic enforcement cannot be handled reliably by one model only. Helmet violation, number plate localization, red-light evidence, and signboard context each require different evidence and different reasoning.
+
+### 🗂️ Datasets Used
+
+| Module | Dataset Used | Purpose | Status |
+|---|---|---|---|
+| Traffic / Signboard Expert | `guisahanes/traffic-violation-detection-dataset` | Vehicles, traffic lights, traffic signs, no-entry/no-stopping/stop/turn context | Used for traffic/sign context training |
+| Helmet + Rider Expert | `aryanvaid13/indian-helmet-detection-dataset` | Rider, helmet, no-helmet, bad-helmet, number-plate classes | Used for helmet/rider training |
+| Dedicated Number Plate Expert | Large YOLO plate dataset with `10,125` images | Number plate localization and plate crop extraction | Used for plate detector training |
+| Red-Light Evidence Module | `farzadnekouei/license-plate-recognition-for-red-light-violation` | Red-light video evidence, signal color, vehicle crossing and stop-line demo | Used for red-light video demo |
+| Uploaded Bike Demo Video | Private uploaded video dataset `Videofbike` | Final processed helmet violation demo video | Used for final demo only, not training |
+
+### 🧠 Models Trained / Used
+
+| Expert Module | Model / Method | What it does |
+|---|---|---|
+| Traffic Expert | YOLO11s | Detects traffic signs, traffic lights, vehicles, and signboard context |
+| Helmet Expert | YOLO11s | Detects riders, helmet, no-helmet, bad helmet, and number plate class from helmet dataset |
+| Plate Expert | YOLO11s | Dedicated number plate localization |
+| OCR Layer | EasyOCR + validation rules | Reads plate crops only when quality and confidence are acceptable |
+| Red-Light Reasoning | YOLO + OpenCV HSV + rule logic | Detects red/green signal, vehicles, stop-line crossing, and temporal evidence |
+| Speed Prototype | OpenCV tracking logic | Estimates speed from frame displacement; requires calibration before enforcement |
+| Safety Layer | Rule-based decision layer | Sends weak OCR, unclear signal, and calibration-dependent cases to manual review |
+
+### 📈 Experimental Results
+
+| Model / Module | Result |
+|---|---|
+| Traffic YOLO11s model | mAP50 around `0.928`, mAP50-95 around `0.808` |
+| Helmet/Rider YOLO11s model | mAP50 around `0.701`, mAP50-95 around `0.32` |
+| Dedicated Plate YOLO11s model | Validation mAP50 around `0.924`, mAP50-95 around `0.548` |
+| Plate dataset split | `7057` train images, `2048` validation images, `1020` test images |
+| Red-Light Video Module | Generated red-signal + vehicle-crossing evidence with temporal/manual-review safety |
+| Uploaded Bike Helmet Demo | Generated processed MP4 demo with rider-wise helmet violation evidence |
+| Signboard Context Module | Generated context evidence for no-entry, no-stopping, stop, turn restriction and speed-limit signs |
+| Speed Estimation Prototype | Demonstrated tracking-based speed estimation with calibration warning |
+
+### ✅ Claim Audit: What is Fully Implemented vs Prototype
+
+| Feature | README Claim | Actual Status |
+|---|---|---|
+| Helmet violation detection | Implemented | ✅ Implemented |
+| Rider-wise evidence generation | Implemented | ✅ Implemented |
+| Dedicated number plate detection | Implemented | ✅ Implemented |
+| Safe OCR / ANPR | Implemented with safety | ✅ Implemented with manual-review fallback |
+| Red-light video evidence | Implemented | ✅ Implemented as video evidence demo with temporal/manual-review logic |
+| Signboard context detection | Implemented | ✅ Implemented as context evidence |
+| Speed estimation | Prototype | ✅ Prototype only, calibration required |
+| Wrong-side driving | Framework only | ⚠️ Not enforcement-ready; needs direction tracking and road calibration |
+| Illegal parking | Framework only | ⚠️ Not enforcement-ready; needs parking-zone and duration tracking |
+| Seatbelt violation | Not implemented | ❌ Not implemented; needs cabin/interior dataset |
+| Triple riding | Not reliable yet | ⚠️ Not claimed as final; needs stronger multi-person rider dataset |
+
+### 🧾 Final Evidence Outputs
+
+The final project package includes:
+
+| Output Type | Folder |
+|---|---|
+| Helmet + rider evidence | `outputs/helmet_plate/` |
+| Number plate evidence | `outputs/helmet_plate/` and `outputs/final_best/helmet_plate_best/` |
+| Red-light evidence | `outputs/redlight/` |
+| Signboard context evidence | `outputs/signboard_context/` |
+| Speed estimation prototype | `outputs/speed_estimation_demo/` |
+| Final selected showcase | `outputs/FINAL_SHOWCASE/` |
+| Demo videos | `outputs/video/` and `demo/` |
+| Reports | `reports/` |
+| Architecture | `architecture/` |
+
+### ⚖️ Safety Position
+
+ViolationIQ is an **AI evidence copilot**, not a blind challan generator.
+
+It does not automatically issue challans when:
+
+- OCR is weak,
+- plate is unreadable,
+- signal is unclear,
+- only single-frame evidence exists,
+- camera calibration is missing,
+- speed, direction, or duration tracking is required.
+
+Uncertain cases are routed to **manual review**.
+
+---
+
+<!-- DATASET_RESULTS_END -->
 ## Adaptive Multi-Expert AI Evidence Copilot for Traffic Enforcement
 
 <p align="center">
@@ -353,7 +446,7 @@ Output folders:
 ```text
 outputs/redlight/
 outputs/final_best/redlight_best/
-outputs/video/violationiq_redlight_vehicle_demo.mp4
+outputs/video/ and outputs/FINAL_SHOWCASE/redlight/
 outputs/FINAL_SHOWCASE/redlight/
 ```
 
@@ -412,27 +505,29 @@ Important:
 
 ---
 
-## 16. Models Used
+## ## 16. Models Used and Results Summary
 
 | Expert | Model / Method | Purpose |
 |---|---|---|
-| Traffic Expert | YOLO11s | Vehicles, signs, traffic lights |
+| Traffic Expert | YOLO11s | Vehicles, traffic signs, traffic lights, traffic context |
 | Helmet Expert | YOLO11s | Rider, helmet, no-helmet, bad helmet |
 | Plate Expert | YOLO11s | Number plate localization |
-| OCR | EasyOCR | Plate text reading |
+| OCR | EasyOCR + validation rules | Plate text reading only when reliable |
 | Reasoning Layer | Rule-based logic | Manual review, temporal voting, context decision |
 
-Known experimental results:
+### Experimental results recorded during development
 
-| Model | Result |
+| Module | Result |
 |---|---|
-| Traffic model | mAP50 around 0.928 |
-| Helmet/rider model | mAP50 around 0.701 |
-| Plate model | Fine-tuned on larger plate dataset |
+| Traffic model | mAP50 around `0.928`, mAP50-95 around `0.808` |
+| Helmet/rider model | mAP50 around `0.701`, mAP50-95 around `0.32` |
+| Dedicated plate model | Validation mAP50 around `0.924`, mAP50-95 around `0.548` |
+| Plate dataset | `10,125` images total: `7057` train, `2048` validation, `1020` test |
+| Red-light video evidence | Signal color + vehicle crossing + virtual stop-line + temporal/manual-review safety |
+| Speed estimation | Prototype only; requires camera calibration before enforcement |
 
----
-
-## 17. Repository Structure
+Model weights are not committed to GitHub because they are large. The repository documents expected model names and paths in `models_info/`, `config/`, and the source modules.
+17. Repository Structure
 
 ```text
 ViolationIQ/
@@ -622,7 +717,28 @@ This makes the project more practical for real traffic enforcement scenarios.
 
 ---
 
-## 23. Safety and Ethics
+## <!-- CLAIM_SCOPE_START -->
+
+---
+
+## ✅ Verified Scope of This Repository
+
+This repository intentionally separates **implemented modules**, **prototype modules**, and **framework-only modules**.
+
+| Category | Features |
+|---|---|
+| Fully demonstrated | Helmet violation evidence, rider-wise panels, number plate localization, safe OCR fallback, red-light video evidence, signboard context, JSON/CSV reports, architecture, final showcase |
+| Prototype only | Speed estimation from video using tracking logic |
+| Framework only | Wrong-side driving and illegal parking because they require camera-specific direction/zone/duration calibration |
+| Not implemented | Seatbelt violation because it requires cabin/interior vehicle dataset |
+| Not claimed as final | Triple riding because robust multi-person rider counting needs a stronger dedicated dataset |
+
+This avoids overclaiming and keeps the project practical for real enforcement use.
+
+---
+
+<!-- CLAIM_SCOPE_END -->
+23. Safety and Ethics
 
 ViolationIQ is a decision-support system, not an automatic punishment system.
 
@@ -667,5 +783,6 @@ This repository contains:
 **ViolationIQ** is an adaptive multi-expert AI evidence copilot for traffic enforcement that produces clean, review-ready, safety-aware evidence for helmet violations, number plate context, red-light violations, traffic sign contexts, and calibrated speed-estimation prototypes.
 
 It is designed to support enforcement teams with strong evidence generation while reducing unsafe automatic decisions.
+
 
 
