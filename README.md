@@ -604,3 +604,22 @@ It is designed to support enforcement teams with strong evidence generation whil
 
 
 
+
+<!-- PROJECT_REPORT_START -->
+
+---
+
+## 📄 Project Report
+
+The complete IEEE-style project report is available in the `reports/` folder.
+
+| File | Link |
+|---|---|
+| LaTeX Source | [`reports/ViolationIQ_IEEE_Report.tex`](reports/ViolationIQ_IEEE_Report.tex) |
+| Compiled PDF | [`reports/ViolationIQ_IEEE_Report.pdf`](reports/ViolationIQ_IEEE_Report.pdf) |
+
+The report explains the full ViolationIQ approach, architecture, datasets, model results, implemented modules, evidence-generation pipeline, and safety/manual-review design.
+
+---
+
+<!-- PROJECT_REPORT_END -->
