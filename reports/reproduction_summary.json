@@ -1,9 +1,10 @@
-﻿{
-    "safety_note":  "ViolationIQ is an AI evidence copilot. Manual review is required before challan or legal action.",
-    "helmet_video":  "outputs/FINAL_SHOWCASE/videos/helmet_video_demo_processed_1.mp4",
-    "final_index":  "outputs/FINAL_SHOWCASE/final_showcase_index.csv",
-    "ocr_outputs_count":  5,
-    "safe_ocr_output":  "outputs/FINAL_SHOWCASE/plate_ocr",
-    "status":  "Final judge reproduction ready",
-    "project":  "ViolationIQ"
+{
+    "project": "ViolationIQ",
+    "status": "Final judge reproduction ready",
+    "helmet_videos_processed": 1,
+    "safe_ocr_reports_generated": 5,
+    "helmet_video": "outputs/FINAL_SHOWCASE/videos/helmet_video_demo_processed_1.mp4",
+    "safe_ocr_output": "outputs/FINAL_SHOWCASE/plate_ocr",
+    "final_showcase_index": "outputs/FINAL_SHOWCASE/final_showcase_index.csv",
+    "safety_note": "ViolationIQ is an AI evidence copilot. Manual review is required before challan or legal action."
 }

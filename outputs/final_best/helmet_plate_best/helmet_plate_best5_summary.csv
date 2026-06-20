@@ -1,6 +1,0 @@
-file,total_riders,helmet_ok,violations,manual_review,decision,score,output_path
-helmet_plate_best_01.jpg,4,0,4,0,Violation Detected,440,/kaggle/working/ViolationIQ/outputs/final_best/helmet_plate_best/helmet_plate_best_01.jpg
-helmet_plate_best_02.jpg,1,1,0,0,No Helmet Violation Found,10,/kaggle/working/ViolationIQ/outputs/final_best/helmet_plate_best/helmet_plate_best_02.jpg
-helmet_plate_best_03.jpg,1,1,0,0,No Helmet Violation Found,10,/kaggle/working/ViolationIQ/outputs/final_best/helmet_plate_best/helmet_plate_best_03.jpg
-helmet_plate_best_04.jpg,1,1,0,0,No Helmet Violation Found,10,/kaggle/working/ViolationIQ/outputs/final_best/helmet_plate_best/helmet_plate_best_04.jpg
-helmet_plate_best_05.jpg,1,1,0,0,No Helmet Violation Found,10,/kaggle/working/ViolationIQ/outputs/final_best/helmet_plate_best/helmet_plate_best_05.jpg

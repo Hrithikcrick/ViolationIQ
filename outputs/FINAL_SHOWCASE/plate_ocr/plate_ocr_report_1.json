@@ -1,0 +1,29 @@
+{
+    "module": "safe_plate_ocr",
+    "input_image": "data/sample_images/ocr_showcase/ocr_showcase_01.jpg",
+    "plate_detected": true,
+    "selected_box": [
+        874,
+        1343,
+        1725,
+        1628
+    ],
+    "padded_box": [
+        577,
+        1215,
+        2022,
+        1756
+    ],
+    "detection_confidence": 0.735,
+    "readability_score": 67.75,
+    "raw_crop_path": "outputs/FINAL_SHOWCASE/plate_ocr/enhanced_plate_crops/raw_plate_1.jpg",
+    "enhanced_crop_path": "outputs/FINAL_SHOWCASE/plate_ocr/enhanced_plate_crops/enhanced_plate_1.jpg",
+    "ocr_result": {
+        "ocr_status": "Skipped",
+        "reason": "EasyOCR not available",
+        "plate_text": null,
+        "ocr_confidence": 0
+    },
+    "safety": "OCR text is not forced. Weak OCR is sent to manual review.",
+    "output_image": "outputs/FINAL_SHOWCASE/plate_ocr/plate_ocr_evidence_1.jpg"
+}

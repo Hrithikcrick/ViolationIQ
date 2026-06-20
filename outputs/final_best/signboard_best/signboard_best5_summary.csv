@@ -1,6 +1,0 @@
-file,signs,decisions,context_score,output_path
-signboard_best_01.jpg,"no right turn, no stopping",No-Stopping Sign Detected | Turn/Overtaking Restriction Context,55,/kaggle/working/ViolationIQ/outputs/final_best/signboard_best/signboard_best_01.jpg
-signboard_best_02.jpg,no entry,No-Entry Sign Detected,35,/kaggle/working/ViolationIQ/outputs/final_best/signboard_best/signboard_best_02.jpg
-signboard_best_03.jpg,no overtaking,Turn/Overtaking Restriction Context,25,/kaggle/working/ViolationIQ/outputs/final_best/signboard_best/signboard_best_03.jpg
-signboard_best_04.jpg,stop sign,Stop-Sign Compliance Context,25,/kaggle/working/ViolationIQ/outputs/final_best/signboard_best/signboard_best_04.jpg
-signboard_best_05.jpg,no left turn,Turn/Overtaking Restriction Context,25,/kaggle/working/ViolationIQ/outputs/final_best/signboard_best/signboard_best_05.jpg

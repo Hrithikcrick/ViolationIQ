@@ -1,0 +1,7 @@
+{
+    "module": "safe_plate_ocr",
+    "images_processed": 5,
+    "reliable_plates": [],
+    "manual_review_count": 5,
+    "safety": "Unreadable plates and weak OCR are marked for manual review."
+}

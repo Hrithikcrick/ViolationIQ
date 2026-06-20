@@ -1,0 +1,22 @@
+{
+    "module": "helmet_video_demo",
+    "input_video": "data/sample_videos/violationiq_bike_helmet_demo.mp4",
+    "output_video": "outputs/FINAL_SHOWCASE/videos/helmet_video_demo_processed_1.mp4",
+    "processed_frames": 180,
+    "best_frame": {
+        "frame_id": 348,
+        "total_riders": 5,
+        "helmet_ok": 2,
+        "no_helmet": 3,
+        "improper_helmet": 0,
+        "manual_review": 0,
+        "violations": 3,
+        "significance": "Helmet violation visible",
+        "reliability": "High visual evidence candidate",
+        "priority": "HIGH",
+        "frame_path": "outputs/helmet_plate/final_clean_uploaded_bike_frame_348.jpg"
+    },
+    "best_frame_path": "outputs/final_best/helmet_plate_best/uploaded_bike_helmet_best_frame_final_clean.jpg",
+    "status": "Kaggle notebook style processed helmet demo generated",
+    "safety": "Manual review is required before challan or legal action."
+}
