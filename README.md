@@ -265,3 +265,4 @@ The IEEE-style project report is available in the reports folder:
 
 ViolationIQ is an adaptive multi-expert AI evidence copilot for traffic enforcement. It produces clean, review-ready, safety-aware evidence for helmet violations, number plate evidence, signboard context, and final demo review outputs.
 
+

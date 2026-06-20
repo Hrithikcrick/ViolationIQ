@@ -1,9 +1,0 @@
-{
-    "processed_frames": 143,
-    "red_frames": 48,
-    "green_frames": 70,
-    "violation_frames": 1,
-    "max_crossing_vehicles": 1,
-    "final_status": "Single-frame Evidence - Manual Review",
-    "temporal_confidence": "Medium"
-}

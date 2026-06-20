@@ -30,3 +30,4 @@ The reported training metrics such as traffic YOLO11s mAP50 around 0.928, helmet
 
 To reproduce training metrics from scratch, the original Kaggle datasets, training notebook, GPU environment, and full training commands are required.
 
+

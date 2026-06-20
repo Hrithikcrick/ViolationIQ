@@ -91,7 +91,6 @@ Showcase index: outputs/FINAL_SHOWCASE/final_showcase_index.csv
 
 ```text
 outputs/FINAL_SHOWCASE/helmet_plate/
-outputs/FINAL_SHOWCASE/redlight/
 outputs/FINAL_SHOWCASE/signboard_context/
 outputs/FINAL_SHOWCASE/final_showcase_index.csv
 reports/reproduction_summary.json
@@ -102,4 +101,5 @@ reports/reproduction_summary.json
 The .pt model weights are not committed to GitHub because they are large. They are provided separately through the Google Drive asset zip.
 
 The system generates evidence and review candidates. Manual verification is required before any challan or legal action.
+
 
