@@ -1,4 +1,4 @@
-{
+﻿{
     "helmet_violation_detection": {
         "status": "implemented",
         "claim": "Rider-wise helmet compliance evidence generation"
@@ -17,7 +17,6 @@
     },
     "signboard_context": {
         "status": "implemented",
-        "claim": "No-entry, no-stopping, stop-sign, speed-limit context evidence"
     },
     "wrong_side_driving": {
         "status": "framework_only",

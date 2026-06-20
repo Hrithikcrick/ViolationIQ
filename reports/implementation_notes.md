@@ -1,4 +1,4 @@
-# Implementation Notes
+﻿# Implementation Notes
 
 ## Fully Implemented
 
@@ -14,7 +14,6 @@
 
 1. Wrong-side driving needs object tracking and camera-wise road direction calibration.
 2. Illegal parking needs zone calibration and vehicle duration tracking.
-3. Speed violation needs distance/speed calibration and object tracking.
 4. Seatbelt needs cabin/interior dataset.
 5. Triple riding needs stronger multi-person rider dataset.
 

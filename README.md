@@ -57,7 +57,6 @@ Traffic enforcement using cameras is challenging because:
 
 - number plates can be small, blurred, tilted, or partially visible,
 - OCR can produce wrong or incomplete plate numbers,
-- a single image may show a speed-limit sign, but cannot prove overspeeding,
 - red-light violation needs temporal evidence, not only one frame,
 - a wrong automatic challan can reduce public trust.
 
@@ -169,7 +168,6 @@ A single object detection model is not sufficient for traffic enforcement becaus
 | Number plate | Needs dedicated plate localization and OCR validation. |
 | Red-light violation | Needs video, signal color, stop-line, and temporal voting. |
 | Signboard violation context | Needs traffic sign detection and rule-based context reasoning. |
-| Speed violation | Needs tracking and real-world camera calibration. |
 
 So ViolationIQ separates the system into expert modules and connects them through an adaptive router.
 
@@ -340,7 +338,6 @@ Supported contexts:
 - no u-turn,
 - no overtaking,
 - red / green signal context,
-- speed-limit sign context.
 
 Output folders:
 
@@ -352,7 +349,6 @@ outputs/FINAL_SHOWCASE/signboard_context/
 
 Important:
 
-> Image-only sign detection gives context. Final challan may require tracking, speed, duration, or manual review.
 
 ---
 
@@ -599,3 +595,17 @@ The report explains the full ViolationIQ approach, architecture, datasets, model
 **ViolationIQ is an adaptive multi-expert AI evidence copilot for traffic enforcement that produces clean, review-ready, safety-aware evidence for helmet violations, number plate evidence, red-light video evidence, and traffic sign context.**
 
 It is designed to support enforcement teams with stronger evidence generation while reducing unsafe automatic decisions.
+
+---
+
+## Safe Plate OCR Evidence
+
+ViolationIQ includes a dedicated number plate localization and safe OCR fallback module.
+
+Final safe OCR snapshot:
+
+```text
+outputs/FINAL_SHOWCASE/plate_ocr/dedicated_plate_safe_ocr_snapshot.png
+```
+
+The system displays plate text only when OCR confidence and crop readability are reliable. If the OCR is weak, partial, or unreadable, the case is routed to manual review instead of forcing an incorrect plate number.

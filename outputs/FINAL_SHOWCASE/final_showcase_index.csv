@@ -1,4 +1,4 @@
-task,rank,file
+﻿task,rank,file
 helmet_plate,1,/kaggle/working/ViolationIQ/outputs/FINAL_SHOWCASE/helmet_plate/helmet_plate_showcase_01.jpg
 helmet_plate,2,/kaggle/working/ViolationIQ/outputs/FINAL_SHOWCASE/helmet_plate/helmet_plate_showcase_02.jpg
 helmet_plate,3,/kaggle/working/ViolationIQ/outputs/FINAL_SHOWCASE/helmet_plate/helmet_plate_showcase_03.jpg
@@ -14,3 +14,4 @@ redlight,2,/kaggle/working/ViolationIQ/outputs/FINAL_SHOWCASE/redlight/redlight_
 redlight,3,/kaggle/working/ViolationIQ/outputs/FINAL_SHOWCASE/redlight/redlight_showcase_03.jpg
 redlight,4,/kaggle/working/ViolationIQ/outputs/FINAL_SHOWCASE/redlight/redlight_showcase_04.jpg
 redlight,5,/kaggle/working/ViolationIQ/outputs/FINAL_SHOWCASE/redlight/redlight_showcase_05.jpg
+plate_ocr,outputs/FINAL_SHOWCASE/plate_ocr/dedicated_plate_safe_ocr_snapshot.png,Safe plate OCR evidence snapshot with manual-review fallback

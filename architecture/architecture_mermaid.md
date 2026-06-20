@@ -8,7 +8,6 @@ flowchart TD
     B --> D[Number Plate Expert]
     B --> E[Red-Light Video Expert]
     B --> F[Signboard Context Expert]
-    B --> G[Speed Estimation Prototype]
     B --> H[Manual Review]
 
     C --> I[Evidence Reasoning Layer]
@@ -22,7 +21,6 @@ flowchart TD
     I --> L[Signal + Stop-Line Reasoning]
     I --> M[Signboard Context Reasoning]
     I --> N[Temporal Voting]
-    I --> O[Speed Estimation Framework]
 
     J --> P[Safety Layer]
     K --> P
