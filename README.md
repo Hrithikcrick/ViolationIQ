@@ -72,7 +72,7 @@ The final judge reproduction script generates:
 - plate OCR/manual-review JSON report
 - signboard context evidence image
 - signboard context JSON report
-- best helmet video demo copied into final showcase
+- processed helmet video demo generated in final showcase
 - final showcase CSV index
 - reproduction summary JSON
 
@@ -180,8 +180,8 @@ After extraction, the repository should contain:
     weights/helmet_yolo11s_best.pt
     weights/large_plate_yolo11s_best.pt
     weights/yolo26n.pt
-    data/sample_images/
-    data/sample_videos/
+    data/sample_images/ocr_showcase/
+    data/sample_videos/violationiq_bike_helmet_demo.mp4
 
 ### 4. Check source code
 
@@ -202,7 +202,7 @@ Expected output:
     Reproduction completed.
     Images processed: 1
     Helmet videos processed: 1
-    Safe OCR reports generated: 1
+    Safe OCR reports generated: 5
     Summary saved: reports/reproduction_summary.json
     Showcase index: outputs/FINAL_SHOWCASE/final_showcase_index.csv
 
@@ -233,7 +233,7 @@ Judges can reproduce the final inference/demo deliverables:
 - helmet image evidence
 - safe plate OCR evidence
 - signboard context evidence
-- best helmet video demo copied into final showcase
+- processed helmet video demo generated in final showcase
 - JSON reports
 - CSV showcase index
 - reproduction summary
@@ -273,11 +273,12 @@ ViolationIQ includes a dedicated number plate localization and safe OCR fallback
 
 The OCR module does not force a plate number when the plate is unclear. If the crop is blurred, partial, unreadable, or OCR confidence is weak, the result is marked for manual review.
 
-Judge-reproducible OCR outputs:
+Judge-reproducible OCR outputs from selected showcase samples:
 
     outputs/FINAL_SHOWCASE/plate_ocr/
-    outputs/FINAL_SHOWCASE/plate_ocr/plate_ocr_evidence_1.jpg
-    outputs/FINAL_SHOWCASE/plate_ocr/plate_ocr_report_1.json
+    outputs/FINAL_SHOWCASE/plate_ocr/plate_ocr_evidence_1.jpg to plate_ocr_evidence_5.jpg
+    outputs/FINAL_SHOWCASE/plate_ocr/plate_ocr_report_1.json to plate_ocr_report_5.json
+    outputs/FINAL_SHOWCASE/plate_ocr/plate_ocr_summary.json
 
 The OCR report includes:
 
@@ -298,5 +299,6 @@ Safe OCR policy:
 This prevents wrong challans due to forced or incorrect number plate reading.
 
 <!-- OCR_SECTION_END -->
+
 
 
