@@ -1,6 +1,5 @@
-{
+﻿{
     "reproduction_scope": "Stable judge reproduction: helmet image evidence, safe plate OCR, signboard context, copied best helmet video demo, JSON reports, CSV index",
-    "redlight_status": "Removed from final judge reproduction because available sample red-light output was not reliable.",
     "images_processed": 1,
     "helmet_videos_processed": 1,
     "helmet_reports": [
