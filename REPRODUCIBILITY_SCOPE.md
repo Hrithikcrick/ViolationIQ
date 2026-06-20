@@ -9,7 +9,7 @@ Running the judge reproduction command generates:
 - helmet and rider evidence outputs
 - rider-wise helmet/no-helmet JSON reports
 - number plate localization and safe OCR/manual-review structure
-- red-light video evidence reports
+- signboard context reports
 - signboard context reports
 - final showcase index CSV
 - reproduction summary JSON
@@ -29,3 +29,4 @@ The judge reproduction script reproduces final outputs and deliverables, not ful
 The reported training metrics such as traffic YOLO11s mAP50 around 0.928, helmet/rider mAP50 around 0.701, and plate model mAP50 around 0.924 were obtained during Kaggle training and are documented in the project report.
 
 To reproduce training metrics from scratch, the original Kaggle datasets, training notebook, GPU environment, and full training commands are required.
+

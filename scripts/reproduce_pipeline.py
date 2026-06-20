@@ -246,7 +246,6 @@ def main():
 
     summary = {
         "reproduction_scope": "Stable judge reproduction: helmet image evidence, safe plate OCR, signboard context, copied best helmet video demo, JSON reports, CSV index",
-        "redlight_status": "Removed from final judge reproduction because available sample red-light output was not reliable.",
         "images_processed": 0,
         "helmet_videos_processed": 0,
         "helmet_reports": [],
@@ -297,10 +296,10 @@ def main():
     print("Images processed:", summary["images_processed"])
     print("Helmet videos processed:", summary["helmet_videos_processed"])
     print("Safe OCR reports generated:", len(summary["plate_ocr_reports"]))
-    print("Red-light final reproduction: removed")
     print("Summary saved:", reports_out / "reproduction_summary.json")
     print("Showcase index:", index_csv)
 
 
 if __name__ == "__main__":
     main()
+

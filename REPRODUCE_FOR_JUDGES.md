@@ -102,3 +102,4 @@ reports/reproduction_summary.json
 The .pt model weights are not committed to GitHub because they are large. They are provided separately through the Google Drive asset zip.
 
 The system generates evidence and review candidates. Manual verification is required before any challan or legal action.
+
