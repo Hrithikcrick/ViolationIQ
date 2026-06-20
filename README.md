@@ -265,4 +265,37 @@ The IEEE-style project report is available in the reports folder:
 
 ViolationIQ is an adaptive multi-expert AI evidence copilot for traffic enforcement. It produces clean, review-ready, safety-aware evidence for helmet violations, number plate evidence, signboard context, and final demo review outputs.
 
+<!-- OCR_SECTION_START -->
+
+## Safe Plate OCR / ANPR Evidence
+
+ViolationIQ includes a dedicated number plate localization and safe OCR fallback module.
+
+The OCR module does not force a plate number when the plate is unclear. If the crop is blurred, partial, unreadable, or OCR confidence is weak, the result is marked for manual review.
+
+Judge-reproducible OCR outputs:
+
+    outputs/FINAL_SHOWCASE/plate_ocr/
+    outputs/FINAL_SHOWCASE/plate_ocr/plate_ocr_evidence_1.jpg
+    outputs/FINAL_SHOWCASE/plate_ocr/plate_ocr_report_1.json
+
+The OCR report includes:
+
+- detected plate candidate boxes
+- plate crop readability score
+- OCR confidence
+- cleaned OCR text
+- safe OCR status
+- manual-review flag
+
+Safe OCR policy:
+
+    Reliable OCR      -> show plate candidate
+    Weak OCR          -> mark UNREADABLE
+    Unclear plate     -> manual review
+    Low readability   -> manual review
+
+This prevents wrong challans due to forced or incorrect number plate reading.
+
+<!-- OCR_SECTION_END -->
 
