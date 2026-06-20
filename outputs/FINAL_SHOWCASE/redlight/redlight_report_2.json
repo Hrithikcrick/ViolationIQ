@@ -1,0 +1,4119 @@
+{
+    "module": "redlight_module",
+    "input_video": "data\\sample_videos\\violationiq_bike_helmet_demo.mp4",
+    "processed_frames": 60,
+    "violation_frames": 0,
+    "final_status": "Manual review required before final challan",
+    "frames": [
+        {
+            "frame_id": 0,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 3,
+            "crossing_vehicle_count": 0,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "car",
+                    "confidence": 0.596,
+                    "box": [
+                        545,
+                        246,
+                        632,
+                        413
+                    ]
+                },
+                {
+                    "class": "car",
+                    "confidence": 0.528,
+                    "box": [
+                        683,
+                        240,
+                        859,
+                        417
+                    ]
+                },
+                {
+                    "class": "car",
+                    "confidence": 0.205,
+                    "box": [
+                        471,
+                        261,
+                        554,
+                        335
+                    ]
+                }
+            ],
+            "crossing_vehicles": []
+        },
+        {
+            "frame_id": 3,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 5,
+            "crossing_vehicle_count": 3,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "car",
+                    "confidence": 0.626,
+                    "box": [
+                        540,
+                        247,
+                        629,
+                        421
+                    ]
+                },
+                {
+                    "class": "car",
+                    "confidence": 0.605,
+                    "box": [
+                        765,
+                        261,
+                        859,
+                        563
+                    ]
+                },
+                {
+                    "class": "car",
+                    "confidence": 0.494,
+                    "box": [
+                        669,
+                        247,
+                        852,
+                        415
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.296,
+                    "box": [
+                        589,
+                        336,
+                        633,
+                        547
+                    ]
+                },
+                {
+                    "class": "car",
+                    "confidence": 0.239,
+                    "box": [
+                        1,
+                        86,
+                        230,
+                        657
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "car",
+                    "confidence": 0.605,
+                    "box": [
+                        765,
+                        261,
+                        859,
+                        563
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.296,
+                    "box": [
+                        589,
+                        336,
+                        633,
+                        547
+                    ]
+                },
+                {
+                    "class": "car",
+                    "confidence": 0.239,
+                    "box": [
+                        1,
+                        86,
+                        230,
+                        657
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 6,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 3,
+            "crossing_vehicle_count": 3,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.506,
+                    "box": [
+                        563,
+                        355,
+                        627,
+                        574
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.345,
+                    "box": [
+                        691,
+                        266,
+                        859,
+                        576
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.29,
+                    "box": [
+                        305,
+                        343,
+                        459,
+                        557
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.506,
+                    "box": [
+                        563,
+                        355,
+                        627,
+                        574
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.345,
+                    "box": [
+                        691,
+                        266,
+                        859,
+                        576
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.29,
+                    "box": [
+                        305,
+                        343,
+                        459,
+                        557
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 9,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 4,
+            "crossing_vehicle_count": 3,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.431,
+                    "box": [
+                        468,
+                        323,
+                        521,
+                        395
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.343,
+                    "box": [
+                        232,
+                        349,
+                        433,
+                        590
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.264,
+                    "box": [
+                        636,
+                        290,
+                        800,
+                        602
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.261,
+                    "box": [
+                        530,
+                        358,
+                        630,
+                        601
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.343,
+                    "box": [
+                        232,
+                        349,
+                        433,
+                        590
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.264,
+                    "box": [
+                        636,
+                        290,
+                        800,
+                        602
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.261,
+                    "box": [
+                        530,
+                        358,
+                        630,
+                        601
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 12,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 2,
+            "crossing_vehicle_count": 2,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.777,
+                    "box": [
+                        493,
+                        367,
+                        628,
+                        633
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.533,
+                    "box": [
+                        230,
+                        382,
+                        404,
+                        616
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.777,
+                    "box": [
+                        493,
+                        367,
+                        628,
+                        633
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.533,
+                    "box": [
+                        230,
+                        382,
+                        404,
+                        616
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 15,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 3,
+            "crossing_vehicle_count": 2,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.872,
+                    "box": [
+                        453,
+                        361,
+                        626,
+                        654
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.73,
+                    "box": [
+                        231,
+                        375,
+                        372,
+                        582
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.532,
+                    "box": [
+                        357,
+                        318,
+                        426,
+                        398
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.872,
+                    "box": [
+                        453,
+                        361,
+                        626,
+                        654
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.73,
+                    "box": [
+                        231,
+                        375,
+                        372,
+                        582
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 18,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 4,
+            "crossing_vehicle_count": 3,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.754,
+                    "box": [
+                        420,
+                        369,
+                        621,
+                        657
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.652,
+                    "box": [
+                        289,
+                        323,
+                        418,
+                        420
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.589,
+                    "box": [
+                        224,
+                        395,
+                        310,
+                        603
+                    ]
+                },
+                {
+                    "class": "car",
+                    "confidence": 0.291,
+                    "box": [
+                        0,
+                        254,
+                        166,
+                        603
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.754,
+                    "box": [
+                        420,
+                        369,
+                        621,
+                        657
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.589,
+                    "box": [
+                        224,
+                        395,
+                        310,
+                        603
+                    ]
+                },
+                {
+                    "class": "car",
+                    "confidence": 0.291,
+                    "box": [
+                        0,
+                        254,
+                        166,
+                        603
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 21,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 2,
+            "crossing_vehicle_count": 2,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.611,
+                    "box": [
+                        365,
+                        393,
+                        570,
+                        657
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.496,
+                    "box": [
+                        225,
+                        383,
+                        266,
+                        562
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.611,
+                    "box": [
+                        365,
+                        393,
+                        570,
+                        657
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.496,
+                    "box": [
+                        225,
+                        383,
+                        266,
+                        562
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 24,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 3,
+            "crossing_vehicle_count": 2,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "car",
+                    "confidence": 0.357,
+                    "box": [
+                        486,
+                        225,
+                        632,
+                        427
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.345,
+                    "box": [
+                        306,
+                        399,
+                        586,
+                        656
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.249,
+                    "box": [
+                        305,
+                        402,
+                        513,
+                        655
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.345,
+                    "box": [
+                        306,
+                        399,
+                        586,
+                        656
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.249,
+                    "box": [
+                        305,
+                        402,
+                        513,
+                        655
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 27,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 2,
+            "crossing_vehicle_count": 1,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.829,
+                    "box": [
+                        236,
+                        420,
+                        549,
+                        657
+                    ]
+                },
+                {
+                    "class": "truck",
+                    "confidence": 0.228,
+                    "box": [
+                        444,
+                        223,
+                        631,
+                        423
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.829,
+                    "box": [
+                        236,
+                        420,
+                        549,
+                        657
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 30,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 2,
+            "crossing_vehicle_count": 2,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "car",
+                    "confidence": 0.24,
+                    "box": [
+                        0,
+                        289,
+                        229,
+                        651
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.205,
+                    "box": [
+                        232,
+                        462,
+                        368,
+                        653
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "car",
+                    "confidence": 0.24,
+                    "box": [
+                        0,
+                        289,
+                        229,
+                        651
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.205,
+                    "box": [
+                        232,
+                        462,
+                        368,
+                        653
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 33,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 2,
+            "crossing_vehicle_count": 1,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "truck",
+                    "confidence": 0.386,
+                    "box": [
+                        373,
+                        224,
+                        620,
+                        454
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.207,
+                    "box": [
+                        370,
+                        367,
+                        517,
+                        599
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.207,
+                    "box": [
+                        370,
+                        367,
+                        517,
+                        599
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 36,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 3,
+            "crossing_vehicle_count": 1,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.797,
+                    "box": [
+                        363,
+                        351,
+                        622,
+                        615
+                    ]
+                },
+                {
+                    "class": "truck",
+                    "confidence": 0.318,
+                    "box": [
+                        357,
+                        210,
+                        623,
+                        468
+                    ]
+                },
+                {
+                    "class": "truck",
+                    "confidence": 0.248,
+                    "box": [
+                        223,
+                        160,
+                        359,
+                        385
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.797,
+                    "box": [
+                        363,
+                        351,
+                        622,
+                        615
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 39,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 1,
+            "crossing_vehicle_count": 1,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.871,
+                    "box": [
+                        264,
+                        346,
+                        585,
+                        654
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.871,
+                    "box": [
+                        264,
+                        346,
+                        585,
+                        654
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 42,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 4,
+            "crossing_vehicle_count": 3,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.892,
+                    "box": [
+                        242,
+                        359,
+                        542,
+                        650
+                    ]
+                },
+                {
+                    "class": "truck",
+                    "confidence": 0.402,
+                    "box": [
+                        239,
+                        209,
+                        549,
+                        547
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.397,
+                    "box": [
+                        562,
+                        317,
+                        618,
+                        429
+                    ]
+                },
+                {
+                    "class": "car",
+                    "confidence": 0.263,
+                    "box": [
+                        0,
+                        389,
+                        229,
+                        658
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.892,
+                    "box": [
+                        242,
+                        359,
+                        542,
+                        650
+                    ]
+                },
+                {
+                    "class": "truck",
+                    "confidence": 0.402,
+                    "box": [
+                        239,
+                        209,
+                        549,
+                        547
+                    ]
+                },
+                {
+                    "class": "car",
+                    "confidence": 0.263,
+                    "box": [
+                        0,
+                        389,
+                        229,
+                        658
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 45,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 2,
+            "crossing_vehicle_count": 1,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.811,
+                    "box": [
+                        233,
+                        359,
+                        516,
+                        655
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.519,
+                    "box": [
+                        548,
+                        321,
+                        608,
+                        435
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.811,
+                    "box": [
+                        233,
+                        359,
+                        516,
+                        655
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 48,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 4,
+            "crossing_vehicle_count": 1,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.726,
+                    "box": [
+                        233,
+                        355,
+                        471,
+                        648
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.664,
+                    "box": [
+                        534,
+                        324,
+                        599,
+                        445
+                    ]
+                },
+                {
+                    "class": "truck",
+                    "confidence": 0.631,
+                    "box": [
+                        233,
+                        194,
+                        517,
+                        492
+                    ]
+                },
+                {
+                    "class": "bus",
+                    "confidence": 0.207,
+                    "box": [
+                        233,
+                        194,
+                        517,
+                        492
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.726,
+                    "box": [
+                        233,
+                        355,
+                        471,
+                        648
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 51,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 3,
+            "crossing_vehicle_count": 1,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.725,
+                    "box": [
+                        231,
+                        407,
+                        439,
+                        654
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.665,
+                    "box": [
+                        525,
+                        325,
+                        608,
+                        452
+                    ]
+                },
+                {
+                    "class": "truck",
+                    "confidence": 0.663,
+                    "box": [
+                        227,
+                        190,
+                        514,
+                        502
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.725,
+                    "box": [
+                        231,
+                        407,
+                        439,
+                        654
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 54,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 3,
+            "crossing_vehicle_count": 1,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.795,
+                    "box": [
+                        231,
+                        411,
+                        434,
+                        653
+                    ]
+                },
+                {
+                    "class": "truck",
+                    "confidence": 0.724,
+                    "box": [
+                        229,
+                        189,
+                        503,
+                        508
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.575,
+                    "box": [
+                        521,
+                        328,
+                        596,
+                        460
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.795,
+                    "box": [
+                        231,
+                        411,
+                        434,
+                        653
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 57,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 3,
+            "crossing_vehicle_count": 1,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.816,
+                    "box": [
+                        228,
+                        419,
+                        432,
+                        652
+                    ]
+                },
+                {
+                    "class": "truck",
+                    "confidence": 0.448,
+                    "box": [
+                        228,
+                        183,
+                        489,
+                        517
+                    ]
+                },
+                {
+                    "class": "bus",
+                    "confidence": 0.235,
+                    "box": [
+                        228,
+                        183,
+                        489,
+                        517
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.816,
+                    "box": [
+                        228,
+                        419,
+                        432,
+                        652
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 60,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 3,
+            "crossing_vehicle_count": 3,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.8,
+                    "box": [
+                        230,
+                        423,
+                        409,
+                        652
+                    ]
+                },
+                {
+                    "class": "truck",
+                    "confidence": 0.59,
+                    "box": [
+                        228,
+                        180,
+                        477,
+                        534
+                    ]
+                },
+                {
+                    "class": "bus",
+                    "confidence": 0.201,
+                    "box": [
+                        228,
+                        180,
+                        477,
+                        534
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.8,
+                    "box": [
+                        230,
+                        423,
+                        409,
+                        652
+                    ]
+                },
+                {
+                    "class": "truck",
+                    "confidence": 0.59,
+                    "box": [
+                        228,
+                        180,
+                        477,
+                        534
+                    ]
+                },
+                {
+                    "class": "bus",
+                    "confidence": 0.201,
+                    "box": [
+                        228,
+                        180,
+                        477,
+                        534
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 63,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 1,
+            "crossing_vehicle_count": 1,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "truck",
+                    "confidence": 0.588,
+                    "box": [
+                        225,
+                        176,
+                        470,
+                        552
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "truck",
+                    "confidence": 0.588,
+                    "box": [
+                        225,
+                        176,
+                        470,
+                        552
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 66,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 4,
+            "crossing_vehicle_count": 3,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "bus",
+                    "confidence": 0.309,
+                    "box": [
+                        225,
+                        171,
+                        460,
+                        566
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.305,
+                    "box": [
+                        691,
+                        337,
+                        815,
+                        455
+                    ]
+                },
+                {
+                    "class": "truck",
+                    "confidence": 0.271,
+                    "box": [
+                        225,
+                        171,
+                        460,
+                        566
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.232,
+                    "box": [
+                        226,
+                        446,
+                        368,
+                        659
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "bus",
+                    "confidence": 0.309,
+                    "box": [
+                        225,
+                        171,
+                        460,
+                        566
+                    ]
+                },
+                {
+                    "class": "truck",
+                    "confidence": 0.271,
+                    "box": [
+                        225,
+                        171,
+                        460,
+                        566
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.232,
+                    "box": [
+                        226,
+                        446,
+                        368,
+                        659
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 69,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 3,
+            "crossing_vehicle_count": 1,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.479,
+                    "box": [
+                        532,
+                        330,
+                        606,
+                        472
+                    ]
+                },
+                {
+                    "class": "truck",
+                    "confidence": 0.478,
+                    "box": [
+                        225,
+                        163,
+                        446,
+                        643
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.464,
+                    "box": [
+                        698,
+                        335,
+                        828,
+                        454
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "truck",
+                    "confidence": 0.478,
+                    "box": [
+                        225,
+                        163,
+                        446,
+                        643
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 72,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 6,
+            "crossing_vehicle_count": 3,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.503,
+                    "box": [
+                        534,
+                        331,
+                        611,
+                        484
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.361,
+                    "box": [
+                        711,
+                        340,
+                        847,
+                        454
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.271,
+                    "box": [
+                        225,
+                        391,
+                        420,
+                        659
+                    ]
+                },
+                {
+                    "class": "truck",
+                    "confidence": 0.243,
+                    "box": [
+                        223,
+                        152,
+                        429,
+                        649
+                    ]
+                },
+                {
+                    "class": "car",
+                    "confidence": 0.239,
+                    "box": [
+                        0,
+                        457,
+                        230,
+                        660
+                    ]
+                },
+                {
+                    "class": "truck",
+                    "confidence": 0.211,
+                    "box": [
+                        224,
+                        155,
+                        427,
+                        490
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.271,
+                    "box": [
+                        225,
+                        391,
+                        420,
+                        659
+                    ]
+                },
+                {
+                    "class": "truck",
+                    "confidence": 0.243,
+                    "box": [
+                        223,
+                        152,
+                        429,
+                        649
+                    ]
+                },
+                {
+                    "class": "car",
+                    "confidence": 0.239,
+                    "box": [
+                        0,
+                        457,
+                        230,
+                        660
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 75,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 4,
+            "crossing_vehicle_count": 3,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "truck",
+                    "confidence": 0.527,
+                    "box": [
+                        223,
+                        147,
+                        412,
+                        654
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.44,
+                    "box": [
+                        225,
+                        448,
+                        394,
+                        659
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.292,
+                    "box": [
+                        537,
+                        332,
+                        609,
+                        493
+                    ]
+                },
+                {
+                    "class": "truck",
+                    "confidence": 0.249,
+                    "box": [
+                        4,
+                        146,
+                        416,
+                        660
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "truck",
+                    "confidence": 0.527,
+                    "box": [
+                        223,
+                        147,
+                        412,
+                        654
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.44,
+                    "box": [
+                        225,
+                        448,
+                        394,
+                        659
+                    ]
+                },
+                {
+                    "class": "truck",
+                    "confidence": 0.249,
+                    "box": [
+                        4,
+                        146,
+                        416,
+                        660
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 78,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 2,
+            "crossing_vehicle_count": 1,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.701,
+                    "box": [
+                        226,
+                        446,
+                        387,
+                        660
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.209,
+                    "box": [
+                        535,
+                        329,
+                        619,
+                        493
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.701,
+                    "box": [
+                        226,
+                        446,
+                        387,
+                        660
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 81,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 4,
+            "crossing_vehicle_count": 1,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.426,
+                    "box": [
+                        227,
+                        361,
+                        397,
+                        660
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.377,
+                    "box": [
+                        532,
+                        332,
+                        618,
+                        504
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.34,
+                    "box": [
+                        632,
+                        227,
+                        858,
+                        507
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.213,
+                    "box": [
+                        462,
+                        312,
+                        526,
+                        432
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.426,
+                    "box": [
+                        227,
+                        361,
+                        397,
+                        660
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 84,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 2,
+            "crossing_vehicle_count": 1,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.672,
+                    "box": [
+                        226,
+                        440,
+                        406,
+                        660
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.225,
+                    "box": [
+                        631,
+                        324,
+                        823,
+                        517
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.672,
+                    "box": [
+                        226,
+                        440,
+                        406,
+                        660
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 87,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 3,
+            "crossing_vehicle_count": 3,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.684,
+                    "box": [
+                        226,
+                        446,
+                        396,
+                        660
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.632,
+                    "box": [
+                        502,
+                        341,
+                        613,
+                        520
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.502,
+                    "box": [
+                        629,
+                        316,
+                        847,
+                        531
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.684,
+                    "box": [
+                        226,
+                        446,
+                        396,
+                        660
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.632,
+                    "box": [
+                        502,
+                        341,
+                        613,
+                        520
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.502,
+                    "box": [
+                        629,
+                        316,
+                        847,
+                        531
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 90,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 4,
+            "crossing_vehicle_count": 3,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "truck",
+                    "confidence": 0.461,
+                    "box": [
+                        228,
+                        202,
+                        426,
+                        363
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.391,
+                    "box": [
+                        225,
+                        461,
+                        375,
+                        660
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.316,
+                    "box": [
+                        225,
+                        294,
+                        375,
+                        660
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.219,
+                    "box": [
+                        449,
+                        316,
+                        607,
+                        541
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.391,
+                    "box": [
+                        225,
+                        461,
+                        375,
+                        660
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.316,
+                    "box": [
+                        225,
+                        294,
+                        375,
+                        660
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.219,
+                    "box": [
+                        449,
+                        316,
+                        607,
+                        541
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 93,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 3,
+            "crossing_vehicle_count": 2,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "truck",
+                    "confidence": 0.672,
+                    "box": [
+                        225,
+                        204,
+                        429,
+                        377
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.622,
+                    "box": [
+                        226,
+                        465,
+                        349,
+                        659
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.51,
+                    "box": [
+                        454,
+                        329,
+                        611,
+                        561
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.622,
+                    "box": [
+                        226,
+                        465,
+                        349,
+                        659
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.51,
+                    "box": [
+                        454,
+                        329,
+                        611,
+                        561
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 96,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 3,
+            "crossing_vehicle_count": 2,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.782,
+                    "box": [
+                        433,
+                        338,
+                        599,
+                        555
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.745,
+                    "box": [
+                        226,
+                        509,
+                        301,
+                        661
+                    ]
+                },
+                {
+                    "class": "truck",
+                    "confidence": 0.737,
+                    "box": [
+                        228,
+                        204,
+                        417,
+                        379
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.782,
+                    "box": [
+                        433,
+                        338,
+                        599,
+                        555
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.745,
+                    "box": [
+                        226,
+                        509,
+                        301,
+                        661
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 99,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 2,
+            "crossing_vehicle_count": 1,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "truck",
+                    "confidence": 0.768,
+                    "box": [
+                        226,
+                        204,
+                        395,
+                        377
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.699,
+                    "box": [
+                        394,
+                        328,
+                        591,
+                        591
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.699,
+                    "box": [
+                        394,
+                        328,
+                        591,
+                        591
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 102,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 2,
+            "crossing_vehicle_count": 1,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.813,
+                    "box": [
+                        356,
+                        324,
+                        578,
+                        612
+                    ]
+                },
+                {
+                    "class": "truck",
+                    "confidence": 0.582,
+                    "box": [
+                        227,
+                        205,
+                        409,
+                        378
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.813,
+                    "box": [
+                        356,
+                        324,
+                        578,
+                        612
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 105,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 4,
+            "crossing_vehicle_count": 2,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.688,
+                    "box": [
+                        316,
+                        355,
+                        576,
+                        643
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.416,
+                    "box": [
+                        269,
+                        342,
+                        393,
+                        537
+                    ]
+                },
+                {
+                    "class": "bus",
+                    "confidence": 0.249,
+                    "box": [
+                        506,
+                        222,
+                        631,
+                        383
+                    ]
+                },
+                {
+                    "class": "bus",
+                    "confidence": 0.224,
+                    "box": [
+                        631,
+                        219,
+                        859,
+                        390
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.688,
+                    "box": [
+                        316,
+                        355,
+                        576,
+                        643
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.416,
+                    "box": [
+                        269,
+                        342,
+                        393,
+                        537
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 108,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 4,
+            "crossing_vehicle_count": 1,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "bus",
+                    "confidence": 0.671,
+                    "box": [
+                        496,
+                        223,
+                        630,
+                        383
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.296,
+                    "box": [
+                        263,
+                        363,
+                        547,
+                        654
+                    ]
+                },
+                {
+                    "class": "car",
+                    "confidence": 0.266,
+                    "box": [
+                        631,
+                        217,
+                        859,
+                        395
+                    ]
+                },
+                {
+                    "class": "bus",
+                    "confidence": 0.244,
+                    "box": [
+                        631,
+                        217,
+                        859,
+                        395
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.296,
+                    "box": [
+                        263,
+                        363,
+                        547,
+                        654
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 111,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 3,
+            "crossing_vehicle_count": 1,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.602,
+                    "box": [
+                        239,
+                        368,
+                        522,
+                        653
+                    ]
+                },
+                {
+                    "class": "bus",
+                    "confidence": 0.6,
+                    "box": [
+                        484,
+                        222,
+                        631,
+                        394
+                    ]
+                },
+                {
+                    "class": "bus",
+                    "confidence": 0.455,
+                    "box": [
+                        633,
+                        216,
+                        859,
+                        407
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.602,
+                    "box": [
+                        239,
+                        368,
+                        522,
+                        653
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 114,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 6,
+            "crossing_vehicle_count": 2,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.654,
+                    "box": [
+                        232,
+                        376,
+                        501,
+                        653
+                    ]
+                },
+                {
+                    "class": "bus",
+                    "confidence": 0.487,
+                    "box": [
+                        469,
+                        220,
+                        632,
+                        401
+                    ]
+                },
+                {
+                    "class": "bus",
+                    "confidence": 0.328,
+                    "box": [
+                        632,
+                        216,
+                        858,
+                        404
+                    ]
+                },
+                {
+                    "class": "truck",
+                    "confidence": 0.301,
+                    "box": [
+                        469,
+                        220,
+                        632,
+                        401
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.269,
+                    "box": [
+                        1,
+                        329,
+                        226,
+                        657
+                    ]
+                },
+                {
+                    "class": "bus",
+                    "confidence": 0.232,
+                    "box": [
+                        228,
+                        161,
+                        506,
+                        345
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.654,
+                    "box": [
+                        232,
+                        376,
+                        501,
+                        653
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.269,
+                    "box": [
+                        1,
+                        329,
+                        226,
+                        657
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 117,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 4,
+            "crossing_vehicle_count": 1,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.542,
+                    "box": [
+                        229,
+                        318,
+                        480,
+                        654
+                    ]
+                },
+                {
+                    "class": "truck",
+                    "confidence": 0.503,
+                    "box": [
+                        453,
+                        218,
+                        632,
+                        423
+                    ]
+                },
+                {
+                    "class": "bus",
+                    "confidence": 0.381,
+                    "box": [
+                        453,
+                        218,
+                        632,
+                        423
+                    ]
+                },
+                {
+                    "class": "bus",
+                    "confidence": 0.257,
+                    "box": [
+                        630,
+                        214,
+                        858,
+                        403
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.542,
+                    "box": [
+                        229,
+                        318,
+                        480,
+                        654
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 120,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 4,
+            "crossing_vehicle_count": 1,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.773,
+                    "box": [
+                        234,
+                        397,
+                        468,
+                        654
+                    ]
+                },
+                {
+                    "class": "bus",
+                    "confidence": 0.716,
+                    "box": [
+                        447,
+                        216,
+                        632,
+                        435
+                    ]
+                },
+                {
+                    "class": "bus",
+                    "confidence": 0.578,
+                    "box": [
+                        631,
+                        214,
+                        858,
+                        400
+                    ]
+                },
+                {
+                    "class": "bus",
+                    "confidence": 0.202,
+                    "box": [
+                        245,
+                        147,
+                        455,
+                        364
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.773,
+                    "box": [
+                        234,
+                        397,
+                        468,
+                        654
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 123,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 6,
+            "crossing_vehicle_count": 2,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "truck",
+                    "confidence": 0.646,
+                    "box": [
+                        416,
+                        213,
+                        631,
+                        448
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.605,
+                    "box": [
+                        224,
+                        413,
+                        419,
+                        658
+                    ]
+                },
+                {
+                    "class": "truck",
+                    "confidence": 0.595,
+                    "box": [
+                        242,
+                        204,
+                        414,
+                        378
+                    ]
+                },
+                {
+                    "class": "bus",
+                    "confidence": 0.328,
+                    "box": [
+                        631,
+                        212,
+                        850,
+                        405
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.272,
+                    "box": [
+                        329,
+                        413,
+                        417,
+                        621
+                    ]
+                },
+                {
+                    "class": "bus",
+                    "confidence": 0.225,
+                    "box": [
+                        416,
+                        213,
+                        631,
+                        448
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.605,
+                    "box": [
+                        224,
+                        413,
+                        419,
+                        658
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.272,
+                    "box": [
+                        329,
+                        413,
+                        417,
+                        621
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 126,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 8,
+            "crossing_vehicle_count": 2,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "truck",
+                    "confidence": 0.802,
+                    "box": [
+                        229,
+                        205,
+                        401,
+                        377
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.65,
+                    "box": [
+                        225,
+                        334,
+                        365,
+                        660
+                    ]
+                },
+                {
+                    "class": "bus",
+                    "confidence": 0.536,
+                    "box": [
+                        394,
+                        212,
+                        620,
+                        447
+                    ]
+                },
+                {
+                    "class": "truck",
+                    "confidence": 0.414,
+                    "box": [
+                        630,
+                        213,
+                        826,
+                        413
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.39,
+                    "box": [
+                        226,
+                        433,
+                        365,
+                        661
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.26,
+                    "box": [
+                        406,
+                        367,
+                        468,
+                        462
+                    ]
+                },
+                {
+                    "class": "truck",
+                    "confidence": 0.259,
+                    "box": [
+                        394,
+                        212,
+                        620,
+                        447
+                    ]
+                },
+                {
+                    "class": "car",
+                    "confidence": 0.232,
+                    "box": [
+                        630,
+                        213,
+                        826,
+                        413
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.65,
+                    "box": [
+                        225,
+                        334,
+                        365,
+                        660
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.39,
+                    "box": [
+                        226,
+                        433,
+                        365,
+                        661
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 129,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 7,
+            "crossing_vehicle_count": 2,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.83,
+                    "box": [
+                        224,
+                        459,
+                        286,
+                        660
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.71,
+                    "box": [
+                        0,
+                        469,
+                        122,
+                        659
+                    ]
+                },
+                {
+                    "class": "bus",
+                    "confidence": 0.496,
+                    "box": [
+                        630,
+                        212,
+                        808,
+                        418
+                    ]
+                },
+                {
+                    "class": "bus",
+                    "confidence": 0.413,
+                    "box": [
+                        369,
+                        209,
+                        612,
+                        424
+                    ]
+                },
+                {
+                    "class": "truck",
+                    "confidence": 0.32,
+                    "box": [
+                        630,
+                        212,
+                        808,
+                        418
+                    ]
+                },
+                {
+                    "class": "truck",
+                    "confidence": 0.317,
+                    "box": [
+                        369,
+                        209,
+                        612,
+                        424
+                    ]
+                },
+                {
+                    "class": "truck",
+                    "confidence": 0.234,
+                    "box": [
+                        254,
+                        183,
+                        386,
+                        359
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.83,
+                    "box": [
+                        224,
+                        459,
+                        286,
+                        660
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.71,
+                    "box": [
+                        0,
+                        469,
+                        122,
+                        659
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 132,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 4,
+            "crossing_vehicle_count": 0,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "truck",
+                    "confidence": 0.692,
+                    "box": [
+                        346,
+                        206,
+                        600,
+                        492
+                    ]
+                },
+                {
+                    "class": "truck",
+                    "confidence": 0.439,
+                    "box": [
+                        227,
+                        148,
+                        371,
+                        376
+                    ]
+                },
+                {
+                    "class": "truck",
+                    "confidence": 0.325,
+                    "box": [
+                        632,
+                        209,
+                        781,
+                        421
+                    ]
+                },
+                {
+                    "class": "bus",
+                    "confidence": 0.303,
+                    "box": [
+                        632,
+                        209,
+                        781,
+                        421
+                    ]
+                }
+            ],
+            "crossing_vehicles": []
+        },
+        {
+            "frame_id": 135,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 5,
+            "crossing_vehicle_count": 0,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "truck",
+                    "confidence": 0.401,
+                    "box": [
+                        227,
+                        206,
+                        342,
+                        374
+                    ]
+                },
+                {
+                    "class": "truck",
+                    "confidence": 0.338,
+                    "box": [
+                        227,
+                        206,
+                        345,
+                        376
+                    ]
+                },
+                {
+                    "class": "truck",
+                    "confidence": 0.322,
+                    "box": [
+                        321,
+                        200,
+                        588,
+                        450
+                    ]
+                },
+                {
+                    "class": "bus",
+                    "confidence": 0.255,
+                    "box": [
+                        321,
+                        200,
+                        588,
+                        450
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.204,
+                    "box": [
+                        616,
+                        318,
+                        632,
+                        357
+                    ]
+                }
+            ],
+            "crossing_vehicles": []
+        },
+        {
+            "frame_id": 138,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 4,
+            "crossing_vehicle_count": 0,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.353,
+                    "box": [
+                        594,
+                        292,
+                        632,
+                        360
+                    ]
+                },
+                {
+                    "class": "bus",
+                    "confidence": 0.283,
+                    "box": [
+                        290,
+                        196,
+                        579,
+                        459
+                    ]
+                },
+                {
+                    "class": "truck",
+                    "confidence": 0.23,
+                    "box": [
+                        290,
+                        196,
+                        579,
+                        459
+                    ]
+                },
+                {
+                    "class": "truck",
+                    "confidence": 0.222,
+                    "box": [
+                        226,
+                        207,
+                        314,
+                        365
+                    ]
+                }
+            ],
+            "crossing_vehicles": []
+        },
+        {
+            "frame_id": 141,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 4,
+            "crossing_vehicle_count": 1,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.729,
+                    "box": [
+                        582,
+                        296,
+                        632,
+                        364
+                    ]
+                },
+                {
+                    "class": "bus",
+                    "confidence": 0.432,
+                    "box": [
+                        259,
+                        188,
+                        563,
+                        478
+                    ]
+                },
+                {
+                    "class": "car",
+                    "confidence": 0.357,
+                    "box": [
+                        68,
+                        302,
+                        230,
+                        556
+                    ]
+                },
+                {
+                    "class": "truck",
+                    "confidence": 0.333,
+                    "box": [
+                        547,
+                        234,
+                        591,
+                        314
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "car",
+                    "confidence": 0.357,
+                    "box": [
+                        68,
+                        302,
+                        230,
+                        556
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 144,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 3,
+            "crossing_vehicle_count": 2,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "bus",
+                    "confidence": 0.731,
+                    "box": [
+                        225,
+                        186,
+                        558,
+                        485
+                    ]
+                },
+                {
+                    "class": "car",
+                    "confidence": 0.264,
+                    "box": [
+                        0,
+                        311,
+                        226,
+                        581
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.234,
+                    "box": [
+                        226,
+                        431,
+                        316,
+                        582
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "car",
+                    "confidence": 0.264,
+                    "box": [
+                        0,
+                        311,
+                        226,
+                        581
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.234,
+                    "box": [
+                        226,
+                        431,
+                        316,
+                        582
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 147,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 2,
+            "crossing_vehicle_count": 2,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "bus",
+                    "confidence": 0.717,
+                    "box": [
+                        225,
+                        182,
+                        538,
+                        568
+                    ]
+                },
+                {
+                    "class": "car",
+                    "confidence": 0.259,
+                    "box": [
+                        0,
+                        313,
+                        225,
+                        593
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "bus",
+                    "confidence": 0.717,
+                    "box": [
+                        225,
+                        182,
+                        538,
+                        568
+                    ]
+                },
+                {
+                    "class": "car",
+                    "confidence": 0.259,
+                    "box": [
+                        0,
+                        313,
+                        225,
+                        593
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 150,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 2,
+            "crossing_vehicle_count": 2,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "bus",
+                    "confidence": 0.851,
+                    "box": [
+                        224,
+                        163,
+                        523,
+                        558
+                    ]
+                },
+                {
+                    "class": "car",
+                    "confidence": 0.348,
+                    "box": [
+                        0,
+                        175,
+                        226,
+                        569
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "bus",
+                    "confidence": 0.851,
+                    "box": [
+                        224,
+                        163,
+                        523,
+                        558
+                    ]
+                },
+                {
+                    "class": "car",
+                    "confidence": 0.348,
+                    "box": [
+                        0,
+                        175,
+                        226,
+                        569
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 153,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 4,
+            "crossing_vehicle_count": 4,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "bus",
+                    "confidence": 0.549,
+                    "box": [
+                        225,
+                        163,
+                        514,
+                        551
+                    ]
+                },
+                {
+                    "class": "bus",
+                    "confidence": 0.498,
+                    "box": [
+                        0,
+                        171,
+                        224,
+                        558
+                    ]
+                },
+                {
+                    "class": "truck",
+                    "confidence": 0.291,
+                    "box": [
+                        225,
+                        163,
+                        514,
+                        551
+                    ]
+                },
+                {
+                    "class": "bus",
+                    "confidence": 0.216,
+                    "box": [
+                        0,
+                        171,
+                        226,
+                        559
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "bus",
+                    "confidence": 0.549,
+                    "box": [
+                        225,
+                        163,
+                        514,
+                        551
+                    ]
+                },
+                {
+                    "class": "bus",
+                    "confidence": 0.498,
+                    "box": [
+                        0,
+                        171,
+                        224,
+                        558
+                    ]
+                },
+                {
+                    "class": "truck",
+                    "confidence": 0.291,
+                    "box": [
+                        225,
+                        163,
+                        514,
+                        551
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 156,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 2,
+            "crossing_vehicle_count": 1,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "truck",
+                    "confidence": 0.739,
+                    "box": [
+                        224,
+                        153,
+                        495,
+                        581
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.383,
+                    "box": [
+                        524,
+                        310,
+                        579,
+                        386
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "truck",
+                    "confidence": 0.739,
+                    "box": [
+                        224,
+                        153,
+                        495,
+                        581
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 159,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 5,
+            "crossing_vehicle_count": 4,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "truck",
+                    "confidence": 0.763,
+                    "box": [
+                        225,
+                        154,
+                        474,
+                        592
+                    ]
+                },
+                {
+                    "class": "bus",
+                    "confidence": 0.681,
+                    "box": [
+                        0,
+                        155,
+                        223,
+                        598
+                    ]
+                },
+                {
+                    "class": "car",
+                    "confidence": 0.398,
+                    "box": [
+                        758,
+                        257,
+                        859,
+                        544
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.371,
+                    "box": [
+                        511,
+                        315,
+                        570,
+                        388
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.296,
+                    "box": [
+                        592,
+                        401,
+                        633,
+                        546
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "truck",
+                    "confidence": 0.763,
+                    "box": [
+                        225,
+                        154,
+                        474,
+                        592
+                    ]
+                },
+                {
+                    "class": "bus",
+                    "confidence": 0.681,
+                    "box": [
+                        0,
+                        155,
+                        223,
+                        598
+                    ]
+                },
+                {
+                    "class": "car",
+                    "confidence": 0.398,
+                    "box": [
+                        758,
+                        257,
+                        859,
+                        544
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 162,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 2,
+            "crossing_vehicle_count": 2,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "truck",
+                    "confidence": 0.658,
+                    "box": [
+                        224,
+                        157,
+                        447,
+                        600
+                    ]
+                },
+                {
+                    "class": "car",
+                    "confidence": 0.2,
+                    "box": [
+                        696,
+                        210,
+                        860,
+                        651
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "truck",
+                    "confidence": 0.658,
+                    "box": [
+                        224,
+                        157,
+                        447,
+                        600
+                    ]
+                },
+                {
+                    "class": "car",
+                    "confidence": 0.2,
+                    "box": [
+                        696,
+                        210,
+                        860,
+                        651
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 165,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 3,
+            "crossing_vehicle_count": 3,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "truck",
+                    "confidence": 0.737,
+                    "box": [
+                        224,
+                        156,
+                        436,
+                        623
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.649,
+                    "box": [
+                        467,
+                        382,
+                        627,
+                        654
+                    ]
+                },
+                {
+                    "class": "truck",
+                    "confidence": 0.226,
+                    "box": [
+                        857,
+                        84,
+                        1278,
+                        675
+                    ]
+                }
+            ],
+            "crossing_vehicles": [
+                {
+                    "class": "truck",
+                    "confidence": 0.737,
+                    "box": [
+                        224,
+                        156,
+                        436,
+                        623
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.649,
+                    "box": [
+                        467,
+                        382,
+                        627,
+                        654
+                    ]
+                },
+                {
+                    "class": "truck",
+                    "confidence": 0.226,
+                    "box": [
+                        857,
+                        84,
+                        1278,
+                        675
+                    ]
+                }
+            ]
+        },
+        {
+            "frame_id": 168,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 0,
+            "crossing_vehicle_count": 0,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [],
+            "crossing_vehicles": []
+        },
+        {
+            "frame_id": 171,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 4,
+            "crossing_vehicle_count": 0,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.585,
+                    "box": [
+                        499,
+                        316,
+                        539,
+                        411
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.32,
+                    "box": [
+                        547,
+                        324,
+                        620,
+                        447
+                    ]
+                },
+                {
+                    "class": "bus",
+                    "confidence": 0.297,
+                    "box": [
+                        227,
+                        150,
+                        360,
+                        391
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.219,
+                    "box": [
+                        364,
+                        339,
+                        443,
+                        476
+                    ]
+                }
+            ],
+            "crossing_vehicles": []
+        },
+        {
+            "frame_id": 174,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 0,
+            "crossing_vehicle_count": 0,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [],
+            "crossing_vehicles": []
+        },
+        {
+            "frame_id": 177,
+            "signal_color": "unknown",
+            "signal_roi": [
+                998,
+                14,
+                1267,
+                273
+            ],
+            "vehicle_count": 2,
+            "crossing_vehicle_count": 0,
+            "stop_line_y": 518,
+            "violation": false,
+            "decision": "Manual Review",
+            "priority": "Medium",
+            "vehicles": [
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.414,
+                    "box": [
+                        472,
+                        320,
+                        528,
+                        420
+                    ]
+                },
+                {
+                    "class": "motorcycle",
+                    "confidence": 0.345,
+                    "box": [
+                        298,
+                        360,
+                        397,
+                        508
+                    ]
+                }
+            ],
+            "crossing_vehicles": []
+        }
+    ]
+}
