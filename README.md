@@ -623,3 +623,7 @@ To reproduce final outputs, follow:
 [REPRODUCE_FOR_JUDGES.md](REPRODUCE_FOR_JUDGES.md)
 
 The trained weights and sample inputs are provided separately through the Google Drive judge asset zip.
+
+## Reproducibility Scope
+
+See [REPRODUCIBILITY_SCOPE.md](REPRODUCIBILITY_SCOPE.md) for what the judge can reproduce from the provided weights and sample inputs.
