@@ -1,0 +1,30 @@
+{
+    "module": "safe_plate_ocr",
+    "input_image": "data/sample_images/ocr_showcase/ocr_showcase_02.jpg",
+    "plate_detected": true,
+    "selected_box": [
+        929,
+        1003,
+        1837,
+        1353
+    ],
+    "padded_box": [
+        612,
+        846,
+        2154,
+        1510
+    ],
+    "detection_confidence": 0.734,
+    "readability_score": 67.48,
+    "raw_crop_path": "outputs/FINAL_SHOWCASE/plate_ocr/enhanced_plate_crops/raw_plate_2.jpg",
+    "enhanced_crop_path": "outputs/FINAL_SHOWCASE/plate_ocr/enhanced_plate_crops/enhanced_plate_2.jpg",
+    "ocr_result": {
+        "ocr_status": "Reliable",
+        "reason": "Plate text passed OCR confidence, post-processing, and Indian plate format validation",
+        "plate_text": "TN23L4547",
+        "ocr_confidence": 0.639,
+        "variant": "inverted"
+    },
+    "safety": "OCR text is not forced. Weak OCR is sent to manual review.",
+    "output_image": "outputs/FINAL_SHOWCASE/plate_ocr/plate_ocr_evidence_2.jpg"
+}

@@ -1,25 +1,30 @@
 {
     "module": "safe_plate_ocr",
-    "input": "data\\sample_images\\dedicated_plate_safe_ocr_snapshot.png",
-    "plate_candidates": 1,
-    "plates": [
-        {
-            "box": [
-                0,
-                35,
-                1077,
-                590
-            ],
-            "detection_confidence": 0.394,
-            "readability": 100.0,
-            "safe_ocr": {
-                "plate_text": "UNREADABLE",
-                "status": "Manual Review",
-                "manual_review": true,
-                "ocr_confidence": 0.0,
-                "readability": 100.0
-            }
-        }
+    "input_image": "data/sample_images/ocr_showcase/ocr_showcase_01.jpg",
+    "plate_detected": true,
+    "selected_box": [
+        874,
+        1343,
+        1725,
+        1628
     ],
-    "safety": "Plate text is shown only when OCR confidence and readability are reliable. Otherwise it is marked manual review."
+    "padded_box": [
+        577,
+        1215,
+        2022,
+        1756
+    ],
+    "detection_confidence": 0.735,
+    "readability_score": 67.75,
+    "raw_crop_path": "outputs/FINAL_SHOWCASE/plate_ocr/enhanced_plate_crops/raw_plate_1.jpg",
+    "enhanced_crop_path": "outputs/FINAL_SHOWCASE/plate_ocr/enhanced_plate_crops/enhanced_plate_1.jpg",
+    "ocr_result": {
+        "ocr_status": "Reliable",
+        "reason": "Plate text passed OCR confidence, post-processing, and Indian plate format validation",
+        "plate_text": "TN18D1866",
+        "ocr_confidence": 0.832,
+        "variant": "threshold"
+    },
+    "safety": "OCR text is not forced. Weak OCR is sent to manual review.",
+    "output_image": "outputs/FINAL_SHOWCASE/plate_ocr/plate_ocr_evidence_1.jpg"
 }
