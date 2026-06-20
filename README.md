@@ -627,3 +627,105 @@ The trained weights and sample inputs are provided separately through the Google
 ## Reproducibility Scope
 
 See [REPRODUCIBILITY_SCOPE.md](REPRODUCIBILITY_SCOPE.md) for what the judge can reproduce from the provided weights and sample inputs.
+
+<!-- QUICK_JUDGE_RUN_START -->
+
+## Quick Judge Reproduction Steps
+
+Use these steps to reproduce the final ViolationIQ demo/inference outputs from a fresh machine.
+
+### 1. Clone repository
+
+    git clone https://github.com/Hrithikcrick/ViolationIQ.git
+    cd ViolationIQ
+
+### 2. Create and activate environment
+
+Windows:
+
+    python -m venv .venv
+    .venv\Scripts\activate
+    python -m pip install --upgrade pip
+    python -m pip install -r requirements.txt
+
+Linux or Mac:
+
+    python3 -m venv .venv
+    source .venv/bin/activate
+    python -m pip install --upgrade pip
+    python -m pip install -r requirements.txt
+
+### 3. Download judge assets
+
+The trained model weights and sample inputs are provided separately because they are large.
+
+Asset zip link:
+
+https://drive.google.com/file/d/1XeJq1Afzw0hjd1gdzt1pjwlz6GvF4J2f/view?usp=sharing
+
+Automatic download:
+
+    python scripts/download_assets.py
+
+If automatic download fails, manually download the zip from Google Drive and extract it inside the repository root.
+
+After extraction, the repository should contain:
+
+    weights/traffic_yolo11s_best.pt
+    weights/helmet_yolo11s_best.pt
+    weights/large_plate_yolo11s_best.pt
+    weights/yolo26n.pt
+    data/sample_images/
+    data/sample_videos/
+
+### 4. Check source code
+
+    python -m compileall -f src scripts
+
+### 5. Run reproduction
+
+Windows:
+
+    python scripts\reproduce_pipeline.py --traffic_model weights\traffic_yolo11s_best.pt --helmet_model weights\helmet_yolo11s_best.pt --plate_model weights\large_plate_yolo11s_best.pt --vehicle_model weights\yolo26n.pt
+
+Linux or Mac:
+
+    python scripts/reproduce_pipeline.py --traffic_model weights/traffic_yolo11s_best.pt --helmet_model weights/helmet_yolo11s_best.pt --plate_model weights/large_plate_yolo11s_best.pt --vehicle_model weights/yolo26n.pt
+
+Expected output:
+
+    Reproduction completed.
+    Images processed: 1
+    Videos processed: 2
+    Summary saved: reports/reproduction_summary.json
+    Showcase index: outputs/FINAL_SHOWCASE/final_showcase_index.csv
+
+### 6. Check generated outputs
+
+Windows:
+
+    dir outputs\FINAL_SHOWCASE
+    dir outputs\FINAL_SHOWCASE\helmet_plate
+    dir outputs\FINAL_SHOWCASE\redlight
+    dir outputs\FINAL_SHOWCASE\signboard_context
+    dir reports
+
+Linux or Mac:
+
+    ls outputs/FINAL_SHOWCASE
+    ls outputs/FINAL_SHOWCASE/helmet_plate
+    ls outputs/FINAL_SHOWCASE/redlight
+    ls outputs/FINAL_SHOWCASE/signboard_context
+    ls reports
+
+### Reproducibility scope
+
+This setup reproduces the final inference/demo outputs using trained weights and sample inputs.
+
+The reported model-training metrics were obtained during Kaggle training. Full retraining requires the original datasets, Kaggle notebook, GPU environment, and training commands.
+
+### Safety note
+
+ViolationIQ is an AI evidence copilot. It generates evidence candidates and review-ready outputs. Manual verification is required before any challan or legal action.
+
+<!-- QUICK_JUDGE_RUN_END -->
