@@ -1,0 +1,25 @@
+{
+    "module": "safe_plate_ocr",
+    "input": "data\\sample_images\\dedicated_plate_safe_ocr_snapshot.png",
+    "plate_candidates": 1,
+    "plates": [
+        {
+            "box": [
+                0,
+                35,
+                1077,
+                590
+            ],
+            "detection_confidence": 0.394,
+            "readability": 100.0,
+            "safe_ocr": {
+                "plate_text": "UNREADABLE",
+                "status": "Manual Review",
+                "manual_review": true,
+                "ocr_confidence": 0.0,
+                "readability": 100.0
+            }
+        }
+    ],
+    "safety": "Plate text is shown only when OCR confidence and readability are reliable. Otherwise it is marked manual review."
+}

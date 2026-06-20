@@ -1,8 +1,8 @@
 {
-    "reproduction_scope": "Stable judge reproduction: helmet/plate evidence, helmet video demo, signboard context, JSON reports, CSV index",
-    "redlight_status": "Removed from final judge reproduction because the available sample red-light output was not reliable enough for final evaluation.",
+    "reproduction_scope": "Stable judge reproduction: helmet image evidence, safe plate OCR, signboard context, copied best helmet video demo, JSON reports, CSV index",
+    "redlight_status": "Removed from final judge reproduction because available sample red-light output was not reliable.",
     "images_processed": 1,
-    "videos_processed": 1,
+    "helmet_videos_processed": 1,
     "helmet_reports": [
         {
             "module": "helmet_plate_module",
@@ -41,16 +41,31 @@
             "safety": "Plate text is shown only when OCR confidence and crop readability are reliable. Manual review is required before challan."
         }
     ],
-    "helmet_video_reports": [
+    "plate_ocr_reports": [
         {
-            "module": "helmet_video_demo",
-            "input_video": "data\\sample_videos\\violationiq_bike_helmet_demo.mp4",
-            "output_video": "outputs/FINAL_SHOWCASE/videos/helmet_video_demo_processed_1.mp4",
-            "frames_written": 180,
-            "violation_candidate_frames": 0,
-            "total_detections": 732,
-            "status": "Helmet video demo generated successfully",
-            "safety": "This video is an evidence demo. Manual review is required before challan or legal action."
+            "module": "safe_plate_ocr",
+            "input": "data\\sample_images\\dedicated_plate_safe_ocr_snapshot.png",
+            "plate_candidates": 1,
+            "plates": [
+                {
+                    "box": [
+                        0,
+                        35,
+                        1077,
+                        590
+                    ],
+                    "detection_confidence": 0.394,
+                    "readability": 100.0,
+                    "safe_ocr": {
+                        "plate_text": "UNREADABLE",
+                        "status": "Manual Review",
+                        "manual_review": true,
+                        "ocr_confidence": 0.0,
+                        "readability": 100.0
+                    }
+                }
+            ],
+            "safety": "Plate text is shown only when OCR confidence and readability are reliable. Otherwise it is marked manual review."
         }
     ],
     "signboard_reports": [
@@ -63,6 +78,16 @@
                 "No strong signboard context detected"
             ],
             "safety": "Image gives sign context. Final challan may need tracking, duration, calibration, or manual review."
+        }
+    ],
+    "helmet_video_reports": [
+        {
+            "module": "helmet_video_demo",
+            "input_video": "data/sample_videos/violationiq_bike_helmet_demo.mp4",
+            "output_video": "outputs/FINAL_SHOWCASE/videos/helmet_video_demo_processed_1.mp4",
+            "status": "Best helmet demo video copied to final showcase without re-processing",
+            "note": "The video was already processed during Kaggle development. It is not processed again to avoid duplicate boxes/labels.",
+            "safety": "Manual review is required before challan or legal action."
         }
     ],
     "final_showcase_index": "outputs/FINAL_SHOWCASE/final_showcase_index.csv"

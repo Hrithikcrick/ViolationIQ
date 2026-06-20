@@ -1,10 +1,8 @@
 {
     "module": "helmet_video_demo",
-    "input_video": "data\\sample_videos\\violationiq_bike_helmet_demo.mp4",
+    "input_video": "data/sample_videos/violationiq_bike_helmet_demo.mp4",
     "output_video": "outputs/FINAL_SHOWCASE/videos/helmet_video_demo_processed_1.mp4",
-    "frames_written": 180,
-    "violation_candidate_frames": 0,
-    "total_detections": 732,
-    "status": "Helmet video demo generated successfully",
-    "safety": "This video is an evidence demo. Manual review is required before challan or legal action."
+    "status": "Best helmet demo video copied to final showcase without re-processing",
+    "note": "The video was already processed during Kaggle development. It is not processed again to avoid duplicate boxes/labels.",
+    "safety": "Manual review is required before challan or legal action."
 }
