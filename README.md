@@ -1,5 +1,40 @@
-﻿# ViolationIQ: Adaptive Multi-Expert AI Evidence Copilot for Traffic Enforcement
+﻿<!-- COLOR_HEADER_START -->
 
+<div align="center">
+
+# 🚦 ViolationIQ
+
+### Adaptive Multi-Expert AI Evidence Copilot for Traffic Enforcement
+
+<b>Helmet Detection • Safe Plate OCR • Signboard Context • Evidence Reports • Helmet Video Demo</b>
+
+<br>
+
+<img src="https://img.shields.io/badge/Python-3.x-blue?style=for-the-badge&logo=python">
+<img src="https://img.shields.io/badge/YOLO11s-Detection-brightgreen?style=for-the-badge">
+<img src="https://img.shields.io/badge/OpenCV-Computer%20Vision-orange?style=for-the-badge&logo=opencv">
+<img src="https://img.shields.io/badge/EasyOCR-Safe%20ANPR-red?style=for-the-badge">
+<img src="https://img.shields.io/badge/Status-Judge%20Reproducible-success?style=for-the-badge">
+
+<br><br>
+
+### 🎥 Helmet Violation Demo
+
+<a href="demo/violationiq_bike_helmet_demo.mp4"><b>▶ Watch Processed Helmet Violation Demo</b></a>
+
+<br><br>
+
+<a href="https://drive.google.com/file/d/1XeJq1Afzw0hjd1gdzt1pjwlz6GvF4J2f/view?usp=sharing"><b>📦 Download Judge Assets</b></a>
+&nbsp;&nbsp;|&nbsp;&nbsp;
+<a href="#judge-reproduction-guide"><b>⚙️ Reproduce Outputs</b></a>
+&nbsp;&nbsp;|&nbsp;&nbsp;
+<a href="reports/ViolationIQ_IEEE_Report.pdf"><b>📄 Project Report</b></a>
+
+</div>
+
+---
+
+<!-- COLOR_HEADER_END -->
 Safety-first AI framework for traffic violation evidence generation using Computer Vision.
 
 ViolationIQ is designed as an AI evidence copilot, not as an automatic challan generator. It prepares review-ready traffic evidence and sends uncertain cases to manual review.
@@ -229,3 +264,4 @@ The IEEE-style project report is available in the reports folder:
 ## Final Claim
 
 ViolationIQ is an adaptive multi-expert AI evidence copilot for traffic enforcement. It produces clean, review-ready, safety-aware evidence for helmet violations, number plate evidence, signboard context, and final demo review outputs.
+
