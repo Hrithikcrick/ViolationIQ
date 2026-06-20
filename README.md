@@ -47,7 +47,6 @@ ViolationIQ supports:
 - rider-wise helmet or no-helmet detection
 - dedicated number plate localization
 - safe OCR / ANPR fallback
-- signboard context evidence
 - structured JSON and CSV reporting
 - processed helmet video demo
 - final showcase outputs for review
@@ -66,21 +65,15 @@ Traffic violations need different types of evidence. A helmet violation needs ri
 
 The final judge reproduction script generates:
 
-- helmet and rider evidence image
-- rider-wise helmet/no-helmet JSON report
 - safe plate OCR evidence panel
 - plate OCR/manual-review JSON report
-- signboard context evidence image
-- signboard context JSON report
 - processed helmet video demo generated in final showcase
 - final showcase CSV index
 - reproduction summary JSON
 
 Generated folders:
 
-    outputs/FINAL_SHOWCASE/helmet_plate/
     outputs/FINAL_SHOWCASE/plate_ocr/
-    outputs/FINAL_SHOWCASE/signboard_context/
     outputs/FINAL_SHOWCASE/videos/
     outputs/FINAL_SHOWCASE/final_showcase_index.csv
     reports/reproduction_summary.json
@@ -211,19 +204,15 @@ Expected output:
 Windows:
 
     dir outputs\FINAL_SHOWCASE
-    dir outputs\FINAL_SHOWCASE\helmet_plate
-    dir outputs\FINAL_SHOWCASE\plate_ocr
-    dir outputs\FINAL_SHOWCASE\signboard_context
-    dir outputs\FINAL_SHOWCASE\videos
+        dir outputs\FINAL_SHOWCASE\plate_ocr
+        dir outputs\FINAL_SHOWCASE\videos
     dir reports
 
 Linux / Mac:
 
     ls outputs/FINAL_SHOWCASE
-    ls outputs/FINAL_SHOWCASE/helmet_plate
-    ls outputs/FINAL_SHOWCASE/plate_ocr
-    ls outputs/FINAL_SHOWCASE/signboard_context
-    ls outputs/FINAL_SHOWCASE/videos
+        ls outputs/FINAL_SHOWCASE/plate_ocr
+        ls outputs/FINAL_SHOWCASE/videos
     ls reports
 
 ## What Judges Can Reproduce
@@ -232,7 +221,6 @@ Judges can reproduce the final inference/demo deliverables:
 
 - helmet image evidence
 - safe plate OCR evidence
-- signboard context evidence
 - processed helmet video demo generated in final showcase
 - JSON reports
 - CSV showcase index
@@ -299,6 +287,7 @@ Safe OCR policy:
 This prevents wrong challans due to forced or incorrect number plate reading.
 
 <!-- OCR_SECTION_END -->
+
 
 
 
