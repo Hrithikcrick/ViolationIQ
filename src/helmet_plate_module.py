@@ -1,28 +1,59 @@
-import json
+﻿import json
 from pathlib import Path
+
 import cv2
 import numpy as np
 
 try:
-    from .safety_utils import image_quality_score, plate_readability_score, safe_plate_output
-    from .safety_utils import point_inside_box, box_center, nms_by_class
+    from .safety_utils import image_quality_score
+    from .safety_utils import plate_readability_score
+    from .safety_utils import safe_plate_output
+    from .safety_utils import point_inside_box
+    from .safety_utils import box_center
+    from .safety_utils import nms_by_class
 except ImportError:
-    from safety_utils import image_quality_score, plate_readability_score, safe_plate_output
-    from safety_utils import point_inside_box, box_center, nms_by_class
+    from safety_utils import image_quality_score
+    from safety_utils import plate_readability_score
+    from safety_utils import safe_plate_output
+    from safety_utils import point_inside_box
+    from safety_utils import box_center
+    from safety_utils import nms_by_class
 
 
 class HelmetPlateModule:
-    def __init__(self, helmet_model=None, plate_model=None):
+    def __init__(self, helmet_model=None, plate_model=None, ocr_reader=None):
         self.helmet_model = helmet_model
         self.plate_model = plate_model
+        self.ocr_reader = ocr_reader
 
-        self.helmet_names = {
+        self.fallback_names = {
             0: "numberPlate",
             1: "faceWithNoHelmet",
             2: "faceWithGoodHelmet",
             3: "faceWithBadHelmet",
             4: "rider",
         }
+
+    def normal_label(self, label):
+        label = str(label).strip()
+        low = label.lower()
+
+        if low in ["numberplate", "number plate", "license plate", "licence plate", "plate"]:
+            return "numberPlate"
+
+        if low in ["facewithnohelmet", "no helmet", "without helmet", "no_helmet"]:
+            return "faceWithNoHelmet"
+
+        if low in ["facewithgoodhelmet", "good helmet", "helmet", "with helmet", "helmet_ok"]:
+            return "faceWithGoodHelmet"
+
+        if low in ["facewithbadhelmet", "bad helmet", "improper helmet"]:
+            return "faceWithBadHelmet"
+
+        if low in ["rider", "person", "motorcyclist"]:
+            return "rider"
+
+        return label
 
     def collect_helmet_detections(self, image, conf=0.18, imgsz=768):
         if self.helmet_model is None:
@@ -42,10 +73,12 @@ class HelmetPlateModule:
                 cls_id = int(box.cls[0])
                 score = float(box.conf[0])
 
-                if hasattr(self.helmet_model, "names") and cls_id in self.helmet_model.names:
-                    label = self.helmet_model.names[cls_id]
+                if hasattr(self.helmet_model, "names"):
+                    label = self.helmet_model.names.get(cls_id, str(cls_id))
                 else:
-                    label = self.helmet_names.get(cls_id, str(cls_id))
+                    label = self.fallback_names.get(cls_id, str(cls_id))
+
+                label = self.normal_label(label)
 
                 x1, y1, x2, y2 = box.xyxy[0].cpu().numpy().astype(int)
 
@@ -93,11 +126,51 @@ class HelmetPlateModule:
                 "confidence": rider["confidence"],
             })
 
+        if len(riders) == 0:
+            temp = no_helmet + bad_helmet + good_helmet
+
+            for i, face in enumerate(temp, 1):
+                if face["class"] == "faceWithNoHelmet":
+                    status = "No Helmet"
+                    violation = True
+                elif face["class"] == "faceWithBadHelmet":
+                    status = "Improper Helmet"
+                    violation = True
+                else:
+                    status = "Helmet OK"
+                    violation = False
+
+                rider_results.append({
+                    "rider_id": f"F{i}",
+                    "box": face["box"],
+                    "status": status,
+                    "violation": violation,
+                    "confidence": face["confidence"],
+                })
+
         return rider_results
 
+    def read_plate_with_ocr(self, crop):
+        if self.ocr_reader is None or crop is None or crop.size == 0:
+            return "", 0.0
+
+        try:
+            result = self.ocr_reader.readtext(crop)
+
+            if not result:
+                return "", 0.0
+
+            best = sorted(result, key=lambda x: x[2], reverse=True)[0]
+            return str(best[1]), float(best[2])
+
+        except Exception:
+            return "", 0.0
+
     def collect_plate_detections(self, image, conf=0.20, imgsz=768):
+        plates = []
+
         if self.plate_model is None:
-            return []
+            return plates
 
         results = self.plate_model.predict(
             source=image,
@@ -106,29 +179,35 @@ class HelmetPlateModule:
             verbose=False,
         )
 
-        plates = []
-
         for result in results:
             for box in result.boxes:
                 score = float(box.conf[0])
                 x1, y1, x2, y2 = box.xyxy[0].cpu().numpy().astype(int)
 
-                crop = image[max(0, y1):max(0, y2), max(0, x1):max(0, x2)]
+                x1 = max(0, int(x1))
+                y1 = max(0, int(y1))
+                x2 = max(0, int(x2))
+                y2 = max(0, int(y2))
+
+                crop = image[y1:y2, x1:x2]
                 readability = plate_readability_score(crop)
 
+                text, ocr_conf = self.read_plate_with_ocr(crop)
+
                 plates.append({
-                    "box": [int(x1), int(y1), int(x2), int(y2)],
-                    "confidence": round(score, 3),
+                    "box": [x1, y1, x2, y2],
+                    "detection_confidence": round(score, 3),
                     "readability": readability,
-                    "safe_ocr": safe_plate_output("", 0.0, readability),
+                    "safe_ocr": safe_plate_output(text, ocr_conf, readability),
                 })
 
         return plates
 
-    def build_report(self, image_path, image, riders, plates):
+    def build_report(self, image_path, image, detections, riders, plates):
         return {
             "module": "helmet_plate_module",
             "input": image_path,
+            "total_detections": len(detections),
             "total_riders": len(riders),
             "helmet_ok": sum(1 for r in riders if r["status"] == "Helmet OK"),
             "violations": sum(1 for r in riders if r["violation"]),
@@ -136,7 +215,7 @@ class HelmetPlateModule:
             "riders": riders,
             "plates": plates,
             "image_quality": image_quality_score(image),
-            "safety": "Final challan should be approved only after manual review.",
+            "safety": "Plate text is shown only when OCR confidence and crop readability are reliable. Manual review is required before challan.",
         }
 
     def draw_evidence_panel(self, image, report, output_path):
@@ -147,7 +226,6 @@ class HelmetPlateModule:
         img_w = 850
 
         resized = cv2.resize(image, (img_w, canvas_h))
-
         sx = img_w / w
         sy = canvas_h / h
 
@@ -170,9 +248,11 @@ class HelmetPlateModule:
                 color = (0, 160, 200)
 
             cv2.rectangle(canvas, (x1, y1), (x2, y2), color, 3)
+
+            label = rider["rider_id"] + " " + rider["status"]
             cv2.putText(
                 canvas,
-                rider["rider_id"] + " " + rider["status"],
+                label,
                 (x1, max(25, y1 - 8)),
                 cv2.FONT_HERSHEY_SIMPLEX,
                 0.65,
@@ -183,7 +263,15 @@ class HelmetPlateModule:
         x = img_w + 35
         y = 55
 
-        cv2.putText(canvas, "ViolationIQ Evidence", (x, y), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (20, 20, 20), 2)
+        cv2.putText(
+            canvas,
+            "ViolationIQ Evidence",
+            (x, y),
+            cv2.FONT_HERSHEY_SIMPLEX,
+            0.8,
+            (20, 20, 20),
+            2,
+        )
 
         y += 50
 
@@ -196,19 +284,27 @@ class HelmetPlateModule:
         ]
 
         for line in lines:
-            cv2.putText(canvas, line, (x, y), cv2.FONT_HERSHEY_SIMPLEX, 0.58, (40, 40, 40), 2)
+            cv2.putText(
+                canvas,
+                line,
+                (x, y),
+                cv2.FONT_HERSHEY_SIMPLEX,
+                0.58,
+                (40, 40, 40),
+                2,
+            )
             y += 36
 
         Path(output_path).parent.mkdir(parents=True, exist_ok=True)
         cv2.imwrite(output_path, canvas)
 
     def run_image(self, image_path, output_image_path=None, output_json_path=None):
-        image = cv2.imread(image_path)
+        image = cv2.imread(str(image_path))
 
         if image is None:
             return {
                 "module": "helmet_plate_module",
-                "input": image_path,
+                "input": str(image_path),
                 "error": "Image could not be read",
                 "manual_review": True,
             }
@@ -217,13 +313,14 @@ class HelmetPlateModule:
         riders = self.associate_riders(detections)
         plates = self.collect_plate_detections(image)
 
-        report = self.build_report(image_path, image, riders, plates)
+        report = self.build_report(str(image_path), image, detections, riders, plates)
 
         if output_image_path:
             self.draw_evidence_panel(image, report, output_image_path)
 
         if output_json_path:
             Path(output_json_path).parent.mkdir(parents=True, exist_ok=True)
+
             with open(output_json_path, "w", encoding="utf-8") as f:
                 json.dump(report, f, indent=4)
 

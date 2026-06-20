@@ -1,4 +1,4 @@
-import os
+﻿import os
 
 
 class ViolationIQRouter:
@@ -23,36 +23,64 @@ class ViolationIQRouter:
         if kind == "video":
             return {
                 "selected_module": "redlight_module",
-                "reason": "Video supports temporal review, vehicle motion, and red-light reasoning.",
+                "reason": "Video supports temporal review, vehicle motion, signal color, and stop-line reasoning.",
                 "manual_review": False,
             }
 
         if kind == "image":
             return {
                 "selected_module": "multi_expert_image_review",
-                "reason": "Image can be checked by helmet/plate and signboard modules.",
+                "reason": "Image can be checked by helmet/plate and signboard context modules.",
                 "manual_review": False,
             }
 
         return {
             "selected_module": "manual_review",
-            "reason": "Unsupported file type.",
+            "reason": "Unsupported input type.",
             "manual_review": True,
         }
 
     def route_by_labels(self, labels):
         labels = [str(x).lower() for x in labels]
 
+        helmet_keys = [
+            "rider",
+            "helmet",
+            "facewithnohelmet",
+            "facewithgoodhelmet",
+            "facewithbadhelmet",
+            "motorcycle",
+            "motorbike",
+            "numberplate",
+            "number plate",
+        ]
+
+        sign_keys = [
+            "red light",
+            "green light",
+            "yellow light",
+            "stop",
+            "speed limit",
+            "no entry",
+            "no stopping",
+            "no left",
+            "no right",
+            "u-turn",
+        ]
+
         modules = []
 
-        helmet_keys = ["rider", "helmet", "motorcycle", "motorbike", "numberplate"]
-        sign_keys = ["red light", "green light", "stop", "speed limit", "no entry", "no stopping", "u-turn"]
+        for label in labels:
+            for key in helmet_keys:
+                if key in label:
+                    if "helmet_plate_module" not in modules:
+                        modules.append("helmet_plate_module")
 
-        if any(any(key in label for key in helmet_keys) for label in labels):
-            modules.append("helmet_plate_module")
-
-        if any(any(key in label for key in sign_keys) for label in labels):
-            modules.append("signboard_context_module")
+        for label in labels:
+            for key in sign_keys:
+                if key in label:
+                    if "signboard_context_module" not in modules:
+                        modules.append("signboard_context_module")
 
         if not modules:
             modules.append("manual_review")

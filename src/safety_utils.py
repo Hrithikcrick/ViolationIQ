@@ -1,4 +1,4 @@
-import re
+﻿import re
 import cv2
 import numpy as np
 
@@ -18,18 +18,27 @@ def is_possible_indian_plate(text):
         r"^[0-9]{2}[A-Z]{1,3}[0-9]{3,4}$",
     ]
 
-    return any(re.match(pattern, text) for pattern in patterns)
+    for pattern in patterns:
+        if re.match(pattern, text):
+            return True
+
+    return False
 
 
 def image_quality_score(image):
     if image is None or image.size == 0:
-        return {"quality": 0, "blur": 0, "brightness": 0, "contrast": 0}
+        return {
+            "quality": 0,
+            "blur": 0,
+            "brightness": 0,
+            "contrast": 0,
+        }
 
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
     blur = cv2.Laplacian(gray, cv2.CV_64F).var()
-    brightness = float(np.mean(gray))
-    contrast = float(np.std(gray))
+    brightness = np.mean(gray)
+    contrast = np.std(gray)
 
     quality = 0
     quality += min(blur / 150, 1) * 40
@@ -55,8 +64,8 @@ def plate_readability_score(crop):
     gray = cv2.cvtColor(crop, cv2.COLOR_BGR2GRAY)
 
     blur = cv2.Laplacian(gray, cv2.CV_64F).var()
-    brightness = float(np.mean(gray))
-    contrast = float(np.std(gray))
+    brightness = np.mean(gray)
+    contrast = np.std(gray)
 
     score = 0
     score += min(blur / 120, 1) * 40
@@ -99,6 +108,7 @@ def box_center(box):
 def point_inside_box(point, box):
     px, py = point
     x1, y1, x2, y2 = box
+
     return x1 <= px <= x2 and y1 <= py <= y2
 
 
@@ -128,7 +138,11 @@ def box_iou(a, b):
 
 
 def nms_by_class(detections, iou_threshold=0.35):
-    detections = sorted(detections, key=lambda x: x.get("confidence", 0), reverse=True)
+    detections = sorted(
+        detections,
+        key=lambda x: x.get("confidence", 0),
+        reverse=True,
+    )
 
     final = []
 
@@ -136,7 +150,10 @@ def nms_by_class(detections, iou_threshold=0.35):
         keep = True
 
         for old in final:
-            if det.get("class") == old.get("class") and box_iou(det["box"], old["box"]) > iou_threshold:
+            same_class = det.get("class") == old.get("class")
+            high_overlap = box_iou(det["box"], old["box"]) > iou_threshold
+
+            if same_class and high_overlap:
                 keep = False
                 break
 

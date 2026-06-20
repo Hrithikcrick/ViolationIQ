@@ -1,5 +1,5 @@
+﻿from ultralytics import YOLO
 import argparse
-from ultralytics import YOLO
 
 
 def main():
@@ -11,6 +11,7 @@ def main():
     parser.add_argument("--batch", type=int, default=16)
     parser.add_argument("--name", default="violationiq_train")
     parser.add_argument("--project", default="runs")
+
     args = parser.parse_args()
 
     model = YOLO(args.model)
