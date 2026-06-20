@@ -56,7 +56,17 @@ Linux / Mac:
 
 python scripts/reproduce_pipeline.py --traffic_model weights/traffic_yolo11s_best.pt --helmet_model weights/helmet_yolo11s_best.pt --plate_model weights/large_plate_yolo11s_best.pt --vehicle_model weights/yolo26n.pt
 
-## 6. Expected generated outputs
+## 6. Expected output
+
+Reproduction completed.
+Helmet evidence images generated: 5
+Signboard context images generated: 5
+Safe OCR reports generated: 5
+Helmet videos processed: 1
+Summary saved: reports/reproduction_summary.json
+Showcase index: outputs/FINAL_SHOWCASE/final_showcase_index.csv
+
+## 7. Generated folders
 
 outputs/FINAL_SHOWCASE/helmet_plate/
 outputs/FINAL_SHOWCASE/plate_ocr/
@@ -64,7 +74,5 @@ outputs/FINAL_SHOWCASE/signboard_context/
 outputs/FINAL_SHOWCASE/videos/
 outputs/FINAL_SHOWCASE/final_showcase_index.csv
 reports/reproduction_summary.json
-
-Generated outputs include helmet/rider evidence frames, processed helmet video demo, safe OCR evidence panels, signboard context evidence, JSON reports, final CSV index, and reproduction summary.
 
 ViolationIQ is an AI evidence copilot. Manual review is required before challan or legal action.

@@ -1,16 +1,16 @@
 ﻿# Reproducibility Scope
 
-The judge reproduction package is designed to reproduce final inference/demo outputs, not full model retraining.
+The judge reproduction package reproduces selected final showcase outputs, not full model retraining.
 
-Reproducible through GitHub source code and Judge Asset Zip:
+Judges can reproduce:
 
-- processed helmet violation video
-- helmet/rider evidence frames
-- safe OCR evidence panels
-- signboard context evidence panels
+- 5 helmet and rider evidence images
+- 5 safe OCR evidence panels
+- 5 signboard context evidence images
+- 1 processed helmet violation demo video
 - JSON reports
-- final CSV index
-- reproduction summary
+- final showcase CSV index
+- reproduction summary JSON
 
 Large assets are provided separately in the Judge Asset Zip:
 
@@ -19,4 +19,4 @@ Large assets are provided separately in the Judge Asset Zip:
 - selected signboard showcase images
 - raw clean helmet demo video
 
-Full model retraining requires the original Kaggle datasets, training notebooks, GPU environment, and full training configuration.
+Full model retraining requires the original datasets, Kaggle notebooks, GPU environment, and training configuration.

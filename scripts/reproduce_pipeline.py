@@ -138,11 +138,15 @@ def main():
     with open(summary_path, "w", encoding="utf-8") as f:
         json.dump(summary, f, indent=4)
 
+    helmet_count_final = len(list((showcase_dir / "helmet_plate").glob("helmet_evidence_*.jpg")))
+    signboard_count_final = len(list((showcase_dir / "signboard_context").glob("signboard_evidence_*.jpg")))
+    ocr_count_final = len(list((showcase_dir / "plate_ocr").glob("plate_ocr_report_*.json")))
+
     print("Reproduction completed.")
+    print("Helmet evidence images generated:", helmet_count_final)
+    print("Signboard context images generated:", signboard_count_final)
+    print("Safe OCR reports generated:", ocr_count_final)
     print("Helmet videos processed:", helmet_videos_processed)
-    print("Helmet image outputs:", helmet_image_outputs)
-    print("Safe OCR reports generated:", safe_ocr_reports_generated)
-    print("Signboard context outputs:", signboard_outputs)
     print("Summary saved:", summary_path)
     print("Showcase index:", index_path)
 

@@ -26,6 +26,8 @@
 
 <a href="https://drive.google.com/file/d/1XeJq1Afzw0hjd1gdzt1pjwlz6GvF4J2f/view?usp=sharing"><b>📦 Download Judge Assets</b></a>
 &nbsp;&nbsp;|&nbsp;&nbsp;
+<a href="https://github.com/Hrithikcrick/ViolationIQ/archive/refs/heads/main.zip"><b>💻 Download Source Code</b></a>
+&nbsp;&nbsp;|&nbsp;&nbsp;
 <a href="#judge-reproduction-guide"><b>⚙️ Reproduce Outputs</b></a>
 &nbsp;&nbsp;|&nbsp;&nbsp;
 <a href="reports/ViolationIQ_IEEE_Report.pdf"><b>📄 Project Report</b></a>
@@ -65,7 +67,7 @@ Traffic violations need different types of evidence. A helmet violation needs ri
 
 The final judge reproduction script generates:
 
-- safe plate OCR evidence panel
+- 5 safe plate OCR evidence panels panel
 - plate OCR/manual-review JSON report
 - processed helmet video demo generated in final showcase
 - final showcase CSV index
@@ -193,7 +195,8 @@ Linux / Mac:
 Expected output:
 
     Reproduction completed.
-    Images processed: 1
+    Helmet evidence images generated: 5
+Signboard context images generated: 5
     Helmet videos processed: 1
     Safe OCR reports generated: 5
     Summary saved: reports/reproduction_summary.json
@@ -219,8 +222,8 @@ Linux / Mac:
 
 Judges can reproduce the final inference/demo deliverables:
 
-- helmet image evidence
-- safe plate OCR evidence
+- 5 helmet and rider evidence images
+- 5 safe plate OCR evidence panels
 - processed helmet video demo generated in final showcase
 - JSON reports
 - CSV showcase index
@@ -287,6 +290,7 @@ Safe OCR policy:
 This prevents wrong challans due to forced or incorrect number plate reading.
 
 <!-- OCR_SECTION_END -->
+
 
 
 
