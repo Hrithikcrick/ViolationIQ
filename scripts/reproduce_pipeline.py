@@ -9,19 +9,17 @@ sys.path.append(str(Path(__file__).resolve().parents[1]))
 
 from scripts.process_helmet_video_demo import process_video
 from scripts.process_ocr_samples import process_ocr_samples
+from scripts.process_signboard_showcase import process_signboard_showcase
+from scripts.build_helmet_showcase import build_helmet_showcase_from_frames
 
 
-def cleanup_old_outputs():
+def clean_old_outputs():
     old_paths = [
         "outputs/final_best",
-        "outputs/helmet_plate",
-        "outputs/signboard_context",
-        "outputs/speed_estimation_demo",
-        "outputs/contact_sheets",
         "outputs/redlight",
         "outputs/video",
-        "outputs/FINAL_SHOWCASE/helmet_plate",
-        "outputs/FINAL_SHOWCASE/signboard_context",
+        "outputs/speed_estimation_demo",
+        "outputs/contact_sheets",
         "outputs/FINAL_SHOWCASE/redlight"
     ]
 
@@ -66,22 +64,29 @@ def main():
     parser.add_argument("--plate_model", default="weights/large_plate_yolo11s_best.pt")
     parser.add_argument("--vehicle_model", default="weights/yolo26n.pt")
     parser.add_argument("--ocr_input", default="data/sample_images/ocr_showcase")
+    parser.add_argument("--signboard_input", default="data/sample_images/signboard_showcase")
     parser.add_argument("--video_input", default="data/sample_videos/violationiq_bike_helmet_demo.mp4")
 
     args = parser.parse_args()
 
-    cleanup_old_outputs()
+    clean_old_outputs()
+
+    shutil.rmtree("outputs/FINAL_SHOWCASE", ignore_errors=True)
+    shutil.rmtree("outputs/helmet_plate", ignore_errors=True)
 
     showcase_dir = Path("outputs/FINAL_SHOWCASE")
     video_dir = showcase_dir / "videos"
     ocr_dir = showcase_dir / "plate_ocr"
+    signboard_dir = showcase_dir / "signboard_context"
     reports_dir = Path("reports")
 
     video_dir.mkdir(parents=True, exist_ok=True)
     ocr_dir.mkdir(parents=True, exist_ok=True)
+    signboard_dir.mkdir(parents=True, exist_ok=True)
     reports_dir.mkdir(parents=True, exist_ok=True)
 
     helmet_videos_processed = 0
+    helmet_image_outputs = 0
 
     if Path(args.video_input).exists():
         process_video(
@@ -91,8 +96,7 @@ def main():
             out_json=video_dir / "helmet_video_report_1.json"
         )
         helmet_videos_processed = 1
-
-    cleanup_old_outputs()
+        helmet_image_outputs = build_helmet_showcase_from_frames()
 
     if Path(args.ocr_input).exists():
         process_ocr_samples(
@@ -101,7 +105,16 @@ def main():
             out_dir=ocr_dir
         )
 
+    if Path(args.signboard_input).exists():
+        process_signboard_showcase(
+            input_dir=args.signboard_input,
+            out_dir=signboard_dir
+        )
+
+    clean_old_outputs()
+
     safe_ocr_reports_generated = len(list(ocr_dir.glob("plate_ocr_report_*.json")))
+    signboard_outputs = len(list(signboard_dir.glob("signboard_evidence_*.jpg")))
 
     index_path = make_index(showcase_dir)
 
@@ -109,9 +122,13 @@ def main():
         "project": "ViolationIQ",
         "status": "Final judge reproduction ready",
         "helmet_videos_processed": helmet_videos_processed,
+        "helmet_image_outputs": helmet_image_outputs,
         "safe_ocr_reports_generated": safe_ocr_reports_generated,
+        "signboard_context_outputs": signboard_outputs,
         "helmet_video": "outputs/FINAL_SHOWCASE/videos/helmet_video_demo_processed_1.mp4",
+        "helmet_output": "outputs/FINAL_SHOWCASE/helmet_plate",
         "safe_ocr_output": "outputs/FINAL_SHOWCASE/plate_ocr",
+        "signboard_output": "outputs/FINAL_SHOWCASE/signboard_context",
         "final_showcase_index": str(index_path).replace("\\", "/"),
         "safety_note": "ViolationIQ is an AI evidence copilot. Manual review is required before challan or legal action."
     }
@@ -123,7 +140,9 @@ def main():
 
     print("Reproduction completed.")
     print("Helmet videos processed:", helmet_videos_processed)
+    print("Helmet image outputs:", helmet_image_outputs)
     print("Safe OCR reports generated:", safe_ocr_reports_generated)
+    print("Signboard context outputs:", signboard_outputs)
     print("Summary saved:", summary_path)
     print("Showcase index:", index_path)
 

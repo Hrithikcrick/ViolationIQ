@@ -1,34 +1,22 @@
-﻿# ViolationIQ Reproducibility Scope
+﻿# Reproducibility Scope
 
-This repository reproduces the final inference/demo deliverables of ViolationIQ using the provided trained weights and sample input files.
+The judge reproduction package is designed to reproduce final inference/demo outputs, not full model retraining.
 
-## Reproduced by Judge Script
+Reproducible through GitHub source code and Judge Asset Zip:
 
-Running the judge reproduction command generates:
+- processed helmet violation video
+- helmet/rider evidence frames
+- safe OCR evidence panels
+- signboard context evidence panels
+- JSON reports
+- final CSV index
+- reproduction summary
 
-- helmet and rider evidence outputs
-- rider-wise helmet/no-helmet JSON reports
-- number plate localization and safe OCR/manual-review structure
-- signboard context reports
-- signboard context reports
-- final showcase index CSV
-- reproduction summary JSON
+Large assets are provided separately in the Judge Asset Zip:
 
-## Required External Assets
+- trained YOLO weights
+- selected OCR showcase images
+- selected signboard showcase images
+- raw clean helmet demo video
 
-The trained model weights and sample inputs are provided separately through the Google Drive asset zip:
-
-https://drive.google.com/file/d/1XeJq1Afzw0hjd1gdzt1pjwlz6GvF4J2f/view?usp=sharing
-
-These files are not committed to GitHub because model weights and videos are large.
-
-## Important Clarification
-
-The judge reproduction script reproduces final outputs and deliverables, not full model retraining.
-
-The reported training metrics such as traffic YOLO11s mAP50 around 0.928, helmet/rider mAP50 around 0.701, and plate model mAP50 around 0.924 were obtained during Kaggle training and are documented in the project report.
-
-To reproduce training metrics from scratch, the original Kaggle datasets, training notebook, GPU environment, and full training commands are required.
-
-
-
+Full model retraining requires the original Kaggle datasets, training notebooks, GPU environment, and full training configuration.

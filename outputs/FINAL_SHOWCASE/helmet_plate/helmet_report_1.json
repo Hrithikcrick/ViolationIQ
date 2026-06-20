@@ -1,0 +1,7 @@
+{
+    "module": "helmet_plate",
+    "input_frame": "outputs/helmet_plate/final_clean_uploaded_bike_frame_0.jpg",
+    "output_image": "outputs/FINAL_SHOWCASE/helmet_plate/helmet_evidence_1.jpg",
+    "status": "Helmet/rider evidence frame generated from processed demo video",
+    "safety": "Manual review is required before challan or legal action."
+}

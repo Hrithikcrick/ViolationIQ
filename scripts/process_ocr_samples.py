@@ -12,22 +12,22 @@ except Exception:
     easyocr = None
 
 
-STATE_CODES = [
+VALID_STATE_CODES = {
     "AP","AR","AS","BR","CG","CH","DD","DL","DN","GA","GJ","HR","HP","JH",
     "JK","KA","KL","LA","LD","MH","ML","MN","MP","MZ","NL","OD","PB","PY",
     "RJ","SK","TN","TR","TS","UK","UP","WB"
-]
+}
 
-VALID_STATE_CODES = set(STATE_CODES)
-
-COMMON_STATE_FIX = {
+COMMON_PREFIX_FIX = {
     "IN": "TN",
-    "1N": "TN",
     "IM": "TN",
+    "1N": "TN",
     "T1": "TN",
     "0D": "OD",
     "0L": "DL",
-    "D1": "DL"
+    "D1": "DL",
+    "0P": "UP",
+    "U0": "UP"
 }
 
 
@@ -37,47 +37,37 @@ def clean_plate_text(text):
     return text
 
 
-def edit_distance_one(a, b):
-    if len(a) != len(b):
-        return False
-
-    diff = 0
-
-    for x, y in zip(a, b):
-        if x != y:
-            diff += 1
-
-    return diff == 1
-
-
-def fix_state_code(text):
+def fix_indian_plate_text(text):
     text = clean_plate_text(text)
 
-    if len(text) < 2:
+    if len(text) < 4:
         return text
 
-    state = text[:2]
+    prefix = text[:2]
 
-    if state in VALID_STATE_CODES:
-        return text
+    if prefix in COMMON_PREFIX_FIX:
+        text = COMMON_PREFIX_FIX[prefix] + text[2:]
 
-    if state in COMMON_STATE_FIX:
-        return COMMON_STATE_FIX[state] + text[2:]
+    if re.match(r"^[A-Z]{2}[0-9]{3}[A-Z][0-9]{4}$", text):
+        state = text[:2]
+        if state in VALID_STATE_CODES:
+            text = text[:4] + text[5:]
 
-    possible = []
+    if re.match(r"^[A-Z]{2}[0-9]{2}[0-9][A-Z][0-9]{4}$", text):
+        state = text[:2]
+        if state in VALID_STATE_CODES:
+            text = text[:4] + text[5:]
 
-    for code in STATE_CODES:
-        if edit_distance_one(state, code):
-            possible.append(code)
-
-    if len(possible) == 1:
-        return possible[0] + text[2:]
+    if re.match(r"^[A-Z]{2}[0-9]{2}[A-Z][0-9]{5}$", text):
+        state = text[:2]
+        if state in VALID_STATE_CODES:
+            text = text[:-5] + text[-4:]
 
     return text
 
 
 def is_possible_indian_plate(text):
-    text = clean_plate_text(text)
+    text = fix_indian_plate_text(text)
 
     if len(text) < 7 or len(text) > 12:
         return False
@@ -92,41 +82,11 @@ def is_possible_indian_plate(text):
         r"^[A-Z]{2}[0-9]{1}[A-Z]{1,3}[0-9]{4}$"
     ]
 
-    for pattern in patterns:
-        if re.match(pattern, text):
+    for p in patterns:
+        if re.match(p, text):
             return True
 
     return False
-
-
-def generate_plate_candidates(text):
-    text = clean_plate_text(text)
-
-    candidates = []
-    seen = set()
-
-    def add(value):
-        value = clean_plate_text(value)
-
-        if value and value not in seen:
-            seen.add(value)
-            candidates.append(value)
-
-    add(text)
-    add(fix_state_code(text))
-
-    t = fix_state_code(text)
-
-    if re.match(r"^[A-Z]{2}[0-9]{3}[A-Z][0-9]{4}$", t):
-        add(t[:4] + t[5:])
-
-    if re.match(r"^[A-Z]{2}[0-9]{2}[0-9][A-Z][0-9]{4}$", t):
-        add(t[:4] + t[5:])
-
-    if re.match(r"^[A-Z]{2}[0-9]{2}[A-Z][0-9]{5}$", t):
-        add(t[:-5] + t[-4:])
-
-    return candidates
 
 
 def enhance_plate_crop(crop):
@@ -134,13 +94,21 @@ def enhance_plate_crop(crop):
         return None
 
     h, w = crop.shape[:2]
-    crop = cv2.resize(crop, (w * 5, h * 5), interpolation=cv2.INTER_CUBIC)
+
+    scale = 4
+    crop = cv2.resize(crop, (w * scale, h * scale), interpolation=cv2.INTER_CUBIC)
+
     gray = cv2.cvtColor(crop, cv2.COLOR_BGR2GRAY)
+
     clahe = cv2.createCLAHE(clipLimit=3.0, tileGridSize=(8, 8))
     gray = clahe.apply(gray)
-    gray = cv2.bilateralFilter(gray, 9, 75, 75)
 
-    kernel = np.array([[0, -1, 0], [-1, 5, -1], [0, -1, 0]])
+    gray = cv2.bilateralFilter(gray, 7, 60, 60)
+
+    kernel = np.array([[0, -1, 0],
+                       [-1, 5, -1],
+                       [0, -1, 0]])
+
     sharp = cv2.filter2D(gray, -1, kernel)
 
     return sharp
@@ -164,50 +132,10 @@ def plate_readability_score(crop):
     contrast_score = min(100, contrast * 3)
 
     score = 0.4 * size_score + 0.35 * blur_score + 0.25 * contrast_score
-
     return round(max(0, min(100, score)), 2)
 
 
-def box_iou(a, b):
-    ax1, ay1, ax2, ay2 = a
-    bx1, by1, bx2, by2 = b
-
-    ix1 = max(ax1, bx1)
-    iy1 = max(ay1, by1)
-    ix2 = min(ax2, bx2)
-    iy2 = min(ay2, by2)
-
-    iw = max(0, ix2 - ix1)
-    ih = max(0, iy2 - iy1)
-
-    inter = iw * ih
-
-    area_a = max(1, (ax2 - ax1) * (ay2 - ay1))
-    area_b = max(1, (bx2 - bx1) * (by2 - by1))
-    union = area_a + area_b - inter
-
-    return inter / union
-
-
-def remove_duplicate_boxes(boxes):
-    boxes = sorted(boxes, key=lambda x: x["confidence"], reverse=True)
-    keep = []
-
-    for b in boxes:
-        ok = True
-
-        for k in keep:
-            if box_iou(b["box"], k["box"]) > 0.35:
-                ok = False
-                break
-
-        if ok:
-            keep.append(b)
-
-    return keep
-
-
-def run_easyocr_on_variants(crop, reader):
+def run_easyocr_fast(crop, reader):
     if reader is None:
         return {
             "ocr_status": "Skipped",
@@ -225,13 +153,15 @@ def run_easyocr_on_variants(crop, reader):
         }
 
     variants = []
+
     enhanced = enhance_plate_crop(crop)
 
     if enhanced is not None:
         variants.append(("enhanced", enhanced))
-        _, th1 = cv2.threshold(enhanced, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
-        variants.append(("threshold", th1))
-        variants.append(("inverted", cv2.bitwise_not(th1)))
+
+        _, th = cv2.threshold(enhanced, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+        variants.append(("threshold", th))
+        variants.append(("inverted", cv2.bitwise_not(th)))
 
     gray = cv2.cvtColor(crop, cv2.COLOR_BGR2GRAY)
     gray = cv2.resize(gray, None, fx=4.0, fy=4.0, interpolation=cv2.INTER_CUBIC)
@@ -239,32 +169,35 @@ def run_easyocr_on_variants(crop, reader):
 
     candidates = []
 
-    for name, image in variants:
+    for name, img in variants:
         try:
-            results = reader.readtext(image, allowlist="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")
+            result = reader.readtext(
+                img,
+                allowlist="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+                paragraph=False,
+                detail=1,
+                batch_size=1
+            )
         except Exception:
-            results = []
+            result = []
 
         joined = ""
 
-        for item in results:
+        for item in result:
             joined += clean_plate_text(item[1])
 
         if len(joined) >= 4:
-            avg_conf = sum(float(x[2]) for x in results) / len(results) if results else 0
+            avg_conf = sum(float(x[2]) for x in result) / len(result) if len(result) > 0 else 0
+            candidates.append((fix_indian_plate_text(joined), avg_conf, name))
 
-            for c in generate_plate_candidates(joined):
-                candidates.append((c, avg_conf, name))
-
-        for item in results:
-            raw = clean_plate_text(item[1])
+        for item in result:
+            text = fix_indian_plate_text(item[1])
             conf = float(item[2])
 
-            if len(raw) >= 4:
-                for c in generate_plate_candidates(raw):
-                    candidates.append((c, conf, name))
+            if len(text) >= 4:
+                candidates.append((text, conf, name))
 
-    if not candidates:
+    if len(candidates) == 0:
         return {
             "ocr_status": "Failed",
             "reason": "OCR could not read useful plate text",
@@ -279,8 +212,9 @@ def run_easyocr_on_variants(crop, reader):
     )
 
     best_text, best_conf, variant = candidates[0]
+    best_text = fix_indian_plate_text(best_text)
 
-    if best_conf < 0.25:
+    if best_conf < 0.20:
         return {
             "ocr_status": "Unreliable",
             "reason": "OCR confidence is low",
@@ -307,11 +241,57 @@ def run_easyocr_on_variants(crop, reader):
     }
 
 
-def collect_plate_candidates(image, model):
-    h, w = image.shape[:2]
+def box_iou(a, b):
+    ax1, ay1, ax2, ay2 = a
+    bx1, by1, bx2, by2 = b
+
+    ix1 = max(ax1, bx1)
+    iy1 = max(ay1, by1)
+    ix2 = min(ax2, bx2)
+    iy2 = min(ay2, by2)
+
+    iw = max(0, ix2 - ix1)
+    ih = max(0, iy2 - iy1)
+
+    inter = iw * ih
+
+    area_a = max(1, (ax2 - ax1) * (ay2 - ay1))
+    area_b = max(1, (bx2 - bx1) * (by2 - by1))
+    union = area_a + area_b - inter
+
+    return inter / union
+
+
+def remove_duplicate_boxes(boxes):
+    boxes = sorted(boxes, key=lambda x: x["confidence"], reverse=True)
+
+    keep = []
+
+    for b in boxes:
+        ok = True
+
+        for k in keep:
+            if box_iou(b["box"], k["box"]) > 0.35:
+                ok = False
+                break
+
+        if ok:
+            keep.append(b)
+
+    return keep
+
+
+def collect_plate_candidates(img, model):
+    h, w = img.shape[:2]
     img_area = h * w
 
-    results = model.predict(source=image, conf=0.25, imgsz=768, verbose=False)
+    results = model.predict(
+        source=img,
+        conf=0.25,
+        imgsz=768,
+        verbose=False
+    )
+
     boxes = []
 
     for r in results:
@@ -347,13 +327,18 @@ def collect_plate_candidates(image, model):
             })
 
     boxes = remove_duplicate_boxes(boxes)
-    boxes = sorted(boxes, key=lambda x: (x["confidence"], x["area_ratio"]), reverse=True)
+
+    boxes = sorted(
+        boxes,
+        key=lambda x: (x["confidence"], x["area_ratio"]),
+        reverse=True
+    )
 
     return boxes
 
 
-def crop_with_padding(image, box):
-    h, w = image.shape[:2]
+def crop_with_padding(img, box):
+    h, w = img.shape[:2]
     x1, y1, x2, y2 = box
 
     pad_x = int((x2 - x1) * 0.35)
@@ -364,29 +349,19 @@ def crop_with_padding(image, box):
     x2 = min(w, x2 + pad_x)
     y2 = min(h, y2 + pad_y)
 
-    crop = image[y1:y2, x1:x2]
-
-    return crop, [x1, y1, x2, y2]
+    return img[y1:y2, x1:x2], [x1, y1, x2, y2]
 
 
-def draw_panel(image, report, image_name):
+def draw_panel(img, report, image_name):
     canvas_w = 1280
     canvas_h = 720
     left_w = 850
     right_w = canvas_w - left_w
 
-    h, w = image.shape[:2]
-    image2 = cv2.resize(image, (left_w, canvas_h))
+    h, w = img.shape[:2]
 
-    canvas = cv2.copyMakeBorder(
-        image2,
-        0,
-        0,
-        0,
-        right_w,
-        cv2.BORDER_CONSTANT,
-        value=(245, 245, 245)
-    )
+    img2 = cv2.resize(img, (left_w, canvas_h))
+    canvas = cv2.copyMakeBorder(img2, 0, 0, 0, right_w, cv2.BORDER_CONSTANT, value=(245, 245, 245))
 
     cv2.rectangle(canvas, (0, 0), (canvas_w, 82), (18, 24, 38), -1)
     cv2.putText(canvas, "ViolationIQ Safe Plate OCR Module", (25, 35), cv2.FONT_HERSHEY_SIMPLEX, 0.85, (255, 255, 255), 2)
@@ -397,6 +372,7 @@ def draw_panel(image, report, image_name):
 
     if report["plate_detected"]:
         x1, y1, x2, y2 = report["padded_box"]
+
         ax1 = int(x1 * sx)
         ay1 = int(y1 * sy)
         ax2 = int(x2 * sx)
@@ -422,7 +398,7 @@ def draw_panel(image, report, image_name):
             label = "OCR CANDIDATE: " + str(text)
 
         cv2.rectangle(canvas, (ax1, max(86, ay1 - 34)), (min(left_w - 5, ax1 + 430), ay1), color, -1)
-        cv2.putText(canvas, label, (ax1 + 8, max(108, ay1 - 10)), cv2.FONT_HERSHEY_SIMPLEX, 0.58, (0, 0, 0), 2)
+        cv2.putText(canvas, label[:34], (ax1 + 8, max(108, ay1 - 10)), cv2.FONT_HERSHEY_SIMPLEX, 0.56, (0, 0, 0), 2)
 
     px = left_w + 25
     py = 125
@@ -485,6 +461,7 @@ def process_ocr_samples(input_dir, model_path=None, out_dir="outputs/FINAL_SHOWC
     model_path = model_path or plate_model_path or "weights/large_plate_yolo11s_best.pt"
 
     out_dir.mkdir(parents=True, exist_ok=True)
+
     crop_dir = out_dir / "enhanced_plate_crops"
     crop_dir.mkdir(parents=True, exist_ok=True)
 
@@ -498,23 +475,23 @@ def process_ocr_samples(input_dir, model_path=None, out_dir="outputs/FINAL_SHOWC
         except Exception:
             reader = None
 
-    images = []
-    images += list(input_dir.glob("*.jpg"))
-    images += list(input_dir.glob("*.jpeg"))
-    images += list(input_dir.glob("*.png"))
-    images = sorted(images)[:max_images]
+    imgs = []
+    imgs += list(input_dir.glob("*.jpg"))
+    imgs += list(input_dir.glob("*.jpeg"))
+    imgs += list(input_dir.glob("*.png"))
+    imgs = sorted(imgs)[:max_images]
 
     all_reports = []
 
-    for idx, path in enumerate(images, 1):
-        image = cv2.imread(str(path))
+    for idx, path in enumerate(imgs, 1):
+        img = cv2.imread(str(path))
 
-        if image is None:
+        if img is None:
             continue
 
-        candidates = collect_plate_candidates(image, model)
+        candidates = collect_plate_candidates(img, model)
 
-        if not candidates:
+        if len(candidates) == 0:
             report = {
                 "module": "safe_plate_ocr",
                 "input_image": str(path).replace("\\", "/"),
@@ -528,9 +505,10 @@ def process_ocr_samples(input_dir, model_path=None, out_dir="outputs/FINAL_SHOWC
                 },
                 "safety": "OCR text is not forced. Weak OCR is sent to manual review."
             }
+
         else:
             best = candidates[0]
-            crop, padded_box = crop_with_padding(image, best["box"])
+            crop, padded_box = crop_with_padding(img, best["box"])
             enhanced = enhance_plate_crop(crop)
             score = plate_readability_score(enhanced)
 
@@ -542,15 +520,7 @@ def process_ocr_samples(input_dir, model_path=None, out_dir="outputs/FINAL_SHOWC
             if enhanced is not None:
                 cv2.imwrite(str(enhanced_crop_path), enhanced)
 
-            if score < 45:
-                ocr_result = {
-                    "ocr_status": "Skipped",
-                    "reason": "Plate crop quality is not sufficient for reliable OCR",
-                    "plate_text": None,
-                    "ocr_confidence": 0
-                }
-            else:
-                ocr_result = run_easyocr_on_variants(crop, reader)
+            ocr_result = run_easyocr_fast(crop, reader)
 
             report = {
                 "module": "safe_plate_ocr",
@@ -566,22 +536,22 @@ def process_ocr_samples(input_dir, model_path=None, out_dir="outputs/FINAL_SHOWC
                 "safety": "OCR text is not forced. Weak OCR is sent to manual review."
             }
 
-        panel = draw_panel(image, report, path.name)
+        panel = draw_panel(img, report, path.name)
 
-        out_image = out_dir / f"plate_ocr_evidence_{idx}.jpg"
+        out_img = out_dir / f"plate_ocr_evidence_{idx}.jpg"
         out_json = out_dir / f"plate_ocr_report_{idx}.json"
 
-        cv2.imwrite(str(out_image), panel)
+        cv2.imwrite(str(out_img), panel)
 
-        report["output_image"] = str(out_image).replace("\\", "/")
+        report["output_image"] = str(out_img).replace("\\", "/")
 
         with open(out_json, "w", encoding="utf-8") as f:
             json.dump(report, f, indent=4)
 
         all_reports.append(report)
 
-        print("Created:", out_image)
-        print("Created:", out_json)
+        print("Created:", out_img)
+        print("OCR:", report["ocr_result"])
 
     summary = {
         "module": "safe_plate_ocr",

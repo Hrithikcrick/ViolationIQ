@@ -1,0 +1,5 @@
+{
+    "module": "signboard_context",
+    "images_processed": 5,
+    "safety": "Signboard context supports review and is not used for automatic challan generation."
+}

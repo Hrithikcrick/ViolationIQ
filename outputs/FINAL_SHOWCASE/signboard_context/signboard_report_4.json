@@ -1,0 +1,22 @@
+{
+    "module": "signboard_context",
+    "input_image": "data/sample_images/signboard_showcase/signboard_showcase_04.png",
+    "annotation": "data/sample_images/signboard_showcase/signboard_showcase_04.xml",
+    "output_image": "outputs/FINAL_SHOWCASE/signboard_context/signboard_evidence_4.jpg",
+    "status": "Detected",
+    "context": "Traffic Light Context",
+    "meaning": "Signal context is available for reviewer support.",
+    "detections": [
+        {
+            "label": "Traffic Light",
+            "box": [
+                98,
+                62,
+                208,
+                232
+            ],
+            "source": "VOC annotation"
+        }
+    ],
+    "safety": "Signboard context supports reviewer decision-making and does not trigger automatic challan."
+}

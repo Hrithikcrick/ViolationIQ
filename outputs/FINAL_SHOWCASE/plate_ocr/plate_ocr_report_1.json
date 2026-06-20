@@ -15,14 +15,15 @@
         1756
     ],
     "detection_confidence": 0.735,
-    "readability_score": 67.75,
+    "readability_score": 67.99,
     "raw_crop_path": "outputs/FINAL_SHOWCASE/plate_ocr/enhanced_plate_crops/raw_plate_1.jpg",
     "enhanced_crop_path": "outputs/FINAL_SHOWCASE/plate_ocr/enhanced_plate_crops/enhanced_plate_1.jpg",
     "ocr_result": {
-        "ocr_status": "Skipped",
-        "reason": "EasyOCR not available",
-        "plate_text": null,
-        "ocr_confidence": 0
+        "ocr_status": "Needs Manual Review",
+        "reason": "OCR text detected but does not fully match Indian plate format",
+        "plate_text": "TN1801866",
+        "ocr_confidence": 0.72,
+        "variant": "threshold"
     },
     "safety": "OCR text is not forced. Weak OCR is sent to manual review.",
     "output_image": "outputs/FINAL_SHOWCASE/plate_ocr/plate_ocr_evidence_1.jpg"

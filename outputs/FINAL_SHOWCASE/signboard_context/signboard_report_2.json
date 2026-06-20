@@ -1,0 +1,22 @@
+{
+    "module": "signboard_context",
+    "input_image": "data/sample_images/signboard_showcase/signboard_showcase_02.png",
+    "annotation": "data/sample_images/signboard_showcase/signboard_showcase_02.xml",
+    "output_image": "outputs/FINAL_SHOWCASE/signboard_context/signboard_evidence_2.jpg",
+    "status": "Detected",
+    "context": "Speed Limit Sign",
+    "meaning": "Speed context is available, but speed enforcement needs calibrated tracking.",
+    "detections": [
+        {
+            "label": "Speed Limit Sign",
+            "box": [
+                35,
+                5,
+                363,
+                326
+            ],
+            "source": "VOC annotation"
+        }
+    ],
+    "safety": "Signboard context supports reviewer decision-making and does not trigger automatic challan."
+}

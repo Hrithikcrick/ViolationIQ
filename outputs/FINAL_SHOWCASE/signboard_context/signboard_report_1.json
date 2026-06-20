@@ -1,0 +1,42 @@
+{
+    "module": "signboard_context",
+    "input_image": "data/sample_images/signboard_showcase/signboard_showcase_01.png",
+    "annotation": "data/sample_images/signboard_showcase/signboard_showcase_01.xml",
+    "output_image": "outputs/FINAL_SHOWCASE/signboard_context/signboard_evidence_1.jpg",
+    "status": "Detected",
+    "context": "Crosswalk Sign",
+    "meaning": "Pedestrian crossing context is available for reviewer support.",
+    "detections": [
+        {
+            "label": "Crosswalk Sign",
+            "box": [
+                180,
+                190,
+                235,
+                248
+            ],
+            "source": "VOC annotation"
+        },
+        {
+            "label": "Crosswalk Sign",
+            "box": [
+                141,
+                267,
+                148,
+                276
+            ],
+            "source": "VOC annotation"
+        },
+        {
+            "label": "Stop Sign",
+            "box": [
+                180,
+                89,
+                233,
+                137
+            ],
+            "source": "VOC annotation"
+        }
+    ],
+    "safety": "Signboard context supports reviewer decision-making and does not trigger automatic challan."
+}
