@@ -1,10 +1,6 @@
-﻿"""
-ViolationIQ Signboard Context Module
-
-This module detects traffic sign context and produces manual-review friendly
-evidence. It does not overclaim violations that require speed, direction,
-or duration tracking.
-"""
+import json
+from pathlib import Path
+import cv2
 
 
 class SignboardContextModule:
@@ -15,12 +11,7 @@ class SignboardContextModule:
         if self.traffic_model is None:
             return []
 
-        results = self.traffic_model.predict(
-            source=image,
-            conf=conf,
-            imgsz=imgsz,
-            verbose=False,
-        )
+        results = self.traffic_model.predict(source=image, conf=conf, imgsz=imgsz, verbose=False)
 
         detections = []
 
@@ -55,29 +46,41 @@ class SignboardContextModule:
             contexts.append("Stop-sign compliance context detected")
 
         if any("speed limit" in x for x in labels):
-            contexts.append("Speed-limit context detected; speed tracking is required")
+            contexts.append("Speed-limit context detected; calibrated tracking needed")
 
-        if any("no left" in x or "no right" in x or "u-turn" in x for x in labels):
+        if any("u-turn" in x or "no left" in x or "no right" in x for x in labels):
             contexts.append("Turn-restriction context detected")
 
-        if len(contexts) == 0:
-            contexts.append("No strong traffic sign context detected")
+        if not contexts:
+            contexts.append("No strong signboard context detected")
 
         return contexts
 
-    def run(self, image_path, image=None):
-        detections = []
+    def run_image(self, image_path, output_json_path=None):
+        image = cv2.imread(image_path)
 
-        if image is not None:
-            detections = self.collect_detections(image)
+        if image is None:
+            return {
+                "module": "signboard_context_module",
+                "input": image_path,
+                "error": "Image could not be read",
+                "manual_review": True,
+            }
 
-        labels = [d["class"] for d in detections]
-        contexts = self.context_from_labels(labels)
+        detections = self.collect_detections(image)
 
-        return {
+        report = {
             "module": "signboard_context_module",
             "input": image_path,
+            "detected_signs": len(detections),
             "detections": detections,
-            "contexts": contexts,
-            "safety": "Tracking-dependent violations are routed to manual review.",
+            "contexts": self.context_from_labels([d["class"] for d in detections]),
+            "safety": "Signboard result gives context. Final challan needs manual review.",
         }
+
+        if output_json_path:
+            Path(output_json_path).parent.mkdir(parents=True, exist_ok=True)
+            with open(output_json_path, "w", encoding="utf-8") as f:
+                json.dump(report, f, indent=4)
+
+        return report

@@ -609,3 +609,9 @@ outputs/FINAL_SHOWCASE/plate_ocr/dedicated_plate_safe_ocr_snapshot.png
 ```
 
 The system displays plate text only when OCR confidence and crop readability are reliable. If the OCR is weak, partial, or unreadable, the case is routed to manual review instead of forcing an incorrect plate number.
+
+## Final Source Code Status
+
+The repository now contains clean modules for adaptive routing, helmet/plate checking, red-light video review, signboard context, safety utilities, training commands, and final showcase indexing.
+
+Plate text is shown only when confidence/readability is reliable. Weak OCR is routed to manual review.

@@ -1,109 +1,63 @@
-﻿"""
-ViolationIQ Adaptive Router
-
-This module routes an input image/video to the correct evidence expert:
-- Helmet + Plate module
-- Red-Light video module
-- Signboard context module
-- Manual review fallback
-"""
-
 import os
 
 
 class ViolationIQRouter:
     def __init__(self):
-        self.video_exts = [".mp4", ".avi", ".mov", ".mkv"]
         self.image_exts = [".jpg", ".jpeg", ".png", ".webp"]
+        self.video_exts = [".mp4", ".avi", ".mov", ".mkv"]
 
-    def get_input_type(self, path):
-        ext = os.path.splitext(path)[1].lower()
-
-        if ext in self.video_exts:
-            return "video"
+    def input_type(self, path):
+        ext = os.path.splitext(str(path))[1].lower()
 
         if ext in self.image_exts:
             return "image"
 
+        if ext in self.video_exts:
+            return "video"
+
         return "unknown"
 
-    def route_by_input_type(self, path):
-        input_type = self.get_input_type(path)
+    def route_by_input(self, path):
+        kind = self.input_type(path)
 
-        if input_type == "video":
+        if kind == "video":
             return {
-                "input_type": "video",
-                "selected_module": "redlight_video_module",
-                "reason": "Video input supports temporal voting, vehicle movement, and stop-line crossing evidence.",
+                "selected_module": "redlight_module",
+                "reason": "Video supports temporal review, vehicle motion, and red-light reasoning.",
                 "manual_review": False,
             }
 
-        if input_type == "image":
+        if kind == "image":
             return {
-                "input_type": "image",
-                "selected_module": "image_adaptive_module",
-                "reason": "Image input can be analyzed for helmet, number plate, and signboard context.",
+                "selected_module": "multi_expert_image_review",
+                "reason": "Image can be checked by helmet/plate and signboard modules.",
                 "manual_review": False,
             }
 
         return {
-            "input_type": "unknown",
             "selected_module": "manual_review",
-            "reason": "Unsupported input type.",
+            "reason": "Unsupported file type.",
             "manual_review": True,
         }
 
-    def route_by_detected_objects(self, labels):
+    def route_by_labels(self, labels):
         labels = [str(x).lower() for x in labels]
 
-        helmet_keywords = [
-            "rider",
-            "helmet",
-            "motorcycle",
-            "motorbike",
-            "facewithnohelmet",
-            "facewithgoodhelmet",
-            "facewithbadhelmet",
-        ]
+        modules = []
 
-        sign_keywords = [
-            "no entry",
-            "no stopping",
-            "stop sign",
-            "speed limit",
-            "no left turn",
-            "no right turn",
-            "no u-turn",
-            "red light",
-            "green light",
-        ]
+        helmet_keys = ["rider", "helmet", "motorcycle", "motorbike", "numberplate"]
+        sign_keys = ["red light", "green light", "stop", "speed limit", "no entry", "no stopping", "u-turn"]
 
-        selected_modules = []
+        if any(any(key in label for key in helmet_keys) for label in labels):
+            modules.append("helmet_plate_module")
 
-        if any(any(key in label for key in helmet_keywords) for label in labels):
-            selected_modules.append("helmet_plate_module")
+        if any(any(key in label for key in sign_keys) for label in labels):
+            modules.append("signboard_context_module")
 
-        if any(any(key in label for key in sign_keywords) for label in labels):
-            selected_modules.append("signboard_context_module")
-
-        if len(selected_modules) == 0:
-            selected_modules.append("manual_review")
+        if not modules:
+            modules.append("manual_review")
 
         return {
-            "selected_modules": selected_modules,
-            "manual_review": "manual_review" in selected_modules,
-            "reason": "Routing based on detected object labels.",
-        }
-
-    def route(self, path, labels=None):
-        base_route = self.route_by_input_type(path)
-
-        if labels is None:
-            return base_route
-
-        object_route = self.route_by_detected_objects(labels)
-
-        return {
-            "input_route": base_route,
-            "object_route": object_route,
+            "selected_modules": modules,
+            "manual_review": "manual_review" in modules,
         }

@@ -1,17 +1,18 @@
-﻿task,rank,file
-helmet_plate,1,/kaggle/working/ViolationIQ/outputs/FINAL_SHOWCASE/helmet_plate/helmet_plate_showcase_01.jpg
-helmet_plate,2,/kaggle/working/ViolationIQ/outputs/FINAL_SHOWCASE/helmet_plate/helmet_plate_showcase_02.jpg
-helmet_plate,3,/kaggle/working/ViolationIQ/outputs/FINAL_SHOWCASE/helmet_plate/helmet_plate_showcase_03.jpg
-helmet_plate,4,/kaggle/working/ViolationIQ/outputs/FINAL_SHOWCASE/helmet_plate/helmet_plate_showcase_04.jpg
-helmet_plate,5,/kaggle/working/ViolationIQ/outputs/FINAL_SHOWCASE/helmet_plate/helmet_plate_showcase_05.jpg
-signboard_context,1,/kaggle/working/ViolationIQ/outputs/FINAL_SHOWCASE/signboard_context/signboard_context_showcase_01.jpg
-signboard_context,2,/kaggle/working/ViolationIQ/outputs/FINAL_SHOWCASE/signboard_context/signboard_context_showcase_02.jpg
-signboard_context,3,/kaggle/working/ViolationIQ/outputs/FINAL_SHOWCASE/signboard_context/signboard_context_showcase_03.jpg
-signboard_context,4,/kaggle/working/ViolationIQ/outputs/FINAL_SHOWCASE/signboard_context/signboard_context_showcase_04.jpg
-signboard_context,5,/kaggle/working/ViolationIQ/outputs/FINAL_SHOWCASE/signboard_context/signboard_context_showcase_05.jpg
-redlight,1,/kaggle/working/ViolationIQ/outputs/FINAL_SHOWCASE/redlight/redlight_showcase_01.jpg
-redlight,2,/kaggle/working/ViolationIQ/outputs/FINAL_SHOWCASE/redlight/redlight_showcase_02.jpg
-redlight,3,/kaggle/working/ViolationIQ/outputs/FINAL_SHOWCASE/redlight/redlight_showcase_03.jpg
-redlight,4,/kaggle/working/ViolationIQ/outputs/FINAL_SHOWCASE/redlight/redlight_showcase_04.jpg
-redlight,5,/kaggle/working/ViolationIQ/outputs/FINAL_SHOWCASE/redlight/redlight_showcase_05.jpg
-plate_ocr,outputs/FINAL_SHOWCASE/plate_ocr/dedicated_plate_safe_ocr_snapshot.png,Safe plate OCR evidence snapshot with manual-review fallback
+task,rank,file,description
+helmet_plate,1,outputs/FINAL_SHOWCASE/helmet_plate/helmet_plate_showcase_01.jpg,Helmet and rider evidence panel
+helmet_plate,2,outputs/FINAL_SHOWCASE/helmet_plate/helmet_plate_showcase_02.jpg,Helmet and rider evidence panel
+helmet_plate,3,outputs/FINAL_SHOWCASE/helmet_plate/helmet_plate_showcase_03.jpg,Helmet and rider evidence panel
+helmet_plate,4,outputs/FINAL_SHOWCASE/helmet_plate/helmet_plate_showcase_04.jpg,Helmet and rider evidence panel
+helmet_plate,5,outputs/FINAL_SHOWCASE/helmet_plate/helmet_plate_showcase_05.jpg,Helmet and rider evidence panel
+plate_ocr,1,outputs/FINAL_SHOWCASE/plate_ocr/dedicated_plate_safe_ocr_snapshot.png,Safe plate OCR evidence snapshot
+redlight,1,outputs/FINAL_SHOWCASE/redlight/redlight_showcase_01.jpg,Red-light evidence output
+redlight,2,outputs/FINAL_SHOWCASE/redlight/redlight_showcase_02.jpg,Red-light evidence output
+redlight,3,outputs/FINAL_SHOWCASE/redlight/redlight_showcase_03.jpg,Red-light evidence output
+redlight,4,outputs/FINAL_SHOWCASE/redlight/redlight_showcase_04.jpg,Red-light evidence output
+redlight,5,outputs/FINAL_SHOWCASE/redlight/redlight_showcase_05.jpg,Red-light evidence output
+signboard_context,1,outputs/FINAL_SHOWCASE/signboard_context/signboard_context_showcase_01.jpg,Traffic sign context evidence
+signboard_context,2,outputs/FINAL_SHOWCASE/signboard_context/signboard_context_showcase_02.jpg,Traffic sign context evidence
+signboard_context,3,outputs/FINAL_SHOWCASE/signboard_context/signboard_context_showcase_03.jpg,Traffic sign context evidence
+signboard_context,4,outputs/FINAL_SHOWCASE/signboard_context/signboard_context_showcase_04.jpg,Traffic sign context evidence
+signboard_context,5,outputs/FINAL_SHOWCASE/signboard_context/signboard_context_showcase_05.jpg,Traffic sign context evidence
+videos,1,outputs/FINAL_SHOWCASE/videos/violationiq_redlight_vehicle_demo.mp4,Final demo video
