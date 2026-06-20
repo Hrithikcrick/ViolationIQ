@@ -1,8 +1,10 @@
-__pycache__/
+﻿__pycache__/
 *.pyc
-.ipynb_checkpoints/
-datasets/
-runs/
+.venv/
+weights/
+judge_assets/
+ViolationIQ_Judge_Assets.zip
 *.pt
-*.zip
-.env
+data/sample_images/
+data/sample_videos/
+runs/

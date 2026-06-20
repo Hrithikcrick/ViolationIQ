@@ -615,3 +615,11 @@ The system displays plate text only when OCR confidence and crop readability are
 The repository now contains clean modules for adaptive routing, helmet/plate checking, red-light video review, signboard context, safety utilities, training commands, and final showcase indexing.
 
 Plate text is shown only when confidence/readability is reliable. Weak OCR is routed to manual review.
+
+## Judge Reproduction
+
+To reproduce final outputs, follow:
+
+[REPRODUCE_FOR_JUDGES.md](REPRODUCE_FOR_JUDGES.md)
+
+The trained weights and sample inputs are provided separately through the Google Drive judge asset zip.
