@@ -297,3 +297,38 @@ This prevents wrong challans due to forced or incorrect number plate reading.
 
 
 
+
+
+## System Architecture
+
+ViolationIQ follows a simple adaptive multi-expert architecture:
+
+    Input Traffic Image / Video
+            |
+            v
+    Adaptive Multi-Expert Router
+            |
+            +--> Helmet + Rider Expert
+            |       -> rider-wise helmet/no-helmet evidence
+            |
+            +--> Plate + Safe OCR Expert
+            |       -> plate localization, OCR, validation, manual review
+            |
+            +--> Signboard Context Expert
+            |       -> signboard context evidence using real samples and XML
+            |
+            +--> Helmet Video Expert
+                    -> processed helmet violation demo video
+
+    All outputs go through:
+
+    Evidence Reasoning Layer
+            |
+            v
+    Safety Layer
+            |
+            v
+    Review-ready evidence panels + JSON reports + CSV index
+
+The system is designed as an AI evidence copilot. It does not generate automatic challans. Unclear OCR, weak detections, and ambiguous evidence are routed to manual review.
+
